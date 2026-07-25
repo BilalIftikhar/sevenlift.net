@@ -1,30 +1,57 @@
-# WhatsAppUnknown20251124at13638AM
+# Seven Lift General Transport — sevenlift.net
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Production website for **Seven Lift General Transport L.L.C.**, a heavy equipment rental company serving the UAE — forklifts, mobile cranes, telehandlers, and man lifts — with a primary focus on Abu Dhabi (Musaffah, ICAD, Khalifa Industrial Zone) and Dubai (JAFZA, Al Quoz, Dubai Industrial City).
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/bilals-projects-524a3fcb/v0-whats-app-unknown20251124at13638-a)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/K9v9hv9a24u)
+## Tech Stack
 
-## Overview
+- [Next.js 16](https://nextjs.org/) (App Router, React Server Components)
+- [React 19](https://react.dev/) + TypeScript
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Radix UI](https://www.radix-ui.com/) primitives via a small shadcn-style component layer
+- [Vercel Analytics](https://vercel.com/analytics)
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Project Structure
 
-## Deployment
+```
+app/
+  layout.tsx              Root layout, global metadata, JSON-LD, fonts
+  page.tsx                 Homepage
+  sitemap.ts               Auto-generated sitemap (static + blog routes)
+  robots.ts                Robots directives
+  equipment/                Fleet spec pages (forklift, mobile-crane, telehandler, man-lift)
+  services/                 Localized, high-intent service landing pages
+  locations/                Geo-targeted landing pages (Abu Dhabi/Musaffah, Dubai)
+  blog/                     SEO content hub (index + [slug] posts)
+  contact/                  Contact page
+components/
+  header.tsx, footer.tsx    Site chrome
+  seo/                      Reusable JSON-LD schema components
+  ...                       Homepage sections
+lib/
+  site-config.ts            Company NAP, service area, contact constants
+  locations.ts, services.ts Structured data for location/service pages
+  blog/posts.ts             Blog post content
+```
 
-Your project is live at:
+## Local Development
 
-**[https://vercel.com/bilals-projects-524a3fcb/v0-whats-app-unknown20251124at13638-a](https://vercel.com/bilals-projects-524a3fcb/v0-whats-app-unknown20251124at13638-a)**
+```bash
+pnpm install
+pnpm dev
+```
 
-## Build your app
+The site runs at `http://localhost:3000`.
 
-Continue building your app on:
+## Build
 
-**[https://v0.app/chat/K9v9hv9a24u](https://v0.app/chat/K9v9hv9a24u)**
+```bash
+pnpm build
+pnpm start
+```
 
-## How It Works
+## SEO Notes
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+- Every route exports its own `metadata` (title, description, canonical, OpenGraph/Twitter).
+- `LocalBusiness`, `Organization`, `Service`, `BreadcrumbList`, and `BlogPosting` JSON-LD are injected per page via `components/seo/json-ld.tsx`.
+- `app/sitemap.ts` automatically includes every static route plus all blog posts from `lib/blog/posts.ts`.
+- Update `lib/site-config.ts` first when phone numbers, address, or service areas change — it is the single source of truth referenced across metadata, schema, header, and footer.

@@ -1,9 +1,20 @@
-"use client"
-
+import type { Metadata } from "next"
+import Link from "next/link"
+import Image from "next/image"
+import { ArrowRight } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { JsonLd } from "@/components/json-ld"
+import { breadcrumbSchema } from "@/lib/schema"
+import { pageMetadata } from "@/lib/seo"
+import { siteConfig, waLink } from "@/lib/site-config"
+
+export const metadata: Metadata = pageMetadata({
+  title: "Equipment Fleet | Forklifts, Cranes, Telehandlers & Man Lifts",
+  description:
+    "Browse Seven Lift's full UAE rental fleet: 3-25 ton forklifts, 25-500 ton mobile cranes, telehandlers, and man lifts / aerial platforms. Certified operators and flexible terms included.",
+  path: "/equipment",
+})
 
 interface Equipment {
   title: string
@@ -13,102 +24,116 @@ interface Equipment {
   link: string
 }
 
-export default function EquipmentPage() {
-  const handleRequestQuote = () => {
-    window.open("https://wa.me/971566390908?text=I%20am%20interested%20in%20equipment%20rental", "_blank")
-  }
+const equipment: Equipment[] = [
+  {
+    title: "Forklift Rental",
+    image: "/images/fleet/forklift-warehouse.jpg",
+    description:
+      "Complete forklift rental solutions with certified operators, flexible terms, and comprehensive maintenance for all warehouse and construction needs.",
+    specs: ["3-25 Ton Capacity", "Certified Operators", "Daily/Weekly/Monthly Plans", "Full Insurance Included"],
+    link: "/equipment/forklift",
+  },
+  {
+    title: "Mobile Crane",
+    image: "/images/mobile-crane.jpeg",
+    description:
+      "Heavy-duty mobile cranes engineered for large-scale lifting operations and complex construction projects with precision control and safety systems.",
+    specs: ["25-500 Ton Capacity", "Up to 60m Reach", "All-Terrain Capability", "Professional Operators"],
+    link: "/equipment/mobile-crane",
+  },
+  {
+    title: "Telehandler",
+    image: "/images/fleet/telehandler-jcb.jpg",
+    description:
+      "Versatile telehandlers designed for confined spaces with intelligent material positioning and maximum operational efficiency for diverse applications.",
+    specs: ["5-17m Reach", "3-10 Ton Capacity", "Compact Design", "Jib Compatible"],
+    link: "/equipment/telehandler",
+  },
+  {
+    title: "Man Lift / Aerial Platform",
+    image: "/images/fleet/scissor-lift.jpg",
+    description:
+      "Scissor lifts and boom lifts for safe, elevated maintenance, installation, and construction work with advanced fall-protection systems.",
+    specs: ["10-50m Working Height", "Scissor & Boom Types", "Indoor/Outdoor Use", "Trained Operators Included"],
+    link: "/equipment/man-lift",
+  },
+]
 
-  const equipment: Equipment[] = [
-    {
-      title: "Forklift Rental",
-      image: "/yellow-forklift-warehouse.jpg",
-      description:
-        "Complete forklift rental solutions with certified operators, flexible terms, and comprehensive maintenance for all warehouse and construction needs.",
-      specs: ["3-25 Ton Capacity", "Certified Operators", "Daily/Weekly/Monthly Plans", "Full Insurance Included"],
-      link: "/equipment/forklift",
-    },
-    {
-      title: "Mobile Crane",
-      image: "/images/mobile-crane.jpeg",
-      description:
-        "Heavy-duty mobile cranes engineered for large-scale lifting operations and complex construction projects with precision control and safety systems.",
-      specs: ["25-500 Ton Capacity", "Up to 60m Reach", "All-Terrain Capability", "Professional Operators"],
-      link: "/equipment/mobile-crane",
-    },
-    {
-      title: "Telehandler",
-      image: "/images/whatsapp-20image-202025-12-15-20at-2011.jpeg",
-      description:
-        "Versatile telehandlers designed for confined spaces with intelligent material positioning and maximum operational efficiency for diverse applications.",
-      specs: ["5-17m Reach", "3-10 Ton Capacity", "Compact Design", "Jib Compatible"],
-      link: "/equipment/telehandler",
-    },
-  ]
+export default function EquipmentPage() {
+  const whatsappHref = waLink("I am interested in equipment rental.")
 
   return (
     <main className="w-full overflow-x-hidden">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: siteConfig.url },
+          { name: "Equipment", url: `${siteConfig.url}/equipment` },
+        ])}
+      />
       <Header />
-      <div className="min-h-screen pt-32 pb-20 bg-gradient-to-b from-background to-secondary">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-20 space-y-4 animate-slide-up">
-            <p className="text-accent font-black text-sm uppercase tracking-widest">OUR PREMIUM FLEET</p>
-            <h1 className="text-5xl md:text-6xl font-black text-foreground">Equipment Solutions</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-medium">
-              State-of-the-art heavy lifting and access equipment maintained to enterprise standards with certified
-              operators
+      <div className="min-h-screen bg-gradient-to-b from-background to-secondary pb-20 pt-16 md:pt-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-16 max-w-3xl space-y-4">
+            <p className="text-sm font-bold uppercase tracking-widest text-accent">Our Premium Fleet</p>
+            <h1 className="text-foreground">Equipment Rental Solutions</h1>
+            <p className="text-lg font-medium text-muted-foreground">
+              State-of-the-art heavy lifting and access equipment maintained to enterprise standards, with certified
+              operators available across Abu Dhabi, Dubai, and the wider UAE.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {equipment.map((item, idx) => (
-              <div
-                key={idx}
-                className="group bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-border/50 hover:border-accent/50 animate-slide-up flex flex-col"
-                style={{ animationDelay: `${idx * 150}ms` }}
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {equipment.map((item) => (
+              <article
+                key={item.title}
+                className="flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-shadow hover:shadow-lg"
               >
-                <div className="relative h-72 overflow-hidden bg-muted">
-                  <img
-                    src={item.image || "/placeholder.svg"}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                <div className="relative h-64 w-full bg-muted">
+                  <Image
+                    src={item.image}
+                    alt={`${item.title} in the UAE`}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 768px) 50vw, 100vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent group-hover:from-black/60 transition-all duration-300" />
                 </div>
 
-                <div className="p-8 space-y-6 flex flex-col justify-between flex-1">
+                <div className="flex flex-1 flex-col justify-between gap-5 p-8">
                   <div className="space-y-4">
-                    <h3 className="text-2xl font-black text-foreground">{item.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed font-medium">{item.description}</p>
+                    <h2 className="text-2xl font-extrabold text-foreground">{item.title}</h2>
+                    <p className="font-medium leading-relaxed text-muted-foreground">{item.description}</p>
 
                     <div className="space-y-2">
-                      <p className="text-xs font-black text-accent uppercase tracking-widest">Key Specifications</p>
+                      <p className="text-xs font-bold uppercase tracking-widest text-accent">Key Specifications</p>
                       <ul className="grid grid-cols-2 gap-2">
-                        {item.specs.map((spec, i) => (
-                          <li key={i} className="text-sm font-medium text-foreground">
-                            <span className="text-accent font-black">•</span> {spec}
+                        {item.specs.map((spec) => (
+                          <li key={spec} className="text-sm font-medium text-foreground">
+                            <span className="font-bold text-accent">•</span> {spec}
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
-                  <div className="flex gap-3 mt-6">
+                  <div className="flex gap-3">
                     <Link
                       href={item.link}
-                      className="flex-1 px-4 py-3 bg-secondary text-foreground font-black rounded-lg hover:bg-secondary/90 transition-all hover:shadow-lg hover:scale-105 duration-300 flex items-center justify-center"
+                      className="flex-1 rounded-lg bg-secondary px-4 py-3 text-center text-sm font-bold text-foreground transition-colors hover:bg-secondary/80"
                     >
                       View Details
                     </Link>
-                    <button
-                      onClick={handleRequestQuote}
-                      className="flex-1 px-4 py-3 bg-primary text-primary-foreground font-black rounded-lg hover:bg-primary/90 transition-all hover:shadow-lg hover:scale-105 duration-300 flex items-center justify-center gap-2"
+                    <a
+                      href={whatsappHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
                     >
                       Quote
-                      <ArrowRight size={18} />
-                    </button>
+                      <ArrowRight size={16} />
+                    </a>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>

@@ -1,55 +1,65 @@
-"use client"
+import { Zap, Package, Calendar, HardHat, Rocket, Wallet } from "lucide-react"
+
+const features = [
+  {
+    title: "Electric & Diesel Options",
+    description: "Choose between electric forklifts for indoor operations or diesel for outdoor heavy-duty work",
+    icon: Zap,
+  },
+  {
+    title: "Multiple Capacity Ranges",
+    description: "Equipment ranging from 3 tons to 500+ tons to match your specific project requirements",
+    icon: Package,
+  },
+  {
+    title: "Flexible Rental Terms",
+    description: "Short-term daily rentals or long-term agreements with customized pricing",
+    icon: Calendar,
+  },
+  {
+    title: "Professional Training",
+    description: "Certified operator training and 24/7 maintenance support included",
+    icon: HardHat,
+  },
+  {
+    title: "Quick Deployment",
+    description: "Rapid equipment delivery and setup across all UAE locations",
+    icon: Rocket,
+  },
+  {
+    title: "Competitive Pricing",
+    description: "Transparent pricing with no hidden charges, best rates for heavy equipment rental",
+    icon: Wallet,
+  },
+]
 
 export default function Features() {
-  const features = [
-    {
-      title: "Electric & Diesel Options",
-      description: "Choose between electric forklifts for indoor operations or diesel for outdoor heavy-duty work",
-      icon: "⚡",
-    },
-    {
-      title: "Multiple Capacity Ranges",
-      description: "Equipment ranging from 1.5 tons to 10+ tons to match your specific requirements",
-      icon: "📦",
-    },
-    {
-      title: "Flexible Rental Terms",
-      description: "Short-term daily rentals or long-term agreements with customized pricing",
-      icon: "📅",
-    },
-    {
-      title: "Professional Training",
-      description: "Certified operator training and 24/7 maintenance support included",
-      icon: "👷",
-    },
-    {
-      title: "Quick Deployment",
-      description: "Rapid equipment delivery and setup across all UAE locations",
-      icon: "🚀",
-    },
-    {
-      title: "Competitive Pricing",
-      description: "Transparent pricing with no hidden charges, best rates for forklift rental",
-      icon: "💰",
-    },
-  ]
-
   return (
-    <section className="w-full py-16 md:py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Complete Forklift Rental Solutions</h2>
-          <p className="text-gray-600 text-lg">Everything you need for efficient material handling operations</p>
+    <section className="w-full bg-secondary/40 py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="mb-12 text-center">
+          <h2 className="text-foreground">Complete Heavy Equipment Rental Solutions</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-lg font-medium text-muted-foreground">
+            Everything you need for efficient material handling and lifting operations
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {features.map((feature, idx) => (
-            <div key={idx} className="bg-white p-8 rounded-lg shadow hover:shadow-lg transition border border-gray-100">
-              <div className="text-5xl mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {features.map((feature) => {
+            const Icon = feature.icon
+            return (
+              <div
+                key={feature.title}
+                className="rounded-xl border border-border bg-card p-7 shadow-sm transition-shadow hover:shadow-md"
+              >
+                <div className="mb-4 w-fit rounded-lg bg-primary/10 p-3">
+                  <Icon size={26} className="text-primary" />
+                </div>
+                <h3 className="mb-2 text-base font-bold text-foreground">{feature.title}</h3>
+                <p className="text-sm font-medium leading-relaxed text-muted-foreground">{feature.description}</p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

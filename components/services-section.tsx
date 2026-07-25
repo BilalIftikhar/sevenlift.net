@@ -1,100 +1,73 @@
-"use client"
-
 import Link from "next/link"
-import { ChevronDown, Zap, Shield, TrendingUp } from "lucide-react"
-import { useState } from "react"
+import { ArrowRight, Boxes, Gauge, ShieldCheck, Timer } from "lucide-react"
+import { services } from "@/lib/services"
+
+const trustPoints = [
+  {
+    icon: Gauge,
+    title: "Full Capacity Range",
+    description: "3 to 25 ton forklifts, 25 to 500 ton mobile cranes, and 10 to 50m access equipment.",
+  },
+  {
+    icon: Timer,
+    title: "Flexible Terms",
+    description: "Daily, weekly, and monthly contracts with no long-term lock-in required.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Certified Operators",
+    description: "Trained, licensed operators and full insurance on every unit we deploy.",
+  },
+  {
+    icon: Boxes,
+    title: "24/7 Emergency Support",
+    description: "Rapid deployment to Musaffah, ICAD, JAFZA, and every UAE industrial zone, any hour.",
+  },
+]
 
 export default function ServicesSection() {
-  const [expanded, setExpanded] = useState(0)
-
-  const services = [
-    {
-      title: "Forklift Rental",
-      icon: Zap,
-      link: "/equipment/forklift",
-      items: [
-        "Forklifts ranging from 3 Ton to 25 Ton capacity",
-        "Certified operators available for all operations",
-        "Daily, weekly, and monthly rental options available",
-        "Well-maintained machines with safety certifications",
-      ],
-    },
-    {
-      title: "Heavy Equipment Services",
-      icon: Shield,
-      link: "/equipment/mobile-crane",
-      items: [
-        "Side Loader for heavy container lifting operations",
-        "Boom Loader for high-reach industrial applications",
-        "Scissor Lift for safe elevated work platforms",
-        "Low Bed & Flatbed transport solutions included",
-      ],
-    },
-    {
-      title: "Loading & Transportation",
-      icon: TrendingUp,
-      link: "/equipment/telehandler",
-      items: [
-        "Heavy machinery movement across all UAE regions",
-        "Secure loading and professional unloading services",
-        "Fast and reliable delivery with tracking",
-        "Complete manpower and equipment solutions",
-      ],
-    },
-  ]
-
   return (
-    <section className="w-full py-20 md:py-32 bg-gradient-to-b from-secondary to-background">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16 space-y-4">
-          <p className="text-accent font-black text-sm uppercase tracking-widest">COMPREHENSIVE SOLUTIONS</p>
-          <h2 className="text-4xl md:text-5xl font-black text-foreground">Our Professional Services</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
-            Tailored lifting and transportation solutions for every industry and project requirement
+    <section className="w-full bg-background py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="mb-14 max-w-2xl space-y-3">
+          <p className="text-sm font-bold uppercase tracking-widest text-accent">Comprehensive Solutions</p>
+          <h2 className="text-foreground">Rental Services by Capacity &amp; Application</h2>
+          <p className="text-lg font-medium text-muted-foreground">
+            Every category of heavy lifting and access equipment, matched to your project&apos;s exact capacity
+            requirements.
           </p>
         </div>
 
-        <div className="space-y-4">
-          {services.map((service, idx) => {
-            const Icon = service.icon
-            return (
-              <div
-                key={idx}
-                className="border-2 border-border rounded-xl overflow-hidden hover:border-accent/50 transition-colors animate-in fade-in slide-in-from-left-4"
-                style={{ animationDelay: `${idx * 100}ms` }}
-              >
-                <button
-                  onClick={() => setExpanded(expanded === idx ? -1 : idx)}
-                  className="w-full px-6 md:px-8 py-5 flex items-center justify-between bg-gradient-to-r from-primary/5 to-accent/5 hover:from-primary/10 hover:to-accent/10 transition-all"
-                >
-                  <div className="flex items-center gap-4">
-                    <Icon size={24} className="text-accent flex-shrink-0" />
-                    <span className="font-black text-foreground text-lg">{service.title}</span>
-                  </div>
-                  <ChevronDown
-                    size={24}
-                    className={`text-accent transition-transform duration-300 ${expanded === idx ? "rotate-180" : ""}`}
-                  />
-                </button>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((service) => (
+            <Link
+              key={service.slug}
+              href={service.href}
+              className="group flex flex-col justify-between gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg"
+            >
+              <div className="space-y-3">
+                <span className="inline-block rounded-md bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary">
+                  {service.capacityRange}
+                </span>
+                <h3 className="text-foreground">{service.shortTitle}</h3>
+                <p className="text-sm font-medium leading-relaxed text-muted-foreground">{service.description}</p>
+              </div>
+              <span className="inline-flex items-center gap-1.5 text-sm font-bold text-accent">
+                View Details
+                <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+          ))}
+        </div>
 
-                {expanded === idx && (
-                  <div className="px-6 md:px-8 py-6 bg-white border-t-2 border-border animate-in fade-in slide-in-from-top-2">
-                    <ul className="space-y-4 mb-6">
-                      {service.items.map((item, i) => (
-                        <li key={i} className="flex gap-4 items-start">
-                          <span className="text-accent font-black mt-1 text-xl flex-shrink-0">✓</span>
-                          <span className="text-foreground font-medium leading-relaxed">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link
-                      href={service.link}
-                      className="inline-block px-6 py-3 bg-accent text-white font-black rounded-lg hover:bg-accent/90 transition-all duration-300"
-                    >
-                      Learn More →
-                    </Link>
-                  </div>
-                )}
+        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+          {trustPoints.map((point) => {
+            const Icon = point.icon
+            return (
+              <div key={point.title} className="flex flex-col gap-3 bg-card p-6">
+                <Icon size={26} className="text-accent" />
+                <h3 className="text-base font-bold text-foreground">{point.title}</h3>
+                <p className="text-sm font-medium leading-relaxed text-muted-foreground">{point.description}</p>
               </div>
             )
           })}

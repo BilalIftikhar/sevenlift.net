@@ -1,80 +1,96 @@
-"use client"
-
-import { ArrowRight, Shield, Zap, Award } from "lucide-react"
+import { ArrowRight, Phone, ShieldCheck, Clock3, BadgeCheck } from "lucide-react"
+import Image from "next/image"
+import { siteConfig, waLink } from "@/lib/site-config"
 
 export default function HeroSection() {
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/971566390908", "_blank")
-  }
-
-  const handleCall = () => {
-    window.location.href = "tel:+971566390908"
-  }
+  const whatsappHref = waLink("Hi Seven Lift, I am interested in equipment rental across the UAE.")
 
   return (
-    <section className="w-full bg-gradient-to-br from-primary via-primary/95 to-primary/90 text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 py-16 md:py-28 grid md:grid-cols-2 gap-8 items-center">
-        <div className="space-y-8 animate-slide-up">
-          <div className="space-y-4">
-            <p className="text-accent font-black text-sm uppercase tracking-widest animate-fade-in">
-              ⚡ PROFESSIONAL LIFTING SOLUTIONS
-            </p>
-            <h1 className="text-5xl md:text-6xl font-black leading-tight text-white">Heavy Equipment You Can Trust</h1>
-            <p className="text-lg text-primary-foreground/90 leading-relaxed font-medium">
-              24/7 reliable forklift, crane, and telehandler rentals. Enterprise-grade equipment with certified
-              operators for maximum safety and efficiency across the UAE.
-            </p>
-          </div>
+    <section className="relative w-full overflow-hidden bg-primary text-white">
+      <div className="absolute inset-0">
+        <Image
+          src="/images/site/port-container-yard.jpg"
+          alt="Heavy equipment operating at a UAE port and industrial yard"
+          fill
+          priority
+          className="object-cover opacity-25"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80" />
+      </div>
 
-          <div className="grid grid-cols-3 gap-4">
-            <div className="flex flex-col items-center text-center hover-lift">
-              <Shield size={28} className="mb-2 text-accent" />
-              <span className="text-sm font-bold">ISO Certified</span>
-            </div>
-            <div className="flex flex-col items-center text-center hover-lift">
-              <Award size={28} className="mb-2 text-accent" />
-              <span className="text-sm font-bold">15+ Years</span>
-            </div>
-            <div className="flex flex-col items-center text-center hover-lift">
-              <Zap size={28} className="mb-2 text-accent" />
-              <span className="text-sm font-bold">24/7 Support</span>
-            </div>
-          </div>
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:py-24 lg:py-28">
+        <div className="space-y-7">
+          <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-foreground">
+            Abu Dhabi · Dubai · UAE-Wide
+          </span>
 
-          <div className="space-y-4">
-            <div
-              className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 hover:border-white/40 transition-all duration-700 ease-in-out cursor-pointer"
-              onClick={handleCall}
+          <h1 className="text-white">
+            Heavy Equipment Rental Built for the UAE&apos;s Toughest Job Sites
+          </h1>
+
+          <p className="max-w-xl text-lg font-medium leading-relaxed text-white/85">
+            Forklifts, mobile cranes, telehandlers, and man lifts with certified operators — deployed fast across
+            Musaffah, ICAD, Khalifa Industrial Zone, JAFZA, and Dubai Industrial City. Flexible daily, weekly, and
+            monthly terms with 24/7 emergency support.
+          </p>
+
+          <dl className="grid grid-cols-3 gap-4 border-y border-white/15 py-5">
+            <div>
+              <dt className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-white/60">
+                <BadgeCheck size={14} className="text-accent" /> Since {siteConfig.foundingYear}
+              </dt>
+              <dd className="mt-1 text-2xl font-extrabold">{siteConfig.yearsInBusiness}+ Yrs</dd>
+            </div>
+            <div>
+              <dt className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-white/60">
+                <ShieldCheck size={14} className="text-accent" /> Certified
+              </dt>
+              <dd className="mt-1 text-2xl font-extrabold">Operators</dd>
+            </div>
+            <div>
+              <dt className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-white/60">
+                <Clock3 size={14} className="text-accent" /> Support
+              </dt>
+              <dd className="mt-1 text-2xl font-extrabold">24/7</dd>
+            </div>
+          </dl>
+
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-sm font-bold text-accent-foreground shadow-lg shadow-black/20 transition-transform hover:scale-[1.02] sm:flex-none"
             >
-              <p className="text-sm opacity-80 mb-1">Call Now for Immediate Availability</p>
-              <p className="text-2xl font-black text-accent">+971 56 639 0908</p>
-            </div>
-
-            <div className="flex gap-4">
-              <button
-                onClick={handleWhatsApp}
-                className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground font-black px-8 py-3 rounded-lg flex items-center justify-center gap-2 transition-all hover:gap-3 hover:shadow-2xl hover:scale-105 duration-300"
-              >
-                REQUEST NOW
-                <ArrowRight size={20} />
-              </button>
-              <button
-                onClick={handleCall}
-                className="flex-1 bg-white/20 hover:bg-white/30 text-white font-black px-8 py-3 rounded-lg transition-all hover:shadow-2xl hover:scale-105 duration-300"
-              >
-                CALL NOW
-              </button>
-            </div>
+              Request a Quote
+              <ArrowRight size={18} />
+            </a>
+            <a
+              href={siteConfig.telHref}
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border-2 border-white/30 bg-white/10 px-8 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:flex-none"
+            >
+              <Phone size={18} />
+              {siteConfig.phoneDisplay}
+            </a>
           </div>
         </div>
 
-        <div className="hidden md:block relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent rounded-2xl blur-3xl animate-pulse" />
-          <img
-            src="/heavy-lifting-equipment-forklifts-industrial.jpg"
-            alt="Heavy lifting equipment and forklifts"
-            className="w-full h-auto rounded-2xl shadow-2xl relative z-10 animate-float"
-          />
+        <div className="relative hidden md:block">
+          <div className="relative h-full min-h-[420px] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
+            <Image
+              src="/images/fleet/telehandler-jcb.jpg"
+              alt="Telehandler and mobile crane deployed on a UAE construction site"
+              fill
+              priority
+              className="object-cover"
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+          </div>
+          <div className="absolute -bottom-6 -left-6 hidden rounded-xl bg-white p-5 shadow-xl lg:block">
+            <p className="text-3xl font-extrabold text-primary">500 Ton</p>
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Max Crane Capacity</p>
+          </div>
         </div>
       </div>
     </section>

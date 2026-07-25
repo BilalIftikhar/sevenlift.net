@@ -1,106 +1,92 @@
-"use client"
-
+import type { Metadata } from "next"
+import Link from "next/link"
+import Image from "next/image"
+import { ArrowRight, ShieldCheck, Timer, Gauge, Headset } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import { Zap, Shield, TrendingUp } from "lucide-react"
-import Link from "next/link"
+import { JsonLd } from "@/components/json-ld"
+import { breadcrumbSchema } from "@/lib/schema"
+import { pageMetadata } from "@/lib/seo"
+import { services } from "@/lib/services"
+import { siteConfig } from "@/lib/site-config"
+
+export const metadata: Metadata = pageMetadata({
+  title: "Heavy Equipment Rental Services in the UAE",
+  description:
+    "Forklift rental, mobile crane rental, telehandler rental, and man lift access rental across Abu Dhabi, Dubai, and the UAE. Flexible terms, certified operators, 24/7 emergency support.",
+  path: "/services",
+})
+
+const guarantees = [
+  { icon: Gauge, title: "Full Capacity Range", description: "3 to 500+ ton equipment matched to your exact job requirements." },
+  { icon: Timer, title: "Flexible Terms", description: "Daily, weekly, and monthly rental agreements, no long-term lock-in." },
+  { icon: ShieldCheck, title: "Certified Operators", description: "Trained, licensed operators and full insurance on every rental." },
+  { icon: Headset, title: "24/7 Emergency Support", description: "Rapid same-day deployment anywhere across the UAE." },
+]
 
 export default function ServicesPage() {
-  const services = [
-    {
-      title: "Forklift Rental",
-      icon: Zap,
-      link: "/equipment/forklift",
-      description: "Comprehensive forklift rental solutions for warehouses, construction, and industrial operations.",
-      items: [
-        "Forklifts ranging from 3 Ton to 25 Ton capacity",
-        "Certified operators available for all operations",
-        "Daily, weekly, and monthly rental options available",
-        "Well-maintained machines with safety certifications",
-        "Real-time equipment tracking and support",
-        "Flexible scheduling and emergency availability",
-      ],
-    },
-    {
-      title: "Heavy Equipment Services",
-      icon: Shield,
-      link: "/equipment/mobile-crane",
-      description: "Professional heavy equipment services for complex lifting and construction projects.",
-      items: [
-        "Mobile cranes with 25-500 ton capacity",
-        "Side Loader for heavy container lifting operations",
-        "Boom Loader for high-reach industrial applications",
-        "Scissor Lift for safe elevated work platforms",
-        "Low Bed & Flatbed transport solutions included",
-        "Expert rigging and safety compliance throughout",
-      ],
-    },
-    {
-      title: "Loading & Transportation",
-      icon: TrendingUp,
-      link: "/equipment/telehandler",
-      description: "Complete loading and transportation solutions across all UAE regions.",
-      items: [
-        "Heavy machinery movement across all UAE regions",
-        "Secure loading and professional unloading services",
-        "Fast and reliable delivery with tracking",
-        "Complete manpower and equipment solutions",
-        "Insurance coverage for all transported goods",
-        "24/7 emergency transport available",
-      ],
-    },
-  ]
-
   return (
     <main className="w-full overflow-x-hidden">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: siteConfig.url },
+          { name: "Services", url: `${siteConfig.url}/services` },
+        ])}
+      />
       <Header />
-      <div className="min-h-screen pt-32 pb-20 bg-gradient-to-b from-background to-secondary">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-20 space-y-4 animate-slide-up">
-            <p className="text-accent font-black text-sm uppercase tracking-widest">COMPREHENSIVE SOLUTIONS</p>
-            <h1 className="text-5xl md:text-6xl font-black text-foreground">Professional Services</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-medium">
-              Tailored lifting and transportation solutions for every industry and project requirement with 24/7 support
+
+      <div className="min-h-screen bg-gradient-to-b from-background to-secondary pb-20 pt-16 md:pt-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-16 max-w-3xl space-y-4">
+            <p className="text-sm font-bold uppercase tracking-widest text-accent">Comprehensive Solutions</p>
+            <h1 className="text-foreground">Professional Equipment Rental Services</h1>
+            <p className="text-lg font-medium text-muted-foreground">
+              Tailored lifting and material handling solutions for every industry and project requirement — with
+              dedicated support for Abu Dhabi (Musaffah, ICAD) and Dubai (JAFZA, Al Quoz) operations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, idx) => {
-              const Icon = service.icon
-              return (
-                <div
-                  key={idx}
-                  className="group bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-border/50 hover:border-accent/50 animate-slide-up"
-                  style={{ animationDelay: `${idx * 150}ms` }}
-                >
-                  <div className="p-8 space-y-6 flex flex-col h-full">
-                    <div className="flex items-center gap-4">
-                      <div className="p-4 bg-accent/10 rounded-lg">
-                        <Icon size={32} className="text-accent" />
-                      </div>
-                      <h3 className="text-2xl font-black text-foreground">{service.title}</h3>
-                    </div>
-
-                    <p className="text-muted-foreground leading-relaxed font-medium">{service.description}</p>
-
-                    <ul className="space-y-3">
-                      {service.items.map((item, i) => (
-                        <li key={i} className="flex gap-3 text-foreground font-medium">
-                          <span className="text-accent font-black flex-shrink-0 mt-0.5">✓</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="mt-auto pt-4">
-                      <Link
-                        href={service.link}
-                        className="inline-block w-full px-6 py-3 bg-accent text-accent-foreground font-black rounded-lg hover:bg-accent/90 transition-all hover:shadow-lg hover:scale-105 duration-300 text-center"
-                      >
-                        View Details →
-                      </Link>
-                    </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                href={service.href}
+                className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="relative h-56 w-full bg-muted">
+                  <Image
+                    src={service.heroImage}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col justify-between gap-4 p-8">
+                  <div className="space-y-3">
+                    <span className="inline-block rounded-md bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary">
+                      {service.capacityRange}
+                    </span>
+                    <h2 className="text-2xl font-extrabold text-foreground">{service.title}</h2>
+                    <p className="font-medium leading-relaxed text-muted-foreground">{service.description}</p>
                   </div>
+                  <span className="inline-flex items-center gap-2 text-sm font-bold text-accent">
+                    View Service Details
+                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {guarantees.map((item) => {
+              const Icon = item.icon
+              return (
+                <div key={item.title} className="flex flex-col gap-3 bg-card p-6">
+                  <Icon size={26} className="text-accent" />
+                  <h3 className="text-base font-bold text-foreground">{item.title}</h3>
+                  <p className="text-sm font-medium leading-relaxed text-muted-foreground">{item.description}</p>
                 </div>
               )
             })}
