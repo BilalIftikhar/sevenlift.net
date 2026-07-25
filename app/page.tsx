@@ -6,11 +6,13 @@ import ServicesSection from "@/components/services-section"
 import WhyChooseUs from "@/components/why-choose-us"
 import CoverageSection from "@/components/coverage-section"
 import Features from "@/components/features"
+import { FaqSection } from "@/components/faq-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
-import { localBusinessSchema } from "@/lib/schema"
+import { localBusinessSchema, faqSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
+import { generalFaqs } from "@/lib/faqs"
 
 export const metadata: Metadata = pageMetadata({
   title: "Forklift, Crane & Heavy Equipment Rental in Abu Dhabi & Dubai",
@@ -22,7 +24,7 @@ export const metadata: Metadata = pageMetadata({
 export default function Home() {
   return (
     <main className="w-full overflow-x-hidden">
-      <JsonLd data={localBusinessSchema()} />
+      <JsonLd data={[localBusinessSchema(), faqSchema(generalFaqs)]} />
       <Header />
       <HeroSection />
       <EquipmentShowcase />
@@ -30,6 +32,7 @@ export default function Home() {
       <WhyChooseUs />
       <CoverageSection />
       <Features />
+      <FaqSection faqs={generalFaqs} subheading="Everything you need to know before renting equipment with Seven Lift." />
       <ContactSection />
       <Footer />
     </main>

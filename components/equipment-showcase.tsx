@@ -1,6 +1,7 @@
-import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { Reveal } from "@/components/reveal"
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { waLink } from "@/lib/site-config"
 
 interface Equipment {
@@ -59,68 +60,67 @@ export default function EquipmentShowcase() {
   return (
     <section className="w-full bg-secondary/40 py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="mb-14 max-w-2xl space-y-3">
+        <Reveal className="mb-14 max-w-2xl space-y-3">
           <p className="text-sm font-bold uppercase tracking-widest text-accent">Our Premium Fleet</p>
           <h2 className="text-foreground">World-Class Equipment for Every Project</h2>
           <p className="text-lg font-medium text-muted-foreground">
             State-of-the-art heavy lifting and access equipment maintained to enterprise standards
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {equipment.map((item) => (
-            <article
-              key={item.title}
-              className="flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-shadow hover:shadow-lg"
-            >
-              <div className="relative h-64 w-full bg-muted">
-                <Image
-                  src={item.image}
-                  alt={`${item.title} rental in the UAE`}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                />
-              </div>
+          {equipment.map((item, idx) => (
+            <Reveal key={item.title} delay={idx * 100} className="h-full">
+              <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+                <div className="relative h-64 w-full bg-muted">
+                  <Image
+                    src={item.image}
+                    alt={`${item.title} rental in the UAE`}
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                  />
+                </div>
 
-              <div className="flex flex-1 flex-col justify-between gap-5 p-7">
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="text-foreground">{item.title}</h3>
-                    <p className="mt-1.5 text-sm font-medium leading-relaxed text-muted-foreground">
-                      {item.description}
-                    </p>
+                <div className="flex flex-1 flex-col justify-between gap-5 p-7">
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="text-foreground">{item.title}</h3>
+                      <p className="mt-1.5 text-sm font-medium leading-relaxed text-muted-foreground">
+                        {item.description}
+                      </p>
+                    </div>
+
+                    <ul className="space-y-2">
+                      {item.features.map((feature) => (
+                        <li key={feature} className="flex gap-2.5 text-sm font-medium text-foreground">
+                          <span className="mt-0.5 shrink-0 text-accent">✓</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <ul className="space-y-2">
-                    {item.features.map((feature) => (
-                      <li key={feature} className="flex gap-2.5 text-sm font-medium text-foreground">
-                        <span className="mt-0.5 shrink-0 text-accent">✓</span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="flex gap-3">
+                    <Link
+                      href={item.detailLink}
+                      className="flex-1 rounded-lg bg-secondary px-4 py-3 text-center text-sm font-bold text-foreground transition-colors hover:bg-secondary/80"
+                    >
+                      Learn More
+                    </Link>
+                    <a
+                      href={whatsappHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#25D366] px-4 py-3 text-sm font-bold text-white transition-all hover:scale-[1.02] hover:bg-[#1fb855]"
+                    >
+                      <WhatsAppIcon size={16} />
+                      Get Quote
+                    </a>
+                  </div>
                 </div>
-
-                <div className="flex gap-3">
-                  <Link
-                    href={item.detailLink}
-                    className="flex-1 rounded-lg bg-secondary px-4 py-3 text-center text-sm font-bold text-foreground transition-colors hover:bg-secondary/80"
-                  >
-                    Learn More
-                  </Link>
-                  <a
-                    href={whatsappHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
-                  >
-                    Get Quote
-                    <ArrowRight size={16} />
-                  </a>
-                </div>
-              </div>
-            </article>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

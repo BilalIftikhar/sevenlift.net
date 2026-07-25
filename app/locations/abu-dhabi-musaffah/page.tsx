@@ -1,10 +1,11 @@
 import type { Metadata } from "next"
 import { LocationLandingTemplate } from "@/components/location-landing-template"
 import { JsonLd } from "@/components/json-ld"
-import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema"
+import { breadcrumbSchema, localBusinessSchema, faqSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { getLocationBySlug } from "@/lib/locations"
 import { siteConfig } from "@/lib/site-config"
+import { abuDhabiFaqs } from "@/lib/faqs"
 
 const location = getLocationBySlug("abu-dhabi-musaffah")!
 const path = location.href
@@ -66,6 +67,7 @@ export default function AbuDhabiMusaffahPage() {
             geo: location.geo,
             url: `${siteConfig.url}${path}`,
           }),
+          faqSchema(abuDhabiFaqs),
         ]}
       />
       <LocationLandingTemplate
@@ -77,6 +79,7 @@ export default function AbuDhabiMusaffahPage() {
         areas={location.areas}
         whyHeading="Why Contractors in Musaffah Choose Seven Lift"
         whyPoints={whyPoints}
+        faqs={abuDhabiFaqs}
         ctaHeading="Need Equipment in Musaffah or ICAD Today?"
         ctaSubheading="Share your site location and equipment need — our Abu Dhabi team will confirm availability within the hour."
         whatsappMessage="Hi Seven Lift, I need heavy equipment rental in Abu Dhabi / Musaffah."

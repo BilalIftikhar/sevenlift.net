@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { Menu, X, Phone, Mail, MessageCircle, ChevronDown } from "lucide-react"
+import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { siteConfig, waLink } from "@/lib/site-config"
 import { services } from "@/lib/services"
 import { locations } from "@/lib/locations"
@@ -120,7 +121,7 @@ export default function Header() {
         <div className="flex items-center gap-2.5">
           <a
             href={siteConfig.telHref}
-            className="hidden items-center gap-2 rounded-lg border-2 border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-primary-foreground transition-colors md:inline-flex"
+            className="hidden items-center gap-2 rounded-lg border-2 border-primary px-4 py-2 text-sm font-bold text-primary transition-all hover:bg-primary hover:text-primary-foreground hover:scale-[1.03] md:inline-flex"
           >
             <Phone size={16} />
             Call Now
@@ -129,9 +130,9 @@ export default function Header() {
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-accent-foreground shadow-sm hover:bg-accent/90 hover:shadow-md transition-all sm:inline-flex"
+            className="hidden items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2 text-sm font-bold text-white shadow-sm transition-all hover:scale-[1.03] hover:bg-[#1fb855] hover:shadow-md sm:inline-flex"
           >
-            <MessageCircle size={16} />
+            <WhatsAppIcon size={16} />
             WhatsApp
           </a>
 
@@ -146,7 +147,7 @@ export default function Header() {
       </div>
 
       {isOpen && (
-        <nav className="max-h-[calc(100vh-72px)] overflow-y-auto border-t border-border bg-background px-4 py-4 lg:hidden">
+        <nav className="animate-slide-down max-h-[calc(100vh-72px)] overflow-y-auto border-t border-border bg-background px-4 py-4 lg:hidden">
           <Link href="/" onClick={() => setIsOpen(false)} className="block py-2.5 text-sm font-semibold text-foreground">
             Home
           </Link>
@@ -217,9 +218,9 @@ export default function Header() {
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 flex items-center justify-center gap-2 rounded-lg bg-accent py-3 text-sm font-bold text-accent-foreground"
+            className="mt-3 flex items-center justify-center gap-2 rounded-lg bg-[#25D366] py-3 text-sm font-bold text-white"
           >
-            <MessageCircle size={18} />
+            <WhatsAppIcon size={18} />
             Request a Quote on WhatsApp
           </a>
         </nav>

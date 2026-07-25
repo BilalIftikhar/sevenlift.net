@@ -16,22 +16,18 @@ const cranes = [
   {
     capacity: "25 Ton",
     specs: ["Compact design", "25m boom reach", "Perfect for medium projects", "Precise load handling"],
-    price: "From AED 3,000/day",
   },
   {
     capacity: "50 Ton",
     specs: ["Extended boom reach 35m", "Heavy-duty lifting", "All-terrain capability", "Certified operators"],
-    price: "From AED 4,500/day",
   },
   {
     capacity: "100 Ton",
     specs: ["Large-scale projects", "50m boom reach", "Advanced safety systems", "Professional crew included"],
-    price: "From AED 6,500/day",
   },
   {
     capacity: "500 Ton",
     specs: ["Mega lifting operations", "60m+ boom reach", "Complex project handling", "Expert engineering support"],
-    price: "From AED 15,000/day",
   },
 ]
 

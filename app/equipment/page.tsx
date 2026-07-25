@@ -1,10 +1,11 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
+import { Reveal } from "@/components/reveal"
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { breadcrumbSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig, waLink } from "@/lib/site-config"
@@ -73,67 +74,66 @@ export default function EquipmentPage() {
       <Header />
       <div className="min-h-screen bg-gradient-to-b from-background to-secondary pb-20 pt-16 md:pt-24">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="mb-16 max-w-3xl space-y-4">
+          <Reveal className="mb-16 max-w-3xl space-y-4">
             <p className="text-sm font-bold uppercase tracking-widest text-accent">Our Premium Fleet</p>
             <h1 className="text-foreground">Equipment Rental Solutions</h1>
             <p className="text-lg font-medium text-muted-foreground">
               State-of-the-art heavy lifting and access equipment maintained to enterprise standards, with certified
               operators available across Abu Dhabi, Dubai, and the wider UAE.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {equipment.map((item) => (
-              <article
-                key={item.title}
-                className="flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-shadow hover:shadow-lg"
-              >
-                <div className="relative h-64 w-full bg-muted">
-                  <Image
-                    src={item.image}
-                    alt={`${item.title} in the UAE`}
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                  />
-                </div>
+            {equipment.map((item, idx) => (
+              <Reveal key={item.title} delay={idx * 100} className="h-full">
+                <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+                  <div className="relative h-64 w-full bg-muted">
+                    <Image
+                      src={item.image}
+                      alt={`${item.title} in the UAE`}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                    />
+                  </div>
 
-                <div className="flex flex-1 flex-col justify-between gap-5 p-8">
-                  <div className="space-y-4">
-                    <h2 className="text-2xl font-extrabold text-foreground">{item.title}</h2>
-                    <p className="font-medium leading-relaxed text-muted-foreground">{item.description}</p>
+                  <div className="flex flex-1 flex-col justify-between gap-5 p-8">
+                    <div className="space-y-4">
+                      <h2 className="text-2xl font-extrabold text-foreground">{item.title}</h2>
+                      <p className="font-medium leading-relaxed text-muted-foreground">{item.description}</p>
 
-                    <div className="space-y-2">
-                      <p className="text-xs font-bold uppercase tracking-widest text-accent">Key Specifications</p>
-                      <ul className="grid grid-cols-2 gap-2">
-                        {item.specs.map((spec) => (
-                          <li key={spec} className="text-sm font-medium text-foreground">
-                            <span className="font-bold text-accent">•</span> {spec}
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="space-y-2">
+                        <p className="text-xs font-bold uppercase tracking-widest text-accent">Key Specifications</p>
+                        <ul className="grid grid-cols-2 gap-2">
+                          {item.specs.map((spec) => (
+                            <li key={spec} className="text-sm font-medium text-foreground">
+                              <span className="font-bold text-accent">•</span> {spec}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <Link
+                        href={item.link}
+                        className="flex-1 rounded-lg bg-secondary px-4 py-3 text-center text-sm font-bold text-foreground transition-colors hover:bg-secondary/80"
+                      >
+                        View Details
+                      </Link>
+                      <a
+                        href={whatsappHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#25D366] px-4 py-3 text-sm font-bold text-white transition-all hover:scale-[1.02] hover:bg-[#1fb855]"
+                      >
+                        <WhatsAppIcon size={16} />
+                        Quote
+                      </a>
                     </div>
                   </div>
-
-                  <div className="flex gap-3">
-                    <Link
-                      href={item.link}
-                      className="flex-1 rounded-lg bg-secondary px-4 py-3 text-center text-sm font-bold text-foreground transition-colors hover:bg-secondary/80"
-                    >
-                      View Details
-                    </Link>
-                    <a
-                      href={whatsappHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
-                    >
-                      Quote
-                      <ArrowRight size={16} />
-                    </a>
-                  </div>
-                </div>
-              </article>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>

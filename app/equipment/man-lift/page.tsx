@@ -16,22 +16,18 @@ const manLifts = [
   {
     capacity: "10m Scissor Lift",
     specs: ["Ideal for indoor maintenance", "Narrow aisle access", "Non-marking tires available", "Simple platform controls"],
-    price: "From AED 900/day",
   },
   {
     capacity: "18m Scissor Lift",
     specs: ["Extended platform height", "Electrical & installation work", "Rough terrain option available", "Guardrail safety system"],
-    price: "From AED 1,400/day",
   },
   {
     capacity: "26m Boom Lift",
     specs: ["Articulating boom reach", "Up-and-over obstacle access", "360° platform rotation", "Outdoor construction rated"],
-    price: "From AED 2,200/day",
   },
   {
     capacity: "50m Boom Lift",
     specs: ["Maximum height access", "Heavy-duty steel structures", "Telescopic + articulating boom", "Certified operators included"],
-    price: "From AED 3,800/day",
   },
 ]
 

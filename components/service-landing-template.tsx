@@ -1,8 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, MessageCircle, Phone } from "lucide-react"
+import { ArrowRight, Phone } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import { FaqList } from "@/components/faq-list"
+import { Reveal } from "@/components/reveal"
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { siteConfig, waLink } from "@/lib/site-config"
 
 export type SpecRow = { label: string; value: string }
@@ -49,7 +52,7 @@ export function ServiceLandingTemplate({
 
       <section className="bg-primary py-16 text-white md:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 md:grid-cols-2 md:items-center">
-          <div className="space-y-5">
+          <div className="animate-slide-up space-y-5">
             <span className="inline-flex rounded-full bg-accent px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-foreground">
               {eyebrow}
             </span>
@@ -62,7 +65,7 @@ export function ServiceLandingTemplate({
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-7 py-3.5 text-sm font-bold text-accent-foreground shadow-lg transition-transform hover:scale-[1.02]"
               >
-                <MessageCircle size={18} />
+                <WhatsAppIcon size={18} />
                 Request a Quote
               </a>
               <a
@@ -74,7 +77,7 @@ export function ServiceLandingTemplate({
               </a>
             </div>
           </div>
-          <div className="relative hidden h-80 overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 md:block">
+          <div className="animate-fade-in relative hidden h-80 overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 md:block">
             <Image src={heroImage} alt={heroImageAlt} fill className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" priority />
           </div>
         </div>
@@ -83,11 +86,13 @@ export function ServiceLandingTemplate({
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-4">
-            {specs.map((spec) => (
-              <div key={spec.label} className="flex flex-col gap-1 bg-card p-6 text-center">
-                <span className="text-2xl font-extrabold text-primary md:text-3xl">{spec.value}</span>
-                <span className="text-xs font-bold uppercase tracking-wide text-muted-foreground">{spec.label}</span>
-              </div>
+            {specs.map((spec, idx) => (
+              <Reveal key={spec.label} delay={idx * 80} className="bg-card">
+                <div className="flex flex-col gap-1 p-6 text-center">
+                  <span className="text-2xl font-extrabold text-primary md:text-3xl">{spec.value}</span>
+                  <span className="text-xs font-bold uppercase tracking-wide text-muted-foreground">{spec.label}</span>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -96,18 +101,20 @@ export function ServiceLandingTemplate({
       <section className="bg-secondary/40 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {bulletGroups.map((group) => (
-              <div key={group.title} className="rounded-xl border border-border bg-card p-7">
-                <h2 className="mb-4 text-xl font-extrabold text-foreground">{group.title}</h2>
-                <ul className="space-y-3">
-                  {group.items.map((item) => (
-                    <li key={item} className="flex gap-3 text-sm font-medium text-foreground">
-                      <span className="mt-0.5 shrink-0 font-bold text-accent">✓</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {bulletGroups.map((group, idx) => (
+              <Reveal key={group.title} delay={idx * 100} className="h-full">
+                <div className="h-full rounded-xl border border-border bg-card p-7 transition-shadow hover:shadow-lg">
+                  <h2 className="mb-4 text-xl font-extrabold text-foreground">{group.title}</h2>
+                  <ul className="space-y-3">
+                    {group.items.map((item) => (
+                      <li key={item} className="flex gap-3 text-sm font-medium text-foreground">
+                        <span className="mt-0.5 shrink-0 font-bold text-accent">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -115,7 +122,9 @@ export function ServiceLandingTemplate({
 
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-8 text-foreground">{areasHeading}</h2>
+          <Reveal>
+            <h2 className="mb-8 text-foreground">{areasHeading}</h2>
+          </Reveal>
           <div className="flex flex-wrap gap-3">
             {areas.map((area) => (
               <Link
@@ -133,21 +142,10 @@ export function ServiceLandingTemplate({
 
       <section className="bg-secondary/40 py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="mb-10 text-foreground">Frequently Asked Questions</h2>
-          <div className="space-y-4">
-            {faqs.map((faq) => (
-              <details
-                key={faq.question}
-                className="group rounded-xl border border-border bg-card p-6 [&_summary::-webkit-details-marker]:hidden"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-foreground">
-                  {faq.question}
-                  <span className="shrink-0 text-accent transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-3 font-medium leading-relaxed text-muted-foreground">{faq.answer}</p>
-              </details>
-            ))}
-          </div>
+          <Reveal>
+            <h2 className="mb-10 text-foreground">Frequently Asked Questions</h2>
+          </Reveal>
+          <FaqList faqs={faqs} />
         </div>
       </section>
 
@@ -162,7 +160,7 @@ export function ServiceLandingTemplate({
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-sm font-bold text-accent-foreground transition-transform hover:scale-105"
             >
-              <MessageCircle size={18} />
+              <WhatsAppIcon size={18} />
               Request a Quote on WhatsApp
             </a>
             <a

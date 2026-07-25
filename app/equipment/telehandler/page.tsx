@@ -16,22 +16,18 @@ const telehandlers = [
   {
     capacity: "5 Meter",
     specs: ["3-ton load capacity", "Confined space access", "Indoor/outdoor use", "Easy maneuverability"],
-    price: "From AED 1,800/day",
   },
   {
     capacity: "8 Meter",
     specs: ["5-ton load capacity", "Extended reach capability", "Rotating turret", "Compact footprint"],
-    price: "From AED 2,500/day",
   },
   {
     capacity: "12 Meter",
     specs: ["7-ton load capacity", "Wide reach coverage", "Multiple attachment options", "Precision positioning"],
-    price: "From AED 3,200/day",
   },
   {
     capacity: "17 Meter",
     specs: ["10-ton load capacity", "Maximum height reach", "Advanced stability systems", "Professional operators"],
-    price: "From AED 4,200/day",
   },
 ]
 

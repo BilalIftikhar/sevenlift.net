@@ -16,22 +16,18 @@ const forklifts = [
   {
     capacity: "3 Ton",
     specs: ["Standard warehouse operations", "Indoor/outdoor capability", "Comfortable cabin", "Precision mast control"],
-    price: "From AED 1,500/day",
   },
   {
     capacity: "5 Ton",
     specs: ["Heavy-duty construction material", "Extended reach mast", "Heavy-duty tires", "Powerful hydraulics"],
-    price: "From AED 2,000/day",
   },
   {
     capacity: "10 Ton",
     specs: ["Maximum payload capacity", "Container handling", "Industrial-grade construction", "Professional operators available"],
-    price: "From AED 3,500/day",
   },
   {
     capacity: "25 Ton",
     specs: ["Heavy industrial equipment", "Maximum reach and lift", "Full safety certification", "Expert operator included"],
-    price: "From AED 5,000/day",
   },
 ]
 

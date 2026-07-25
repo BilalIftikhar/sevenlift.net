@@ -1,6 +1,7 @@
 "use client"
 
-import { Phone, MessageCircle } from "lucide-react"
+import { Phone } from "lucide-react"
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { siteConfig, waLink } from "@/lib/site-config"
 
 /**
@@ -12,10 +13,10 @@ import { siteConfig, waLink } from "@/lib/site-config"
 export function StickyMobileCta() {
   return (
     <>
-      <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-black/10 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] md:hidden">
+      <div className="animate-slide-up fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-black/10 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] md:hidden">
         <a
           href={siteConfig.telHref}
-          className="flex items-center justify-center gap-2 bg-primary py-3.5 text-sm font-bold text-primary-foreground active:bg-primary/90"
+          className="flex items-center justify-center gap-2 bg-primary py-3.5 text-sm font-bold text-primary-foreground transition-colors active:bg-primary/90"
         >
           <Phone size={18} strokeWidth={2.5} />
           Call Now
@@ -24,9 +25,9 @@ export function StickyMobileCta() {
           href={waLink("Hi Seven Lift, I need heavy equipment rental information.")}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-[#25D366] py-3.5 text-sm font-bold text-white active:bg-[#1fb855]"
+          className="flex items-center justify-center gap-2 bg-[#25D366] py-3.5 text-sm font-bold text-white transition-colors active:bg-[#1fb855]"
         >
-          <MessageCircle size={18} strokeWidth={2.5} />
+          <WhatsAppIcon size={18} />
           WhatsApp
         </a>
       </div>
@@ -36,9 +37,9 @@ export function StickyMobileCta() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with Seven Lift on WhatsApp"
-        className="fixed bottom-6 right-6 z-50 hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:scale-110 md:flex"
+        className="animate-pulse-ring fixed bottom-6 right-6 z-50 hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:scale-110 md:flex"
       >
-        <MessageCircle size={26} />
+        <WhatsAppIcon size={28} />
       </a>
     </>
   )

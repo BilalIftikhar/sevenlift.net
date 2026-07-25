@@ -1,10 +1,11 @@
 import type { Metadata } from "next"
 import { LocationLandingTemplate } from "@/components/location-landing-template"
 import { JsonLd } from "@/components/json-ld"
-import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema"
+import { breadcrumbSchema, localBusinessSchema, faqSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { getLocationBySlug } from "@/lib/locations"
 import { siteConfig } from "@/lib/site-config"
+import { dubaiFaqs } from "@/lib/faqs"
 
 const location = getLocationBySlug("dubai")!
 const path = location.href
@@ -67,6 +68,7 @@ export default function DubaiLocationPage() {
             geo: location.geo,
             url: `${siteConfig.url}${path}`,
           }),
+          faqSchema(dubaiFaqs),
         ]}
       />
       <LocationLandingTemplate
@@ -78,6 +80,7 @@ export default function DubaiLocationPage() {
         areas={location.areas}
         whyHeading="Why Dubai Contractors Choose Seven Lift"
         whyPoints={whyPoints}
+        faqs={dubaiFaqs}
         ctaHeading="Need Equipment in JAFZA or Al Quoz Today?"
         ctaSubheading="Share your site location and equipment need — our Dubai team will confirm availability within the hour."
         whatsappMessage="Hi Seven Lift, I need heavy equipment rental in Dubai."

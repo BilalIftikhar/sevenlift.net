@@ -8,6 +8,8 @@ import Footer from "@/components/footer"
 import { ContentRenderer } from "@/components/blog/content-renderer"
 import { PostCard } from "@/components/blog/post-card"
 import { JsonLd } from "@/components/json-ld"
+import { Reveal } from "@/components/reveal"
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { blogPostingSchema, breadcrumbSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog/posts"
@@ -142,18 +144,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-sm font-bold text-accent-foreground transition-transform hover:scale-105"
             >
+              <WhatsAppIcon size={18} />
               Request a Quote on WhatsApp
-              <ArrowRight size={16} />
             </a>
           </div>
         </div>
 
         {relatedPosts.length > 0 && (
           <div className="mx-auto mt-16 max-w-7xl px-4">
-            <h2 className="mb-8 text-foreground">More Guides</h2>
+            <Reveal>
+              <h2 className="mb-8 text-foreground">More Guides</h2>
+            </Reveal>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-              {relatedPosts.map((related) => (
-                <PostCard key={related.slug} post={related} />
+              {relatedPosts.map((related, idx) => (
+                <Reveal key={related.slug} delay={idx * 100} className="h-full">
+                  <PostCard post={related} />
+                </Reveal>
               ))}
             </div>
           </div>

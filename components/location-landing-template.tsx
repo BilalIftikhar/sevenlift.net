@@ -1,10 +1,14 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, MapPin, MessageCircle, Phone } from "lucide-react"
+import { ArrowRight, MapPin, Phone } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import { FaqList } from "@/components/faq-list"
+import { Reveal } from "@/components/reveal"
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { services } from "@/lib/services"
 import { siteConfig, waLink } from "@/lib/site-config"
+import type { Faq } from "@/lib/faqs"
 
 type LocationLandingTemplateProps = {
   eyebrow: string
@@ -15,6 +19,7 @@ type LocationLandingTemplateProps = {
   areas: string[]
   whyHeading: string
   whyPoints: { title: string; description: string }[]
+  faqs?: Faq[]
   ctaHeading: string
   ctaSubheading: string
   whatsappMessage: string
@@ -29,6 +34,7 @@ export function LocationLandingTemplate({
   areas,
   whyHeading,
   whyPoints,
+  faqs,
   ctaHeading,
   ctaSubheading,
   whatsappMessage,
@@ -45,7 +51,7 @@ export function LocationLandingTemplate({
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24">
-          <div className="max-w-2xl space-y-5">
+          <div className="animate-slide-up max-w-2xl space-y-5">
             <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-foreground">
               <MapPin size={13} />
               {eyebrow}
@@ -59,7 +65,7 @@ export function LocationLandingTemplate({
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-7 py-3.5 text-sm font-bold text-accent-foreground shadow-lg transition-transform hover:scale-[1.02]"
               >
-                <MessageCircle size={18} />
+                <WhatsAppIcon size={18} />
                 Request a Quote
               </a>
               <a
@@ -76,7 +82,9 @@ export function LocationLandingTemplate({
 
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-8 text-foreground">Areas We Cover</h2>
+          <Reveal>
+            <h2 className="mb-8 text-foreground">Areas We Cover</h2>
+          </Reveal>
           <div className="flex flex-wrap gap-3">
             {areas.map((area) => (
               <span
@@ -92,28 +100,29 @@ export function LocationLandingTemplate({
 
       <section className="bg-secondary/40 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="mb-14 space-y-2">
+          <Reveal className="mb-14 space-y-2">
             <p className="text-sm font-bold uppercase tracking-widest text-accent">Equipment Available</p>
             <h2 className="text-foreground">Rent by Equipment Type</h2>
-          </div>
+          </Reveal>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
-              <Link
-                key={service.slug}
-                href={service.href}
-                className="group flex flex-col justify-between gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg"
-              >
-                <div className="space-y-2">
-                  <span className="inline-block rounded-md bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary">
-                    {service.capacityRange}
+            {services.map((service, idx) => (
+              <Reveal key={service.slug} delay={idx * 80} className="h-full">
+                <Link
+                  href={service.href}
+                  className="group flex h-full flex-col justify-between gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg"
+                >
+                  <div className="space-y-2">
+                    <span className="inline-block rounded-md bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary">
+                      {service.capacityRange}
+                    </span>
+                    <h3 className="text-foreground">{service.shortTitle}</h3>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-bold text-accent">
+                    View Details
+                    <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
                   </span>
-                  <h3 className="text-foreground">{service.shortTitle}</h3>
-                </div>
-                <span className="inline-flex items-center gap-1.5 text-sm font-bold text-accent">
-                  View Details
-                  <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -121,19 +130,34 @@ export function LocationLandingTemplate({
 
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-14 text-foreground">{whyHeading}</h2>
+          <Reveal>
+            <h2 className="mb-14 text-foreground">{whyHeading}</h2>
+          </Reveal>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {whyPoints.map((point) => (
-              <div key={point.title} className="rounded-xl border border-border bg-card p-7">
-                <h3 className="mb-2 text-lg font-bold text-foreground">{point.title}</h3>
-                <p className="font-medium leading-relaxed text-muted-foreground">{point.description}</p>
-              </div>
+            {whyPoints.map((point, idx) => (
+              <Reveal key={point.title} delay={idx * 100} className="h-full">
+                <div className="h-full rounded-xl border border-border bg-card p-7 transition-shadow hover:shadow-lg">
+                  <h3 className="mb-2 text-lg font-bold text-foreground">{point.title}</h3>
+                  <p className="font-medium leading-relaxed text-muted-foreground">{point.description}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-secondary/40 py-20 md:py-28">
+      {faqs && faqs.length > 0 && (
+        <section className="bg-secondary/40 py-20 md:py-28">
+          <div className="mx-auto max-w-4xl px-4">
+            <Reveal>
+              <h2 className="mb-10 text-foreground">Frequently Asked Questions</h2>
+            </Reveal>
+            <FaqList faqs={faqs} />
+          </div>
+        </section>
+      )}
+
+      <section className="py-20 md:py-28">
         <div className="mx-auto max-w-4xl space-y-8 px-4 text-center">
           <h2 className="text-foreground">{ctaHeading}</h2>
           <p className="text-xl font-medium text-muted-foreground">{ctaSubheading}</p>
@@ -144,7 +168,7 @@ export function LocationLandingTemplate({
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-sm font-bold text-accent-foreground transition-transform hover:scale-105"
             >
-              <MessageCircle size={18} />
+              <WhatsAppIcon size={18} />
               Request a Quote on WhatsApp
             </a>
             <a

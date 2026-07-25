@@ -1,5 +1,6 @@
-import { ArrowRight, Phone, ShieldCheck, Clock3, BadgeCheck } from "lucide-react"
+import { Phone, ShieldCheck, Clock3, BadgeCheck } from "lucide-react"
 import Image from "next/image"
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { siteConfig, waLink } from "@/lib/site-config"
 
 export default function HeroSection() {
@@ -21,21 +22,27 @@ export default function HeroSection() {
 
       <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:py-24 lg:py-28">
         <div className="space-y-7">
-          <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-foreground">
+          <span className="animate-slide-up inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-foreground">
             Abu Dhabi · Dubai · UAE-Wide
           </span>
 
-          <h1 className="text-white">
+          <h1 className="animate-slide-up text-white" style={{ animationDelay: "80ms" }}>
             Heavy Equipment Rental Built for the UAE&apos;s Toughest Job Sites
           </h1>
 
-          <p className="max-w-xl text-lg font-medium leading-relaxed text-white/85">
+          <p
+            className="animate-slide-up max-w-xl text-lg font-medium leading-relaxed text-white/85"
+            style={{ animationDelay: "160ms" }}
+          >
             Forklifts, mobile cranes, telehandlers, and man lifts with certified operators — deployed fast across
             Musaffah, ICAD, Khalifa Industrial Zone, JAFZA, and Dubai Industrial City. Flexible daily, weekly, and
             monthly terms with 24/7 emergency support.
           </p>
 
-          <dl className="grid grid-cols-3 gap-4 border-y border-white/15 py-5">
+          <dl
+            className="animate-slide-up grid grid-cols-3 gap-4 border-y border-white/15 py-5"
+            style={{ animationDelay: "240ms" }}
+          >
             <div>
               <dt className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-white/60">
                 <BadgeCheck size={14} className="text-accent" /> Since {siteConfig.foundingYear}
@@ -56,15 +63,15 @@ export default function HeroSection() {
             </div>
           </dl>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="animate-slide-up flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "320ms" }}>
             <a
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-sm font-bold text-accent-foreground shadow-lg shadow-black/20 transition-transform hover:scale-[1.02] sm:flex-none"
             >
+              <WhatsAppIcon size={18} />
               Request a Quote
-              <ArrowRight size={18} />
             </a>
             <a
               href={siteConfig.telHref}
@@ -76,8 +83,8 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="relative hidden md:block">
-          <div className="relative h-full min-h-[420px] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
+        <div className="animate-fade-in relative hidden md:block" style={{ animationDelay: "200ms" }}>
+          <div className="animate-float relative h-full min-h-[420px] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
             <Image
               src="/images/fleet/telehandler-jcb.jpg"
               alt="Telehandler and mobile crane deployed on a UAE construction site"
