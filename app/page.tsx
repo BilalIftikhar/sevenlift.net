@@ -15,9 +15,9 @@ import { pageMetadata } from "@/lib/seo"
 import { generalFaqs } from "@/lib/faqs"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Forklift, Crane & Heavy Equipment Rental in Abu Dhabi & Dubai",
+  title: "Heavy Equipment Rental UAE | Forklift, Crane & Lift Hire",
   description:
-    "Seven Lift General Transport rents forklifts (3-25 ton), mobile cranes (25-500 ton), telehandlers, and man lifts across the UAE. Certified operators, flexible terms, 24/7 emergency deployment in Musaffah, ICAD, JAFZA & Dubai.",
+    "Forklifts (3–25 ton), mobile cranes (25–500 ton), telehandlers & man lifts for rent across all 7 emirates. Certified operators, 24/7 deployment.",
   path: "/",
 })
 

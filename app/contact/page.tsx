@@ -13,7 +13,7 @@ import { Phone, Mail, Clock, MapPin } from "lucide-react"
 export const metadata: Metadata = pageMetadata({
   title: "Contact Us | Request a Quote for Equipment Rental",
   description:
-    "Contact Seven Lift General Transport for forklift, mobile crane, telehandler, and man lift rental quotes across Abu Dhabi, Dubai, and the UAE. Call, email, or WhatsApp — available 24/7.",
+    "Get a forklift, crane, telehandler or man lift rental quote anywhere in the UAE. Call, email or WhatsApp us — available 24/7, reply in minutes.",
   path: "/contact",
 })
 

@@ -8,9 +8,9 @@ import { siteConfig } from "@/lib/site-config"
 const path = "/services/mobile-crane-rental-uae"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Mobile Crane Rental UAE | Musaffah, Abu Dhabi & Dubai",
+  title: "Mobile Crane Rental UAE | 25–500 Ton Cranes",
   description:
-    "Mobile crane rental across the UAE from 25 to 500 ton — all-terrain cranes with certified riggers and operators for Musaffah, Abu Dhabi, Dubai (JAFZA), and every emirate. Free lifting-plan consultation.",
+    "Mobile crane rental across the UAE, 25–500 ton all-terrain cranes with certified riggers. Abu Dhabi, Dubai & every emirate. Free lift-plan consultation.",
   path,
   image: "/images/mobile-crane.jpeg",
   keywords: [

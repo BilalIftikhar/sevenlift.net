@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site-config"
 export const metadata: Metadata = pageMetadata({
   title: "Forklift Rental Fleet | 3 to 25 Ton Models",
   description:
-    "Full forklift fleet specifications: 3, 5, 10, and 25 ton diesel and electric forklifts for rent across the UAE, with certified operators and daily, weekly, or monthly plans.",
+    "Forklift fleet specs: 3, 5, 10 and 25 ton diesel and electric forklifts for rent across the UAE. Certified operators, daily to monthly plans.",
   path: "/equipment/forklift",
 })
 

@@ -8,9 +8,9 @@ import { siteConfig } from "@/lib/site-config"
 const path = "/services/forklift-rental-abu-dhabi"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Forklift Rental Abu Dhabi | Musaffah, ICAD & KIZAD",
+  title: "Forklift Rental Abu Dhabi | Musaffah & ICAD",
   description:
-    "Forklift rental in Abu Dhabi from 3 to 25 ton — diesel & electric forklifts with certified operators for Musaffah Industrial City, ICAD, and Khalifa Industrial Zone (KIZAD). Same-day deployment, flexible daily/weekly/monthly terms.",
+    "Forklift rental in Abu Dhabi, 3–25 ton diesel & electric with certified operators. Serving Musaffah, ICAD & KIZAD. Same-day deployment, flexible terms.",
   path,
   image: "/images/fleet/forklift-warehouse.jpg",
   keywords: [

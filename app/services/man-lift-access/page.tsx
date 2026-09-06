@@ -8,9 +8,9 @@ import { siteConfig } from "@/lib/site-config"
 const path = "/services/man-lift-access"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Man Lift & Aerial Access Rental UAE | Scissor & Boom Lifts",
+  title: "Man Lift Rental UAE | Scissor & Boom Lifts",
   description:
-    "Man lift and aerial access rental across the UAE — scissor lifts and boom lifts from 10m to 50m working height for safe elevated maintenance and construction work in Abu Dhabi and Dubai.",
+    "Man lift and aerial access rental across the UAE. Scissor and boom lifts, 10–50 m working height for elevated maintenance and construction work.",
   path,
   image: "/images/fleet/scissor-lift.jpg",
   keywords: [

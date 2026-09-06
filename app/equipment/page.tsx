@@ -11,9 +11,9 @@ import { pageMetadata } from "@/lib/seo"
 import { siteConfig, waLink } from "@/lib/site-config"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Equipment Fleet | Forklifts, Cranes, Telehandlers & Man Lifts",
+  title: "Equipment Fleet | Forklifts, Cranes, Lifts",
   description:
-    "Browse Seven Lift's full UAE rental fleet: 3-25 ton forklifts, 25-500 ton mobile cranes, telehandlers, and man lifts / aerial platforms. Certified operators and flexible terms included.",
+    "Our full UAE rental fleet: 3–25 ton forklifts, 25–500 ton mobile cranes, telehandlers and man lifts. Certified operators and flexible terms.",
   path: "/equipment",
 })
 

@@ -6,9 +6,9 @@ import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Man Lift & Aerial Platform Rental Fleet | 10m to 50m",
+  title: "Man Lift & Aerial Platform Fleet | 10–50m",
   description:
-    "Full man lift fleet specifications: scissor lifts and boom lifts from 10m to 50m working height for safe elevated maintenance and construction work across the UAE.",
+    "Man lift fleet specs: scissor and boom lifts from 10 m to 50 m working height for elevated maintenance and construction work across the UAE.",
   path: "/equipment/man-lift",
 })
 

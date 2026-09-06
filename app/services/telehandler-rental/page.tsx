@@ -8,9 +8,9 @@ import { siteConfig } from "@/lib/site-config"
 const path = "/services/telehandler-rental"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Telehandler Rental UAE | Abu Dhabi & Dubai",
+  title: "Telehandler Rental UAE | 3–10 Ton, 5–17m Reach",
   description:
-    "Telehandler rental across the UAE — 3 to 10 ton capacity, 5m to 17m reach, for confined construction sites and warehouses in Abu Dhabi, Dubai, and every emirate. Flexible daily, weekly, and monthly terms.",
+    "Telehandler rental across the UAE, 3–10 ton with 5–17 m reach for confined sites and warehouses. All emirates. Daily, weekly and monthly terms.",
   path,
   image: "/images/fleet/telehandler-jcb.jpg",
   keywords: [

@@ -12,7 +12,7 @@ import { siteConfig } from "@/lib/site-config"
 export const metadata: Metadata = pageMetadata({
   title: "Blog | Heavy Equipment Rental Guides for the UAE",
   description:
-    "Practical guides on forklift selection, mobile crane safety, and equipment rental strategy for contractors and warehouse operators in Abu Dhabi, Dubai, and the UAE.",
+    "Practical guides on forklift selection, crane safety and equipment rental strategy for contractors and warehouse operators across the UAE.",
   path: "/blog",
 })
 
