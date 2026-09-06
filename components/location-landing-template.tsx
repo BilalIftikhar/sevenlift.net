@@ -6,9 +6,17 @@ import Footer from "@/components/footer"
 import { FaqList } from "@/components/faq-list"
 import { Reveal } from "@/components/reveal"
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
-import { services } from "@/lib/services"
 import { siteConfig, waLink } from "@/lib/site-config"
 import type { Faq } from "@/lib/faqs"
+
+export type LocationServiceLink = {
+  key: string
+  label: string
+  capacityRange: string
+  href: string
+}
+
+export type NearbyLink = { name: string; href: string }
 
 type LocationLandingTemplateProps = {
   eyebrow: string
@@ -17,9 +25,13 @@ type LocationLandingTemplateProps = {
   heroImage: string
   heroImageAlt: string
   areas: string[]
+  /** Equipment pages scoped to this city — the main internal-linking hub. */
+  serviceLinks: LocationServiceLink[]
+  cityName: string
   whyHeading: string
   whyPoints: { title: string; description: string }[]
   faqs?: Faq[]
+  nearbyLinks?: NearbyLink[]
   ctaHeading: string
   ctaSubheading: string
   whatsappMessage: string
@@ -32,9 +44,12 @@ export function LocationLandingTemplate({
   heroImage,
   heroImageAlt,
   areas,
+  serviceLinks,
+  cityName,
   whyHeading,
   whyPoints,
   faqs,
+  nearbyLinks,
   ctaHeading,
   ctaSubheading,
   whatsappMessage,
@@ -102,11 +117,11 @@ export function LocationLandingTemplate({
         <div className="mx-auto max-w-7xl px-4">
           <Reveal className="mb-14 space-y-2">
             <p className="text-sm font-bold uppercase tracking-widest text-accent">Equipment Available</p>
-            <h2 className="text-foreground">Rent by Equipment Type</h2>
+            <h2 className="text-foreground">Rent by Equipment Type in {cityName}</h2>
           </Reveal>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((service, idx) => (
-              <Reveal key={service.slug} delay={idx * 80} className="h-full">
+            {serviceLinks.map((service, idx) => (
+              <Reveal key={service.key} delay={idx * 80} className="h-full">
                 <Link
                   href={service.href}
                   className="group flex h-full flex-col justify-between gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg"
@@ -115,7 +130,9 @@ export function LocationLandingTemplate({
                     <span className="inline-block rounded-md bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary">
                       {service.capacityRange}
                     </span>
-                    <h3 className="text-foreground">{service.shortTitle}</h3>
+                    <h3 className="text-foreground">
+                      {service.label} {cityName}
+                    </h3>
                   </div>
                   <span className="inline-flex items-center gap-1.5 text-sm font-bold text-accent">
                     View Details
@@ -153,6 +170,28 @@ export function LocationLandingTemplate({
               <h2 className="mb-10 text-foreground">Frequently Asked Questions</h2>
             </Reveal>
             <FaqList faqs={faqs} />
+          </div>
+        </section>
+      )}
+
+      {nearbyLinks && nearbyLinks.length > 0 && (
+        <section className="py-16 md:py-20">
+          <div className="mx-auto max-w-7xl px-4">
+            <Reveal>
+              <h2 className="mb-8 text-foreground">Nearby Coverage</h2>
+            </Reveal>
+            <div className="flex flex-wrap gap-3">
+              {nearbyLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/50 hover:text-accent"
+                >
+                  {link.name}
+                  <ArrowRight size={14} />
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
       )}

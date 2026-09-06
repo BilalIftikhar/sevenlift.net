@@ -9,13 +9,22 @@ import { Reveal } from "@/components/reveal"
 import { breadcrumbSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { services } from "@/lib/services"
+import { equipmentCityLinksByEquipment } from "@/lib/service-areas"
 import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = pageMetadata({
   title: "Heavy Equipment Rental Services in the UAE",
   description:
-    "Forklift rental, mobile crane rental, telehandler rental, and man lift access rental across Abu Dhabi, Dubai, and the UAE. Flexible terms, certified operators, 24/7 emergency support.",
+    "Forklift, crane, telehandler & man lift rental across all seven emirates. Certified operators, full insurance, daily to monthly hire, 24/7 support.",
   path: "/services",
+  keywords: [
+    "heavy equipment rental UAE",
+    "forklift rental UAE",
+    "crane rental UAE",
+    "telehandler rental UAE",
+    "man lift rental UAE",
+    "equipment rental all emirates",
+  ],
 })
 
 const guarantees = [
@@ -80,6 +89,42 @@ export default function ServicesPage() {
               </Reveal>
             ))}
           </div>
+
+          <section className="mt-20">
+            <Reveal className="mb-10 max-w-3xl space-y-3">
+              <p className="text-sm font-bold uppercase tracking-widest text-accent">UAE-Wide Coverage</p>
+              <h2 className="text-foreground">Equipment Rental by City</h2>
+              <p className="font-medium text-muted-foreground">
+                Every equipment type, in every emirate. Pick your city for local coverage areas, delivery lead
+                times, and the fleet we hold for that region.
+              </p>
+            </Reveal>
+
+            <div className="space-y-10">
+              {equipmentCityLinksByEquipment().map(({ equipment, links }) => (
+                <Reveal key={equipment.key} className="rounded-xl border border-border bg-card p-7">
+                  <div className="mb-5 flex flex-wrap items-baseline gap-3">
+                    <h3 className="text-xl font-extrabold text-foreground">{equipment.label} Rental</h3>
+                    <span className="rounded-md bg-primary/10 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-primary">
+                      {equipment.capacityRange}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-2.5">
+                    {links.map((link) => (
+                      <Link
+                        key={link.slug}
+                        href={link.href}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/50 px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-accent/50 hover:text-accent"
+                      >
+                        {link.cityName}
+                        <ArrowRight size={13} />
+                      </Link>
+                    ))}
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </section>
 
           <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
             {guarantees.map((item, idx) => {

@@ -10,8 +10,11 @@ export const siteConfig = {
   name: "Seven Lift General Transport",
   legalName: "Seven Lift General Transport L.L.C.",
   shortName: "Seven Lift",
-  domain: "sevenlift.net",
-  url: "https://sevenlift.net",
+  // MUST match the host that actually serves content and holds a valid TLS
+  // certificate. The apex (sevenlift.net) currently fails the SSL handshake, so
+  // canonicals, sitemap entries, and schema URLs all point at www.
+  domain: "www.sevenlift.net",
+  url: "https://www.sevenlift.net",
   tagline: "Heavy Equipment & Forklift Rental Across the UAE",
   description:
     "Seven Lift General Transport provides forklift, mobile crane, telehandler, and man lift rental across the UAE, with dedicated coverage in Abu Dhabi (Musaffah, ICAD, KIZAD) and Dubai (JAFZA, Al Quoz, Dubai Industrial City). Certified operators, flexible terms, 24/7 emergency deployment.",
@@ -44,33 +47,63 @@ export const siteConfig = {
   },
 
   openingHours: "Mo-Su 00:00-23:59",
-  priceRange: "AED AED-AED AED",
+  // schema.org expects a symbolic range ("$$"), not a currency string. Rates are
+  // quote-based, so this stays symbolic rather than naming figures.
+  priceRange: "$$",
 } as const
 
 export function waLink(message: string) {
   return `${siteConfig.whatsappHref}?text=${encodeURIComponent(message)}`
 }
 
+export type Emirate =
+  | "Abu Dhabi"
+  | "Dubai"
+  | "Sharjah"
+  | "Ajman"
+  | "Ras Al Khaimah"
+  | "Fujairah"
+  | "Umm Al Quwain"
+  | "Al Ain"
+
 export type ServiceArea = {
   name: string
-  emirate: "Abu Dhabi" | "Dubai" | "Sharjah" | "Ajman" | "Ras Al Khaimah" | "Fujairah" | "Al Ain"
+  emirate: Emirate
 }
 
+/** Named industrial zones we deliver into, listed in the footer service network. */
 export const serviceAreas: ServiceArea[] = [
   { name: "Musaffah Industrial City", emirate: "Abu Dhabi" },
   { name: "ICAD (Industrial City of Abu Dhabi)", emirate: "Abu Dhabi" },
   { name: "Khalifa Industrial Zone Abu Dhabi (KIZAD)", emirate: "Abu Dhabi" },
   { name: "Mussafah Shabiya", emirate: "Abu Dhabi" },
-  { name: "Al Ain Industrial Area", emirate: "Al Ain" },
+  { name: "Khalifa Port", emirate: "Abu Dhabi" },
+  { name: "Ruwais & Al Dhafra", emirate: "Abu Dhabi" },
+  { name: "Al Ain Industrial City", emirate: "Al Ain" },
+  { name: "Al Ain Sanaiya", emirate: "Al Ain" },
   { name: "Jebel Ali Free Zone (JAFZA)", emirate: "Dubai" },
   { name: "Dubai Industrial City", emirate: "Dubai" },
   { name: "Al Quoz Industrial Area", emirate: "Dubai" },
   { name: "Dubai Investment Park (DIP)", emirate: "Dubai" },
+  { name: "Ras Al Khor Industrial Area", emirate: "Dubai" },
+  { name: "Al Qusais Industrial Area", emirate: "Dubai" },
   { name: "Business Bay", emirate: "Dubai" },
-  { name: "Sharjah Industrial Areas", emirate: "Sharjah" },
-  { name: "Ajman Industrial Zone", emirate: "Ajman" },
-  { name: "Ras Al Khaimah", emirate: "Ras Al Khaimah" },
-  { name: "Fujairah", emirate: "Fujairah" },
+  { name: "Sharjah Industrial Areas 1–18", emirate: "Sharjah" },
+  { name: "Hamriyah Free Zone (HFZA)", emirate: "Sharjah" },
+  { name: "SAIF Zone", emirate: "Sharjah" },
+  { name: "Al Sajaa Industrial Area", emirate: "Sharjah" },
+  { name: "Ajman Industrial Area 1 & 2", emirate: "Ajman" },
+  { name: "Ajman Free Zone", emirate: "Ajman" },
+  { name: "Al Jurf Industrial Area", emirate: "Ajman" },
+  { name: "UAQ Free Trade Zone", emirate: "Umm Al Quwain" },
+  { name: "Umm Al Quwain Industrial Area", emirate: "Umm Al Quwain" },
+  { name: "RAK Free Trade Zone", emirate: "Ras Al Khaimah" },
+  { name: "Al Ghail Industrial Park", emirate: "Ras Al Khaimah" },
+  { name: "Al Hamra Industrial Zone", emirate: "Ras Al Khaimah" },
+  { name: "Khor Khwair", emirate: "Ras Al Khaimah" },
+  { name: "Fujairah Free Zone", emirate: "Fujairah" },
+  { name: "Port of Fujairah", emirate: "Fujairah" },
+  { name: "Al Hayl Industrial Area", emirate: "Fujairah" },
 ]
 
 export const primaryNavLinks = [

@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next"
 import { siteConfig } from "@/lib/site-config"
 import { services } from "@/lib/services"
 import { locations } from "@/lib/locations"
+import { serviceAreaPages } from "@/lib/service-areas"
 import { getAllPosts } from "@/lib/blog/posts"
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -14,12 +15,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/equipment/mobile-crane`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.url}/equipment/telehandler`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.url}/equipment/man-lift`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${siteConfig.url}/services`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${siteConfig.url}/locations`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${siteConfig.url}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteConfig.url}/locations`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteConfig.url}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${siteConfig.url}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
   ]
 
+  // Hand-written service pages (highest-intent, richest content).
   const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
     url: `${siteConfig.url}${service.href}`,
     lastModified: now,
@@ -27,11 +29,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.95,
   }))
 
+  // Generated service × city pages — the UAE-wide long-tail coverage.
+  const serviceAreaRoutes: MetadataRoute.Sitemap = serviceAreaPages.map((page) => ({
+    url: `${siteConfig.url}${page.href}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    // Core-emirate pages carry slightly more weight than the outlying ones.
+    priority: page.location.primary ? 0.9 : 0.8,
+  }))
+
   const locationRoutes: MetadataRoute.Sitemap = locations.map((location) => ({
     url: `${siteConfig.url}${location.href}`,
     lastModified: now,
     changeFrequency: "monthly",
-    priority: 0.95,
+    priority: location.primary ? 0.95 : 0.85,
   }))
 
   const blogRoutes: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
@@ -41,5 +52,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...blogRoutes]
+  const all = [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...serviceAreaRoutes,
+    ...locationRoutes,
+    ...blogRoutes,
+  ]
+
+  // Guard against a hand-written and generated page ever claiming the same URL.
+  return all.filter(
+    (entry, index) => all.findIndex((candidate) => candidate.url === entry.url) === index,
+  )
 }

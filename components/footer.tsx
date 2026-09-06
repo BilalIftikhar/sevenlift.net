@@ -5,6 +5,14 @@ import { siteConfig, serviceAreas } from "@/lib/site-config"
 import { services } from "@/lib/services"
 import { locations } from "@/lib/locations"
 
+/** High-intent city pages surfaced sitewide so they gain internal link equity. */
+const popularSearches = [
+  { label: "Forklift Rental Dubai", href: "/services/forklift-rental-dubai" },
+  { label: "Forklift Rental Sharjah", href: "/services/forklift-rental-sharjah" },
+  { label: "Crane Rental Dubai", href: "/services/mobile-crane-rental-dubai" },
+  { label: "Man Lift Rental Dubai", href: "/services/man-lift-rental-dubai" },
+]
+
 export default function Footer() {
   const year = new Date().getFullYear()
 
@@ -88,6 +96,16 @@ export default function Footer() {
                   All Coverage Areas
                 </Link>
               </li>
+            </ul>
+            <h3 className="pt-4 text-sm font-bold uppercase tracking-wider text-white">Popular Searches</h3>
+            <ul className="space-y-2.5 text-sm text-white/70">
+              {popularSearches.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-accent transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

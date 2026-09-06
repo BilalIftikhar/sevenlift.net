@@ -8,14 +8,21 @@ import { JsonLd } from "@/components/json-ld"
 import { Reveal } from "@/components/reveal"
 import { breadcrumbSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
-import { locations } from "@/lib/locations"
-import { serviceAreas, siteConfig } from "@/lib/site-config"
+import { primaryLocations, secondaryLocations } from "@/lib/locations"
+import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Service Areas | Heavy Equipment Rental Coverage in the UAE",
+  title: "Service Areas | Equipment Rental, All 7 Emirates",
   description:
-    "Seven Lift General Transport delivers forklift, mobile crane, telehandler, and man lift rentals across Abu Dhabi, Dubai, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Al Ain.",
+    "Equipment rental across the UAE: Abu Dhabi, Dubai, Sharjah, Ajman, RAK, Fujairah, Umm Al Quwain & Al Ain. Coverage areas and lead times per city.",
   path: "/locations",
+  keywords: [
+    "equipment rental UAE",
+    "heavy equipment rental all emirates",
+    "forklift rental UAE",
+    "crane rental UAE",
+    "equipment rental Northern Emirates",
+  ],
 })
 
 export default function LocationsPage() {
@@ -35,13 +42,13 @@ export default function LocationsPage() {
             <p className="text-sm font-bold uppercase tracking-widest text-accent">UAE Service Network</p>
             <h1 className="text-foreground">Where We Operate</h1>
             <p className="text-lg font-medium text-muted-foreground">
-              Dedicated equipment depots and rapid-response teams serving Abu Dhabi and Dubai's industrial zones,
-              with fleet coverage across every emirate.
+              Equipment rental across all seven emirates. Our fleet is based in Musaffah, Abu Dhabi, with scheduled
+              routes into Dubai, the Northern Emirates, Al Ain, and the east coast.
             </p>
           </Reveal>
 
           <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2">
-            {locations.map((location, idx) => (
+            {primaryLocations.map((location, idx) => (
               <Reveal key={location.slug} delay={idx * 100} className="h-full">
                 <Link
                   href={location.href}
@@ -74,23 +81,41 @@ export default function LocationsPage() {
             ))}
           </div>
 
-          <Reveal className="rounded-xl border border-border bg-card p-8">
-            <h2 className="mb-4 text-2xl font-extrabold text-foreground">Also Serving</h2>
-            <p className="mb-4 font-medium text-muted-foreground">
-              Beyond Abu Dhabi and Dubai, our fleet mobilizes across the Northern Emirates and Al Ain for project
-              and emergency deployments.
+          <Reveal className="mb-10 max-w-3xl space-y-3">
+            <p className="text-sm font-bold uppercase tracking-widest text-accent">Northern Emirates & Beyond</p>
+            <h2 className="text-foreground">Also Serving</h2>
+            <p className="font-medium text-muted-foreground">
+              Scheduled routes into every remaining emirate. Each page lists the industrial zones we cover there,
+              realistic delivery lead times, and the equipment that suits local site conditions.
             </p>
-            <div className="flex flex-wrap gap-3">
-              {serviceAreas.map((area) => (
-                <span
-                  key={area.name}
-                  className="rounded-full border border-border bg-secondary/60 px-4 py-2 text-sm font-semibold text-foreground"
-                >
-                  {area.name}
-                </span>
-              ))}
-            </div>
           </Reveal>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {secondaryLocations.map((location, idx) => (
+              <Reveal key={location.slug} delay={idx * 80} className="h-full">
+                <Link
+                  href={location.href}
+                  className="group flex h-full flex-col justify-between gap-4 rounded-xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg"
+                >
+                  <div className="space-y-3">
+                    <span className="inline-block rounded-md bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary">
+                      {location.emirate}
+                    </span>
+                    <h3 className="text-xl font-extrabold text-foreground">
+                      Equipment Rental {location.cityName}
+                    </h3>
+                    <p className="text-sm font-medium leading-relaxed text-muted-foreground">
+                      {location.description}
+                    </p>
+                  </div>
+                  <span className="inline-flex items-center gap-2 text-sm font-bold text-accent">
+                    View {location.cityName} Coverage
+                    <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
       <Footer />
