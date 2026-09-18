@@ -5,6 +5,7 @@ const originalPosts: BlogPost[] = [
   {
     slug: "choosing-forklift-capacity-warehouse-musaffah",
     title: "How to Choose the Right Forklift Capacity for Your Warehouse in Musaffah",
+    seoTitle: "Forklift Capacity Guide for Musaffah Warehouses",
     description:
       "A practical guide to matching forklift tonnage, mast height, and fuel type to your warehouse operation in Musaffah Industrial City and ICAD, Abu Dhabi.",
     category: "Forklift Guides",
@@ -77,6 +78,7 @@ const originalPosts: BlogPost[] = [
   {
     slug: "mobile-crane-safety-guidelines-regulations-abu-dhabi",
     title: "Mobile Crane Rental Safety Guidelines and Regulations in Abu Dhabi",
+    seoTitle: "Mobile Crane Safety Rules in Abu Dhabi",
     description:
       "What every site manager needs to know about mobile crane safety, operator certification, and lifting regulations before a crane mobilizes in Abu Dhabi.",
     category: "Safety & Compliance",
@@ -156,6 +158,7 @@ const originalPosts: BlogPost[] = [
   {
     slug: "renting-vs-buying-heavy-equipment-construction-dubai-icad",
     title: "Why Renting Heavy Equipment Is More Cost-Effective for Construction in Dubai & ICAD",
+    seoTitle: "Renting vs Buying Heavy Equipment in Dubai & ICAD",
     description:
       "A breakdown of the real costs behind owning versus renting forklifts, cranes, and telehandlers for construction projects in Dubai and ICAD, Abu Dhabi.",
     category: "Cost & Strategy",
