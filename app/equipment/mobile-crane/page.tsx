@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/json-ld"
 import { breadcrumbSchema, serviceSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
+import { cityLinksForEquipment } from "@/lib/service-areas"
 
 export const metadata: Metadata = pageMetadata({
   title: "Mobile Crane Rental Fleet | 25 to 500 Ton Models",
@@ -67,6 +68,7 @@ export default function MobileCranePage() {
         featuresEyebrow="Capabilities"
         featuresHeading="Why Mobile Cranes from Seven Lift"
         features={features}
+        cityLinks={{ heading: "Rent a Mobile Crane by City", links: cityLinksForEquipment("mobile-crane") }}
         ctaHeading="Need a Mobile Crane?"
         ctaSubheading="Get a free quote and professional consultation for your next lifting project."
         whatsappMessage="I am interested in mobile crane rental services."

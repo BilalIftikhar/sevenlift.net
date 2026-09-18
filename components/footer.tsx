@@ -7,10 +7,12 @@ import { locations } from "@/lib/locations"
 
 /** High-intent city pages surfaced sitewide so they gain internal link equity. */
 const popularSearches = [
+  { label: "Crane Rental Abu Dhabi", href: "/services/mobile-crane-rental-abu-dhabi" },
+  { label: "Telehandler Rental Abu Dhabi", href: "/services/telehandler-rental-abu-dhabi" },
+  { label: "Man Lift Rental Abu Dhabi", href: "/services/man-lift-rental-abu-dhabi" },
+  { label: "Equipment Rental ICAD", href: "/locations/abu-dhabi/icad" },
+  { label: "Equipment Rental KIZAD", href: "/locations/abu-dhabi/kizad-khalifa-port" },
   { label: "Forklift Rental Dubai", href: "/services/forklift-rental-dubai" },
-  { label: "Forklift Rental Sharjah", href: "/services/forklift-rental-sharjah" },
-  { label: "Crane Rental Dubai", href: "/services/mobile-crane-rental-dubai" },
-  { label: "Man Lift Rental Dubai", href: "/services/man-lift-rental-dubai" },
 ]
 
 export default function Footer() {
@@ -112,6 +114,11 @@ export default function Footer() {
           <div className="space-y-3">
             <h3 className="text-sm font-bold uppercase tracking-wider text-white">Company</h3>
             <ul className="space-y-2.5 text-sm text-white/70">
+              <li>
+                <Link href="/about" className="hover:text-accent transition-colors">
+                  About Us
+                </Link>
+              </li>
               <li>
                 <Link href="/services" className="hover:text-accent transition-colors">
                   All Services

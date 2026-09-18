@@ -1,4 +1,5 @@
-import { Phone, Mail } from "lucide-react"
+import Link from "next/link"
+import { ArrowRight, Phone, Mail } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Reveal } from "@/components/reveal"
@@ -24,6 +25,8 @@ type EquipmentDetailTemplateProps = {
   featuresEyebrow: string
   featuresHeading: string
   features: EquipmentFeature[]
+  /** Links to the per-city rental pages for this equipment type. */
+  cityLinks?: { heading: string; links: { name: string; href: string }[] }
   ctaHeading: string
   ctaSubheading: string
   whatsappMessage: string
@@ -38,6 +41,7 @@ export function EquipmentDetailTemplate({
   featuresEyebrow,
   featuresHeading,
   features,
+  cityLinks,
   ctaHeading,
   ctaSubheading,
   whatsappMessage,
@@ -119,7 +123,29 @@ export function EquipmentDetailTemplate({
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      {cityLinks && (
+        <section className="py-20 md:py-28">
+          <div className="mx-auto max-w-7xl px-4">
+            <Reveal>
+              <h2 className="mb-8 text-foreground">{cityLinks.heading}</h2>
+            </Reveal>
+            <div className="flex flex-wrap gap-3">
+              {cityLinks.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/50 hover:text-accent"
+                >
+                  {link.name}
+                  <ArrowRight size={14} />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className={cityLinks ? "bg-secondary/50 py-20 md:py-28" : "py-20 md:py-28"}>
         <div className="mx-auto max-w-4xl space-y-8 px-4 text-center">
           <h2 className="text-foreground">{ctaHeading}</h2>
           <p className="text-xl font-medium text-muted-foreground">{ctaSubheading}</p>

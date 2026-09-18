@@ -3,6 +3,8 @@ export type ContentBlock =
   | { type: "heading"; level: 2 | 3; text: string }
   | { type: "list"; items: string[] }
   | { type: "quote"; text: string }
+  /** Comparison table. Answer engines quote tabular facts far more than prose. */
+  | { type: "table"; caption?: string; headers: string[]; rows: string[][] }
 
 export type RelatedLink = { title: string; href: string }
 

@@ -12,6 +12,7 @@ export type SpecRow = { label: string; value: string }
 export type BulletGroup = { title: string; items: string[] }
 export type FaqItem = { question: string; answer: string }
 export type AreaLink = { name: string; href: string }
+export type LocalContext = { heading: string; paragraphs: string[] }
 
 type ServiceLandingTemplateProps = {
   eyebrow: string
@@ -21,6 +22,8 @@ type ServiceLandingTemplateProps = {
   heroImageAlt: string
   specs: SpecRow[]
   bulletGroups: BulletGroup[]
+  /** City-specific guidance for this equipment type — what makes the page more than a template. */
+  localContext?: LocalContext
   areasHeading: string
   areas: AreaLink[]
   faqs: FaqItem[]
@@ -37,6 +40,7 @@ export function ServiceLandingTemplate({
   heroImageAlt,
   specs,
   bulletGroups,
+  localContext,
   areasHeading,
   areas,
   faqs,
@@ -120,7 +124,22 @@ export function ServiceLandingTemplate({
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      {localContext && (
+        <section className="py-20 md:py-28">
+          <div className="mx-auto max-w-4xl space-y-6 px-4">
+            <Reveal>
+              <h2 className="text-foreground">{localContext.heading}</h2>
+            </Reveal>
+            {localContext.paragraphs.map((paragraph) => (
+              <p key={paragraph} className="text-lg font-medium leading-relaxed text-muted-foreground">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className={localContext ? "bg-secondary/40 py-20 md:py-28" : "py-20 md:py-28"}>
         <div className="mx-auto max-w-7xl px-4">
           <Reveal>
             <h2 className="mb-8 text-foreground">{areasHeading}</h2>
@@ -140,7 +159,7 @@ export function ServiceLandingTemplate({
         </div>
       </section>
 
-      <section className="bg-secondary/40 py-20 md:py-28">
+      <section className={localContext ? "py-20 md:py-28" : "bg-secondary/40 py-20 md:py-28"}>
         <div className="mx-auto max-w-4xl px-4">
           <Reveal>
             <h2 className="mb-10 text-foreground">Frequently Asked Questions</h2>
@@ -149,7 +168,7 @@ export function ServiceLandingTemplate({
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className={localContext ? "bg-secondary/40 py-20 md:py-28" : "py-20 md:py-28"}>
         <div className="mx-auto max-w-4xl space-y-8 px-4 text-center">
           <h2 className="text-foreground">{ctaHeading}</h2>
           <p className="text-xl font-medium text-muted-foreground">{ctaSubheading}</p>

@@ -1,6 +1,7 @@
 import type { BlogPost } from "@/lib/blog/types"
+import { abuDhabiPosts } from "@/lib/blog/posts-abu-dhabi"
 
-export const blogPosts: BlogPost[] = [
+const originalPosts: BlogPost[] = [
   {
     slug: "choosing-forklift-capacity-warehouse-musaffah",
     title: "How to Choose the Right Forklift Capacity for Your Warehouse in Musaffah",
@@ -232,6 +233,8 @@ export const blogPosts: BlogPost[] = [
   },
 ]
 
+export const blogPosts: BlogPost[] = [...originalPosts, ...abuDhabiPosts]
+
 export function getAllPosts() {
   return [...blogPosts].sort(
     (a, b) => new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime(),
@@ -243,5 +246,10 @@ export function getPostBySlug(slug: string) {
 }
 
 export function getRelatedPosts(slug: string, limit = 2) {
-  return blogPosts.filter((post) => post.slug !== slug).slice(0, limit)
+  const current = getPostBySlug(slug)
+  const others = getAllPosts().filter((post) => post.slug !== slug)
+  // Same-category posts first, newest first within each group.
+  const sameCategory = others.filter((post) => post.category === current?.category)
+  const rest = others.filter((post) => post.category !== current?.category)
+  return [...sameCategory, ...rest].slice(0, limit)
 }

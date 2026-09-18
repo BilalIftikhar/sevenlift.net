@@ -69,6 +69,7 @@ export default async function ServiceAreaPage({ params }: PageProps) {
         heroImageAlt={page.equipment.heroImageAltFor(page.location.cityName)}
         specs={page.specs}
         bulletGroups={page.bulletGroups}
+        localContext={page.localContext}
         areasHeading={page.areasHeading}
         areas={page.areas}
         faqs={page.faqs}

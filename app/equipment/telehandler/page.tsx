@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/json-ld"
 import { breadcrumbSchema, serviceSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
+import { cityLinksForEquipment } from "@/lib/service-areas"
 
 export const metadata: Metadata = pageMetadata({
   title: "Telehandler Rental Fleet | 5m to 17m Reach Models",
@@ -67,6 +68,7 @@ export default function TelehandlerPage() {
         featuresEyebrow="Applications"
         featuresHeading="Telehandler Applications & Benefits"
         features={features}
+        cityLinks={{ heading: "Rent a Telehandler by City", links: cityLinksForEquipment("telehandler") }}
         ctaHeading="Need a Telehandler?"
         ctaSubheading="Contact us for flexible rental options and professional operator support."
         whatsappMessage="I am interested in telehandler rental services."

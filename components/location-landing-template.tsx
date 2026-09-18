@@ -31,7 +31,10 @@ type LocationLandingTemplateProps = {
   whyHeading: string
   whyPoints: { title: string; description: string }[]
   faqs?: Faq[]
+  /** Free-text guidance on working in this area, shown after the area list. */
+  localContext?: { heading: string; paragraphs: string[] }
   nearbyLinks?: NearbyLink[]
+  nearbyHeading?: string
   ctaHeading: string
   ctaSubheading: string
   whatsappMessage: string
@@ -49,7 +52,9 @@ export function LocationLandingTemplate({
   whyHeading,
   whyPoints,
   faqs,
+  localContext,
   nearbyLinks,
+  nearbyHeading = "Nearby Coverage",
   ctaHeading,
   ctaSubheading,
   whatsappMessage,
@@ -110,6 +115,18 @@ export function LocationLandingTemplate({
               </span>
             ))}
           </div>
+          {localContext && (
+            <div className="mt-16 max-w-4xl space-y-6">
+              <Reveal>
+                <h2 className="text-foreground">{localContext.heading}</h2>
+              </Reveal>
+              {localContext.paragraphs.map((paragraph) => (
+                <p key={paragraph} className="text-lg font-medium leading-relaxed text-muted-foreground">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -178,7 +195,7 @@ export function LocationLandingTemplate({
         <section className="py-16 md:py-20">
           <div className="mx-auto max-w-7xl px-4">
             <Reveal>
-              <h2 className="mb-8 text-foreground">Nearby Coverage</h2>
+              <h2 className="mb-8 text-foreground">{nearbyHeading}</h2>
             </Reveal>
             <div className="flex flex-wrap gap-3">
               {nearbyLinks.map((link) => (

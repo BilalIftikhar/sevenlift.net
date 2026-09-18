@@ -4,6 +4,8 @@ import { JsonLd } from "@/components/json-ld"
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
+import { getLocationBySlug } from "@/lib/locations"
+import { cityLinksForEquipment, equipmentTypes, localContextFor } from "@/lib/service-areas"
 
 const path = "/services/forklift-rental-abu-dhabi"
 
@@ -22,6 +24,9 @@ export const metadata: Metadata = pageMetadata({
     "25 ton forklift rental UAE",
   ],
 })
+
+const abuDhabi = getLocationBySlug("abu-dhabi-musaffah")!
+const forklift = equipmentTypes.find((type) => type.key === "forklift")!
 
 const faqs = [
   {
@@ -108,12 +113,13 @@ export default function ForkliftRentalAbuDhabiPage() {
             ],
           },
         ]}
-        areasHeading="Serving All of Abu Dhabi's Industrial Zones"
+        localContext={localContextFor(forklift, abuDhabi)}
+        areasHeading="Forklift Rental Across Abu Dhabi & the UAE"
         areas={[
           { name: "Musaffah Industrial City", href: "/locations/abu-dhabi-musaffah" },
           { name: "ICAD 1, 2 & 3", href: "/locations/abu-dhabi-musaffah" },
           { name: "Khalifa Industrial Zone (KIZAD)", href: "/locations/abu-dhabi-musaffah" },
-          { name: "Al Ain Industrial Area", href: "/locations" },
+          ...cityLinksForEquipment("forklift").filter((link) => link.href !== path),
           { name: "Full Forklift Fleet Specs", href: "/equipment/forklift" },
         ]}
         faqs={faqs}

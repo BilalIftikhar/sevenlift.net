@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/json-ld"
 import { breadcrumbSchema, serviceSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
+import { cityLinksForEquipment } from "@/lib/service-areas"
 
 export const metadata: Metadata = pageMetadata({
   title: "Forklift Rental Fleet | 3 to 25 Ton Models",
@@ -67,6 +68,7 @@ export default function ForkliftsPage() {
         featuresEyebrow="Why Choose Us"
         featuresHeading="Why Seven Lift for Forklift Rentals"
         features={features}
+        cityLinks={{ heading: "Rent a Forklift by City", links: cityLinksForEquipment("forklift") }}
         ctaHeading="Ready to Get Started?"
         ctaSubheading="Contact us today for a free consultation and competitive quote on your forklift rental needs."
         whatsappMessage="I am interested in forklift rental services."
