@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/json-ld"
 import { breadcrumbSchema, serviceSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
+import { cityLinksForEquipment } from "@/lib/service-areas"
 
 export const metadata: Metadata = pageMetadata({
   title: "Man Lift & Aerial Platform Fleet | 10–50m",
@@ -67,6 +68,7 @@ export default function ManLiftPage() {
         featuresEyebrow="Safety & Access"
         featuresHeading="Why Rent Man Lifts from Seven Lift"
         features={features}
+        cityLinks={{ heading: "Rent a Man Lift by City", links: cityLinksForEquipment("man-lift") }}
         ctaHeading="Need a Man Lift or Aerial Platform?"
         ctaSubheading="Talk to our team for the right platform height and configuration for your job site."
         whatsappMessage="I am interested in man lift / aerial platform rental services."

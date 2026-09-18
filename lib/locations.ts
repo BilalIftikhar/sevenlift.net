@@ -1,5 +1,7 @@
 import type { Faq } from "@/lib/faqs"
 
+export type EquipmentKey = "forklift" | "mobile-crane" | "telehandler" | "man-lift"
+
 export type LocationSummary = {
   slug: string
   title: string
@@ -41,6 +43,12 @@ export type LocationSummary = {
   industries: string[]
   /** One line on why this city needs lifting equipment; used on service × city pages. */
   demandNote: string
+  /**
+   * What renting each equipment type in this city actually involves — local
+   * sites, ground, permits, climate. Rendered on the service × city pages so
+   * each one carries content no other page has.
+   */
+  equipmentNotes: Record<EquipmentKey, string[]>
 }
 
 /**
@@ -165,6 +173,24 @@ export const locations: LocationSummary[] = [
     ],
     demandNote:
       "Abu Dhabi's industrial demand is concentrated in Musaffah's M-sectors, the ICAD manufacturing clusters, and the port and free-zone operations at KIZAD.",
+    equipmentNotes: {
+      forklift: [
+        "Most forklift work in Abu Dhabi splits between Musaffah's M-sector workshops, which need compact 3–5 ton diesel units that can turn inside a crowded yard, and the larger logistics sheds at KIZAD and ICAD, where 7–10 ton forklifts stuff and destuff containers coming off Khalifa Port.",
+        "If your facility is a cold store or a food-grade warehouse in KIZAD, specify electric units with non-marking tyres. For open yards in summer, diesel machines with enclosed, air-conditioned cabs keep operators productive through long shifts. Tell us the heaviest pallet, the lift height, and whether the floor is finished concrete or compacted ground, and we will match the machine to the site.",
+      ],
+      "mobile-crane": [
+        "Crane lifts in Abu Dhabi are planned under the emirate's occupational safety framework (OSHAD), so contractors in ICAD, KIZAD, and Khalifa Port expect a documented lift plan, current third-party inspection certificates, and certified operators and riggers before the crane is allowed to set up.",
+        "Summer shamal winds along the coast and in Al Dhafra regularly push wind speeds past the limits in a crane's load chart, so critical lifts at Khalifa Port and Ruwais are usually scheduled for the calmer early-morning window. For heavy plant lifts in Musaffah and ICAD, we survey outrigger positions in advance, because made-up yards and trench backfill are the most common hidden ground-bearing risk.",
+      ],
+      telehandler: [
+        "In Abu Dhabi, telehandlers do most of their work on villa and low-rise projects on Yas and Saadiyat, where they place blockwork and roof material at height without the cost of a crane, and on maintenance jobs inside ICAD plants.",
+        "For projects out in Al Dhafra, Ruwais, and the western region, where the ground is loose sand rather than prepared hardstanding, specify four-wheel-drive, rough-terrain units with sand-rated tyres. On tight Musaffah plots, a 3–4 ton compact telehandler with a 7 m boom usually outperforms a bigger machine that cannot manoeuvre.",
+      ],
+      "man-lift": [
+        "Man lifts in Abu Dhabi are mostly used for plant and facility maintenance: racking installation in KIZAD warehouses, MEP and cable-tray work in ICAD factories, and high-level inspection at Khalifa Port.",
+        "Indoor work on finished floors needs an electric scissor lift with non-marking tyres. Pipe racks and structures with obstacles underneath need an articulating boom that can reach up and over. Oil, gas, and petrochemical sites around Ruwais usually require a site-specific permit-to-work and operator certification before a platform is allowed in, so share the site's HSE requirements when you ask for a quote.",
+      ],
+    },
   },
   {
     slug: "dubai",
@@ -275,6 +301,24 @@ export const locations: LocationSummary[] = [
     ],
     demandNote:
       "Dubai's equipment demand runs on two tracks: round-the-clock warehouse handling in JAFZA and DIP, and construction and fit-out work across the city's continuous development pipeline.",
+    equipmentNotes: {
+      forklift: [
+        "Dubai's forklift demand is driven by 3PL warehouses in JAFZA, Dubai Industrial City, and DIP that run double or triple shifts, and by container destuffing at facilities connected to Jebel Ali Port. Monthly hire with a standby unit is usually cheaper than paying for downtime.",
+        "Many Dubai warehouses have high-bay racking and finished epoxy floors, so electric forklifts with non-marking tyres and a mast matched to the top beam level are the common specification. For Al Quoz and Ras Al Khor workshops handling steel and timber, a side loader or a 5–7 ton diesel unit is usually the better fit.",
+      ],
+      "mobile-crane": [
+        "Crane work in Dubai involves both Dubai Municipality requirements and road-movement restrictions. Heavy vehicles face timed movement bans on major roads at peak hours, so large all-terrain cranes heading to Business Bay, Downtown, or DIP are often moved early in the morning or overnight.",
+        "City-centre lifts on constrained plots usually need a road-closure or right-of-way permit as well as the lift plan, so allow lead time for approvals. In JAFZA and Dubai Industrial City, where there is more space, the usual jobs are plant installation, precast placement, and machinery relocation, and 50–160 ton cranes cover most of them.",
+      ],
+      telehandler: [
+        "On Dubai construction sites, telehandlers are used where a tower crane has not yet been erected, or has already been dismantled, and material still has to reach upper floors: villa communities in Dubai South, low-rise blocks in DIP, and external works on larger projects.",
+        "Tight community plots with neighbours on both sides favour a compact 7 m unit with four-wheel steer. For warehouses and logistics yards, a telehandler fitted with forks does double duty as a rough-terrain forklift for unloading lorries on unmade ground.",
+      ],
+      "man-lift": [
+        "Fit-out is the largest source of man-lift demand in Dubai. Office floors in Business Bay, retail units in malls, and hotel refurbishments all need access platforms, often on night shifts so that occupied buildings stay open during the day.",
+        "Building managers usually specify low-noise electric scissor lifts with non-marking tyres, and will ask for insurance and operator certificates before the machine is allowed through the loading bay. Check lift-car and doorway dimensions before booking. A narrow-chassis 10 m scissor lift fits most service lifts, while larger units need ground-floor access.",
+      ],
+    },
   },
   {
     slug: "sharjah",
@@ -387,6 +431,24 @@ export const locations: LocationSummary[] = [
     ],
     demandNote:
       "Sharjah holds the UAE's densest cluster of workshops and fabrication units, where equipment is hired short-term and sized to fit tight industrial yards.",
+    equipmentNotes: {
+      forklift: [
+        "Sharjah's Industrial Areas are made up of small, packed yards, so the forklift has to fit the space as well as the load. Compact 3–5 ton diesel units with tight turning circles handle most workshop work, and side loaders suit the steel and pipe that fabrication shops handle.",
+        "Hires here tend to be short: a day for unloading a container, or a week while a shop's own machine is repaired. For Hamriyah Free Zone plants and SAIF Zone air-freight warehouses, longer monthly contracts with electric units are more common. Let us know whether you are in Industrial Area 1–18, Hamriyah, or SAIF Zone so we can plan access.",
+      ],
+      "mobile-crane": [
+        "In Sharjah, crane lifts are mostly for steel fabrication: loading finished structures onto trailers, placing heavy machinery inside workshops, and erecting steel frames for new industrial buildings in the Industrial Areas and Hamriyah.",
+        "Hamriyah Free Zone handles heavier plant and marine-related lifts near the port, where larger cranes and longer planning apply. In the older Industrial Areas, narrow access roads and overhead cables are the real constraint, so we check the route and the setup area before confirming the crane size, not just the lift weight.",
+      ],
+      telehandler: [
+        "Residential and mixed-use building in Muwaileh, Al Qasimia, and on the city's outskirts keeps telehandlers busy in Sharjah placing blockwork, rebar, and roof material on low- and mid-rise sites.",
+        "In the quarry and building-materials belt around Al Sajaa, rough-terrain four-wheel-drive units handle unmade ground and dust better than a standard forklift can. A telehandler with a bucket or jib attachment can often replace two separate machines on smaller Sharjah sites.",
+      ],
+      "man-lift": [
+        "In Sharjah's industrial areas, man lifts are mostly used for roof and cladding repairs on older workshop sheds, installing signage, and electrical or MEP work inside factories and warehouses.",
+        "Outdoors, on uneven yard surfaces, a rough-terrain diesel scissor lift or a boom lift is safer than an indoor slab machine. For work inside SAIF Zone warehouses or retail units, electric scissor lifts with non-marking tyres are the standard, and a boom lift is the answer when you have to reach over racking.",
+      ],
+    },
   },
   {
     slug: "ajman",
@@ -499,6 +561,24 @@ export const locations: LocationSummary[] = [
     ],
     demandNote:
       "Ajman's industrial base is built on mid-size manufacturing units in Al Jurf and the Industrial Areas, where compact, right-sized equipment matters more than raw capacity.",
+    equipmentNotes: {
+      forklift: [
+        "Ajman's furniture and woodworking manufacturers move long timber and board stock, which a side loader or a long-fork forklift handles more safely than a standard mast. The plastics and packaging plants in Al Jurf mainly shift lighter but bulky pallets.",
+        "Most Ajman sites are mid-size units with limited yard space, so a 3–5 ton forklift covers the majority of requests. Ajman Free Zone warehouses with finished floors should specify electric forklifts. For building-materials distributors unloading lorries all day, a monthly diesel unit is usually the most economical option.",
+      ],
+      "mobile-crane": [
+        "Crane work in Ajman is typically machinery installation for new manufacturing units in Al Jurf and the Industrial Areas, loading at Ajman Port, and structural work on mid-rise buildings, which a 25–80 ton all-terrain crane covers in most cases.",
+        "Larger capacities are routed in from our main fleet on a scheduled basis, so give us a few days' notice for anything over 100 tons. Because many Ajman plots share walls with neighbouring units, we plan the setup position and slew radius at the site survey rather than on the day of the lift.",
+      ],
+      telehandler: [
+        "On Ajman's residential and low-rise commercial projects in Al Rawda, Al Hamidiya, and the newer developments, telehandlers place materials on upper floors and roofs where a crane would be excessive.",
+        "Building-materials yards in Al Jurf also use telehandlers with forks to unload and stack block and cement bags on rough ground. For most Ajman sites, a 3–4 ton unit with around 7–13 m reach is enough, and the smaller machine is easier to move between plots.",
+      ],
+      "man-lift": [
+        "In Ajman factories and warehouses, man lifts are used to fit mezzanines, install high-bay lighting and ventilation, and repair roofs. Residential and commercial buildings use them for facade cleaning, signage, and exterior maintenance.",
+        "Indoor jobs on finished floors call for electric scissor lifts in the 8–12 m range. For exterior work on buildings along the Corniche and in Al Rawda, telescopic or articulating booms give the reach, and roadside setups may need municipality approval. We can advise on this when you book.",
+      ],
+    },
   },
   {
     slug: "ras-al-khaimah",
@@ -611,6 +691,24 @@ export const locations: LocationSummary[] = [
     ],
     demandNote:
       "Ras Al Khaimah's demand is heavy and continuous — quarries, cement plants, and ceramics operations that run on monthly contracts rather than day hire.",
+    equipmentNotes: {
+      forklift: [
+        "Ras Al Khaimah's ceramics and glass manufacturers move heavy, fragile pallets that need a smooth-hydraulic 7–10 ton forklift and a careful operator rather than just raw capacity. The quarry and cement operations need rugged diesel units that can cope with dust all day.",
+        "Because RAK demand is continuous rather than project-based, most forklift hires here are monthly contracts that include scheduled servicing. In quarry and cement environments, air filters and cooling systems need frequent attention, and we build that into the maintenance plan instead of waiting for a breakdown.",
+      ],
+      "mobile-crane": [
+        "Crane work in Ras Al Khaimah centres on heavy industry: crusher and conveyor maintenance in the Khor Khwair quarry belt, kiln and plant work at cement and ceramics factories, and bulk and marine lifts at RAK Maritime City.",
+        "Planned shutdowns at these plants fix the lift window in advance, so the crane, riggers, and lift plan have to be booked ahead and confirmed against the shutdown schedule. Quarry sites often have loose or uneven ground, so outrigger mats and a ground-bearing assessment are standard on RAK jobs.",
+      ],
+      telehandler: [
+        "Telehandlers in Ras Al Khaimah divide between industrial maintenance at quarries, cement works, and factories, and the resort and residential building on Al Marjan Island and in Al Hamra.",
+        "Quarry and plant work calls for heavy four-wheel-drive units with bucket or jib attachments. Hospitality and villa projects on the coast need a mid-size 13–17 m boom to place material on upper floors and roofs. Because RAK sites tend to run for months, monthly terms are usually the better value here.",
+      ],
+      "man-lift": [
+        "In Ras Al Khaimah, man lifts are mostly used to maintain industrial structures such as conveyor galleries, silos, and kiln areas in the cement and ceramics belt. The resort and hospitality developments around Al Hamra and Al Marjan Island use them for facade and fit-out work.",
+        "Plant sites generally need rough-terrain booms that can work on uneven, dusty ground and reach over equipment. Hotel and residential projects on finished surfaces need electric units with non-marking tyres. Tell us which kind of site it is so we send the right platform.",
+      ],
+    },
   },
   {
     slug: "fujairah",
@@ -724,6 +822,24 @@ export const locations: LocationSummary[] = [
     ],
     demandNote:
       "Fujairah's lifting demand centres on the port and the oil terminal complex, where documentation and shutdown scheduling matter as much as the machine itself.",
+    equipmentNotes: {
+      forklift: [
+        "Fujairah's forklift work comes from the Free Zone warehouses, container and general cargo at the Port of Fujairah, and the oil terminal complex, where drums, spares, and shutdown materials have to be moved around tank farms.",
+        "Oil terminal and tank farm areas run strict permit-to-work systems and may classify zones for ignition risk, so tell us the site's area classification and HSE requirements before we quote, and we will confirm what we can supply. For the Free Zone and Al Hayl building-materials yards, standard 3–10 ton diesel forklifts on monthly terms are the usual choice.",
+      ],
+      "mobile-crane": [
+        "Crane demand in Fujairah is dominated by the oil storage and bunkering hub, including tank construction, terminal maintenance, and planned shutdowns and turnarounds, as well as heavy lifts at the Port of Fujairah and the Al Hayl quarries.",
+        "Terminal operators require full lift documentation, third-party certificates, and certified crews, and lifts are fixed to shutdown schedules, so book the crane and lift plan well in advance. Large cranes travel to the east coast over the Hajar mountains, so allow for mobilization time when planning, particularly for capacities above 100 tons.",
+      ],
+      telehandler: [
+        "In Fujairah, telehandlers work in the Al Hayl quarry and building-materials area, on terminal and port maintenance jobs, and on residential and hospitality projects along the coast from Fujairah city to Dibba.",
+        "Quarry and industrial sites need rough-terrain four-wheel-drive units. Coastal villa and hotel projects mostly need a compact telehandler with a 7–13 m boom. Because sites are spread out along the east coast, monthly hire usually works out cheaper than repeated mobilizations.",
+      ],
+      "man-lift": [
+        "Access platforms in Fujairah are mostly used at the oil terminals and tank farms, for tank inspection, painting and coating, and pipe-rack maintenance, often during planned shutdowns. They are also used on port structures and warehouse maintenance in the Free Zone.",
+        "Terminal work usually needs rough-terrain booms that can reach over pipework, along with operator certificates and the site's permit-to-work. The coastal humidity and salt air are hard on exposed equipment, so check that the platform's inspection certificate is current before work starts. We supply it with every unit on request.",
+      ],
+    },
   },
   {
     slug: "umm-al-quwain",
@@ -832,6 +948,24 @@ export const locations: LocationSummary[] = [
     ],
     demandNote:
       "Umm Al Quwain's demand comes from free-zone warehousing and a steady development pipeline, where compact telehandlers and mid-size forklifts do most of the work.",
+    equipmentNotes: {
+      forklift: [
+        "Umm Al Quwain's forklift demand comes mainly from UAQ Free Trade Zone, where trading, e-commerce, and distribution companies operate small and mid-size warehouses that need reliable 3–5 ton units rather than heavy capacity.",
+        "For UAQ FTZ warehouses with finished floors, electric forklifts are the standard. For the Industrial Area and building-materials yards, a diesel unit is better. Many UAQ businesses hire monthly and ask for a standby replacement, which keeps a small warehouse moving without the cost of owning a backup machine.",
+      ],
+      "mobile-crane": [
+        "Crane lifts in Umm Al Quwain are usually mid-size jobs: machinery installation in the Industrial Area and Free Zone, marine and boat-yard lifts near Umm Al Quwain Port, and structural work on new residential and commercial buildings.",
+        "A 25–80 ton all-terrain crane covers most of these jobs. Larger capacities come from our main fleet on a scheduled basis, so book a few days ahead. Coastal plots near the lagoon and port can have soft ground, so we confirm outrigger bearing and setup position during the site survey.",
+      ],
+      telehandler: [
+        "On UAQ's residential and commercial development sites, telehandlers place blockwork, steel, and roofing material on low- and mid-rise buildings, and unload deliveries across rough site ground.",
+        "A compact 3–4 ton unit with around 7 m of reach does most of the work in Umm Al Quwain. Larger 13–17 m booms are available for taller buildings. Because UAQ is served on a scheduled route, booking a day ahead gets the best delivery slot.",
+      ],
+      "man-lift": [
+        "In Umm Al Quwain, man lifts are mostly used for warehouse and Free Zone facility maintenance, retail and commercial fit-out, and exterior work on new residential buildings such as signage, lighting, and facade finishing.",
+        "Indoor jobs on finished floors need electric scissor lifts with non-marking tyres. For exterior work, or for reaching over obstacles, telescopic and articulating booms are the right choice. Let us know the working height and the ground conditions, and we will specify the smallest platform that safely does the job.",
+      ],
+    },
   },
   {
     slug: "al-ain",
@@ -943,6 +1077,24 @@ export const locations: LocationSummary[] = [
     ],
     demandNote:
       "Al Ain combines a dense workshop district at Sanaiya with steady construction and agricultural contracting across the eastern region.",
+    equipmentNotes: {
+      forklift: [
+        "Forklift work in Al Ain is split between the Sanaiya workshop district, where compact diesel units move engines, parts, and fabricated steel in tight yards, and the region's food processing and dairy operations, which need electric forklifts rated for cold stores.",
+        "Al Ain Industrial City warehouses and manufacturing units usually take 5–10 ton forklifts on monthly terms. Summer temperatures inland are higher than on the coast, so for outdoor yard work we recommend enclosed, air-conditioned cabs and planning shifts around the hottest part of the day.",
+      ],
+      "mobile-crane": [
+        "The UAE's mandatory midday work break, 12:30 to 3:00 pm from mid-June to mid-September, has a strong effect on crane schedules in Al Ain because inland temperatures are among the highest in the country. Outdoor lifts are therefore planned for the morning or late afternoon.",
+        "Typical Al Ain crane jobs include steel erection for institutional and residential construction, machinery installation in Al Ain Industrial City, and heavy lifts for the region's agricultural and utility projects. Because Al Ain is served from our Abu Dhabi fleet, allow a day for mobilization, and more notice for capacities above 100 tons.",
+      ],
+      telehandler: [
+        "On Al Ain's residential and institutional construction sites, including villas, schools, and healthcare buildings, telehandlers are used to place material at height. The region's farms and landscaping contractors also use them with bucket and fork attachments.",
+        "Farm and landscaping sites are soft or sandy ground, which calls for four-wheel-drive, rough-terrain units. For villa and low-rise projects, a compact 7 m telehandler is usually the most efficient choice. For a project that runs for months, monthly terms cost much less than day hire.",
+      ],
+      "man-lift": [
+        "Beyond building maintenance, man lifts in Al Ain are used for landscaping and palm-tree maintenance. Articulating boom lifts give crews safe access to prune and treat tall date palms in public spaces, farms, and private estates.",
+        "Workshop and warehouse maintenance in Sanaiya and Al Ain Industrial City usually calls for electric or diesel scissor lifts. Exterior building work suits telescopic booms. Because of the inland heat, we recommend booking outdoor platform work for early starts, outside the midday break period.",
+      ],
+    },
   },
 ]
 

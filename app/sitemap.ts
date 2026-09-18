@@ -5,11 +5,19 @@ import { locations } from "@/lib/locations"
 import { serviceAreaPages } from "@/lib/service-areas"
 import { getAllPosts } from "@/lib/blog/posts"
 
+/**
+ * When page content last materially changed. Bump this when you edit page copy.
+ * It must NOT be `new Date()`: a lastmod that changes on every request tells
+ * Google the field is unreliable, and it then ignores lastmod for the whole site
+ * — which slows the crawl of new pages.
+ */
+const CONTENT_UPDATED = new Date("2026-09-19")
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
+  const now = CONTENT_UPDATED
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${siteConfig.url}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: siteConfig.url, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${siteConfig.url}/equipment`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${siteConfig.url}/equipment/forklift`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteConfig.url}/equipment/mobile-crane`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },

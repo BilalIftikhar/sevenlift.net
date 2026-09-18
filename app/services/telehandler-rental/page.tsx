@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/json-ld"
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
+import { cityLinksForEquipment } from "@/lib/service-areas"
 
 const path = "/services/telehandler-rental"
 
@@ -108,8 +109,7 @@ export default function TelehandlerRentalPage() {
         ]}
         areasHeading="Telehandler Coverage Across the UAE"
         areas={[
-          { name: "Abu Dhabi & Musaffah", href: "/locations/abu-dhabi-musaffah" },
-          { name: "Dubai & JAFZA", href: "/locations/dubai" },
+          ...cityLinksForEquipment("telehandler"),
           { name: "All Coverage Areas", href: "/locations" },
           { name: "Full Telehandler Fleet Specs", href: "/equipment/telehandler" },
         ]}

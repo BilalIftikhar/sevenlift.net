@@ -35,9 +35,6 @@ export const metadata: Metadata = {
   publisher: siteConfig.legalName,
   applicationName: siteConfig.name,
   category: "Heavy Equipment Rental",
-  alternates: {
-    canonical: siteConfig.url,
-  },
   icons: {
     icon: [
       { url: "/icon-light-32x32.png", media: "(prefers-color-scheme: light)" },

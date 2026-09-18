@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/json-ld"
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
+import { cityLinksForEquipment } from "@/lib/service-areas"
 
 const path = "/services/man-lift-access"
 
@@ -108,8 +109,7 @@ export default function ManLiftAccessPage() {
         ]}
         areasHeading="Man Lift Coverage Across the UAE"
         areas={[
-          { name: "Abu Dhabi & Musaffah", href: "/locations/abu-dhabi-musaffah" },
-          { name: "Dubai & JAFZA", href: "/locations/dubai" },
+          ...cityLinksForEquipment("man-lift"),
           { name: "All Coverage Areas", href: "/locations" },
           { name: "Full Man Lift Fleet Specs", href: "/equipment/man-lift" },
         ]}

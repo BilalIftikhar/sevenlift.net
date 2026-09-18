@@ -1,7 +1,7 @@
 import type { Faq } from "@/lib/faqs"
-import { locations, type LocationSummary } from "@/lib/locations"
+import { locations, type EquipmentKey, type LocationSummary } from "@/lib/locations"
 import { siteConfig } from "@/lib/site-config"
-import type { BulletGroup, SpecRow, AreaLink } from "@/components/service-landing-template"
+import type { BulletGroup, SpecRow, AreaLink, LocalContext } from "@/components/service-landing-template"
 
 /**
  * Generates the service × city landing pages that give the site UAE-wide
@@ -13,7 +13,7 @@ import type { BulletGroup, SpecRow, AreaLink } from "@/components/service-landin
  */
 
 export type EquipmentType = {
-  key: string
+  key: EquipmentKey
   /** URL prefix, combined with the city slug: `${slugBase}-${citySlug}`. */
   slugBase: string
   /** Singular noun, mid-sentence: "forklift". */
@@ -168,6 +168,7 @@ export type ServiceAreaPage = {
   keywords: string[]
   specs: SpecRow[]
   bulletGroups: BulletGroup[]
+  localContext: LocalContext
   areasHeading: string
   areas: AreaLink[]
   faqs: Faq[]
@@ -201,7 +202,7 @@ function buildFaqs(equipment: EquipmentType, location: LocationSummary): Faq[] {
     },
   ]
 
-  const equipmentSpecific: Record<string, Faq> = {
+  const equipmentSpecific: Record<EquipmentKey, Faq> = {
     forklift: {
       question: `Can you supply electric ${equipment.nounPlural} for indoor work in ${city}?`,
       answer: `Yes. We supply electric ${equipment.nounPlural} with non-marking tyres for work on finished floors, cold stores, and food-grade facilities — the usual requirement for indoor warehouse operations across ${city}.`,
@@ -263,7 +264,23 @@ function buildBulletGroups(equipment: EquipmentType, location: LocationSummary):
   ]
 }
 
+export function localContextFor(equipment: EquipmentType, location: LocationSummary): LocalContext {
+  return {
+    heading: `Renting a ${equipment.label} in ${location.cityName}: What to Plan For`,
+    paragraphs: location.equipmentNotes[equipment.key],
+  }
+}
+
 function buildAreaLinks(equipment: EquipmentType, location: LocationSummary): AreaLink[] {
+  // The other three machines in the same city — cross-links within the matrix
+  // so every page is reachable from its siblings, not only from /services.
+  const siblingLinks: AreaLink[] = equipmentTypes
+    .filter((other) => other.key !== equipment.key)
+    .map((other) => ({
+      name: `${other.label} Rental ${location.cityName}`,
+      href: serviceAreaHref(other, location),
+    }))
+
   const nearbyLinks: AreaLink[] = location.nearby
     .map((slug) => locations.find((l) => l.slug === slug))
     .filter((l): l is LocationSummary => Boolean(l))
@@ -275,6 +292,7 @@ function buildAreaLinks(equipment: EquipmentType, location: LocationSummary): Ar
   return [
     { name: `All Equipment in ${location.cityName}`, href: location.href },
     { name: `${equipment.label} Specifications`, href: equipment.equipmentHref },
+    ...siblingLinks,
     ...nearbyLinks,
     { name: "Full UAE Coverage", href: "/locations" },
   ]
@@ -320,6 +338,7 @@ function buildPage(equipment: EquipmentType, location: LocationSummary): Service
       { label: "Support", value: "24/7" },
     ],
     bulletGroups: buildBulletGroups(equipment, location),
+    localContext: localContextFor(equipment, location),
     areasHeading: `${equipment.label} Delivery Across ${city}`,
     areas: buildAreaLinks(equipment, location),
     faqs: buildFaqs(equipment, location),
@@ -370,6 +389,20 @@ export function equipmentLinksForLocation(location: LocationSummary) {
     key: equipment.key,
     label: `${equipment.label} Rental`,
     capacityRange: equipment.capacityRange,
+    href: serviceAreaHref(equipment, location),
+  }))
+}
+
+/**
+ * Every city page for one equipment type, for the /equipment spec pages and the
+ * hand-written service hubs. Resolves hand-written URLs the same way as the
+ * /services grid.
+ */
+export function cityLinksForEquipment(key: EquipmentKey): AreaLink[] {
+  const equipment = equipmentTypes.find((type) => type.key === key)
+  if (!equipment) return []
+  return locations.map((location) => ({
+    name: `${equipment.label} Rental ${location.cityName}`,
     href: serviceAreaHref(equipment, location),
   }))
 }
