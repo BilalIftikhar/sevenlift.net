@@ -25,7 +25,9 @@ export const siteConfig = {
   phoneE164: "+971566390908",
   telHref: "tel:+971566390908",
   whatsappNumber: "971566390908",
-  whatsappHref: "https://wa.me/971566390908",
+  // The endpoint wa.me redirects to. Linking it directly saves visitors a
+  // redirect hop and clears "links to redirect" warnings in site audits.
+  whatsappHref: "https://api.whatsapp.com/send?phone=971566390908",
   email: "info@sevenlift.net",
 
   address: {
@@ -53,7 +55,7 @@ export const siteConfig = {
 } as const
 
 export function waLink(message: string) {
-  return `${siteConfig.whatsappHref}?text=${encodeURIComponent(message)}`
+  return `${siteConfig.whatsappHref}&text=${encodeURIComponent(message)}`
 }
 
 export type Emirate =

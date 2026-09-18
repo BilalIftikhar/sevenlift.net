@@ -10,7 +10,10 @@ export type RelatedLink = { title: string; href: string }
 
 export type BlogPost = {
   slug: string
+  /** On-page headline (H1 and schema headline). */
   title: string
+  /** Shorter <title> for search results, when `title` would be truncated. */
+  seoTitle?: string
   description: string
   category: string
   datePublished: string
