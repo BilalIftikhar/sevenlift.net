@@ -76,7 +76,25 @@ export function organizationSchema(): WithContext<Record<string, unknown>> {
     alternateName: siteConfig.shortName,
     url: siteConfig.url,
     logo: `${siteConfig.url}/images/brand/logo-icon-512.png`,
+    description: siteConfig.description,
     foundingDate: `${siteConfig.foundingYear}`,
+    email: siteConfig.email,
+    telephone: siteConfig.phoneE164,
+    address: baseAddress,
+    // Plain statements of what the company is an authority on. Answer engines
+    // use these to decide which entity to cite for a topic.
+    knowsAbout: [
+      "Forklift rental",
+      "Mobile crane rental",
+      "Telehandler rental",
+      "Man lift and aerial work platform rental",
+      "Lift planning and rigging",
+      "Heavy equipment rental in Abu Dhabi",
+      "Heavy equipment rental in the UAE",
+    ],
+    areaServed: ["Abu Dhabi", "Dubai", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain", "Al Ain"].map(
+      (name) => ({ "@type": "City", name }),
+    ),
     sameAs: Object.values(siteConfig.social),
     contactPoint: {
       "@type": "ContactPoint",
@@ -184,5 +202,16 @@ export function blogPostingSchema(opts: {
         url: `${siteConfig.url}/images/brand/logo-icon-512.png`,
       },
     },
+  }
+}
+
+export function aboutPageSchema(url: string): WithContext<Record<string, unknown>> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    url,
+    name: `About ${siteConfig.name}`,
+    about: { "@id": `${siteConfig.url}/#organization` },
+    isPartOf: { "@id": `${siteConfig.url}/#website` },
   }
 }

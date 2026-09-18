@@ -6,6 +6,7 @@ import { breadcrumbSchema, serviceSchema, faqSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { locations, getLocationBySlug } from "@/lib/locations"
 import { equipmentLinksForLocation } from "@/lib/service-areas"
+import { abuDhabiAreas } from "@/lib/abu-dhabi-areas"
 import { siteConfig } from "@/lib/site-config"
 
 type PageProps = { params: Promise<{ slug: string }> }
@@ -35,13 +36,19 @@ export default async function LocationPage({ params }: PageProps) {
   const location = getLocationBySlug(slug)
   if (!location) notFound()
 
-  const nearbyLinks = location.nearby
+  const cityLinks = location.nearby
     .map((nearbySlug) => getLocationBySlug(nearbySlug))
     .filter((nearby) => Boolean(nearby))
     .map((nearby) => ({
       name: `Equipment Rental ${nearby!.cityName}`,
       href: nearby!.href,
     }))
+
+  // The Abu Dhabi hub is the parent of the district pages, so it links to all of them.
+  const isAbuDhabi = location.slug === "abu-dhabi-musaffah"
+  const nearbyLinks = isAbuDhabi
+    ? [...abuDhabiAreas.map((area) => ({ name: `Equipment Rental ${area.name}`, href: area.href })), ...cityLinks]
+    : cityLinks
 
   return (
     <>
@@ -78,6 +85,7 @@ export default async function LocationPage({ params }: PageProps) {
         whyPoints={location.whyPoints}
         faqs={location.faqs}
         nearbyLinks={nearbyLinks}
+        nearbyHeading={isAbuDhabi ? "Abu Dhabi Areas We Serve" : undefined}
         ctaHeading={location.ctaHeading}
         ctaSubheading={location.ctaSubheading}
         whatsappMessage={location.whatsappMessage}

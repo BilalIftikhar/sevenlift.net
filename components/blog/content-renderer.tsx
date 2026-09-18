@@ -24,6 +24,39 @@ export function ContentRenderer({ blocks }: { blocks: ContentBlock[] }) {
             </ul>
           )
         }
+        if (block.type === "table") {
+          return (
+            <div key={index} className="overflow-x-auto rounded-xl border border-border">
+              <table className="w-full min-w-[32rem] text-left text-sm">
+                {block.caption && (
+                  <caption className="bg-secondary/50 px-4 py-3 text-left font-bold text-foreground">
+                    {block.caption}
+                  </caption>
+                )}
+                <thead className="bg-secondary/50">
+                  <tr>
+                    {block.headers.map((header) => (
+                      <th key={header} scope="col" className="px-4 py-3 font-bold text-foreground">
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {block.rows.map((row) => (
+                    <tr key={row.join("|")}>
+                      {row.map((cell, cellIndex) => (
+                        <td key={cellIndex} className="px-4 py-3 font-medium text-muted-foreground">
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )
+        }
         if (block.type === "quote") {
           return (
             <blockquote

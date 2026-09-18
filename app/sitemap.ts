@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next"
 import { siteConfig } from "@/lib/site-config"
 import { services } from "@/lib/services"
 import { locations } from "@/lib/locations"
+import { abuDhabiAreas } from "@/lib/abu-dhabi-areas"
 import { serviceAreaPages } from "@/lib/service-areas"
 import { getAllPosts } from "@/lib/blog/posts"
 
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteConfig.url}/locations`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteConfig.url}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${siteConfig.url}/about`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
     { url: `${siteConfig.url}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
   ]
 
@@ -53,6 +55,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: location.primary ? 0.95 : 0.85,
   }))
 
+  const abuDhabiAreaRoutes: MetadataRoute.Sitemap = abuDhabiAreas.map((area) => ({
+    url: `${siteConfig.url}${area.href}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }))
+
   const blogRoutes: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
     url: `${siteConfig.url}/blog/${post.slug}`,
     lastModified: new Date(post.dateModified ?? post.datePublished),
@@ -65,6 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...serviceRoutes,
     ...serviceAreaRoutes,
     ...locationRoutes,
+    ...abuDhabiAreaRoutes,
     ...blogRoutes,
   ]
 

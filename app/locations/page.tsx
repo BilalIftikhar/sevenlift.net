@@ -9,6 +9,7 @@ import { Reveal } from "@/components/reveal"
 import { breadcrumbSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { primaryLocations, secondaryLocations } from "@/lib/locations"
+import { abuDhabiAreas } from "@/lib/abu-dhabi-areas"
 import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = pageMetadata({
@@ -78,6 +79,28 @@ export default function LocationsPage() {
                   </div>
                 </Link>
               </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mb-10 max-w-3xl space-y-3">
+            <p className="text-sm font-bold uppercase tracking-widest text-accent">Our Home Emirate</p>
+            <h2 className="text-foreground">Abu Dhabi, District by District</h2>
+            <p className="font-medium text-muted-foreground">
+              Our yard is in Musaffah, so we cover Abu Dhabi most closely. Each district page explains what equipment
+              work there involves: access, site rules, ground conditions, and the machines that suit them.
+            </p>
+          </Reveal>
+
+          <div className="mb-16 flex flex-wrap gap-3">
+            {abuDhabiAreas.map((area) => (
+              <Link
+                key={area.slug}
+                href={area.href}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/50 hover:text-accent"
+              >
+                {area.name}
+                <ArrowRight size={14} />
+              </Link>
             ))}
           </div>
 

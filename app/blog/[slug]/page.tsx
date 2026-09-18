@@ -91,6 +91,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <Calendar size={15} />
                 {formatDate(post.datePublished)}
               </span>
+              {post.dateModified && post.dateModified !== post.datePublished && (
+                <span>Updated {formatDate(post.dateModified)}</span>
+              )}
               <span className="flex items-center gap-1.5">
                 <Clock size={15} />
                 {post.readingTime}
