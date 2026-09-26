@@ -9,15 +9,17 @@ import { cityLinksForEquipment } from "@/lib/service-areas"
 const path = "/services/mobile-crane-rental-uae"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Mobile Crane Rental UAE | 25–500 Ton Cranes",
+  title: "Crane Rental UAE | Mobile Cranes 25–500 Ton",
   description:
-    "Mobile crane rental across the UAE, 25–500 ton all-terrain cranes with certified riggers. Abu Dhabi, Dubai & every emirate. Free lift-plan consultation.",
+    "Crane rental company in the UAE: 25–500 ton mobile cranes with operator & riggers, in Abu Dhabi, Dubai & every emirate. Free lift plan. Quote on WhatsApp.",
   path,
   image: "/images/mobile-crane.jpeg",
   keywords: [
     "mobile crane rental Musaffah",
     "mobile crane rental Abu Dhabi",
     "crane rental UAE",
+    "crane rental companies in UAE",
+    "mobile cranes for hire UAE",
     "crane rental Dubai",
     "25 ton crane rental",
     "500 ton crane rental UAE",

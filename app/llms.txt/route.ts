@@ -2,6 +2,8 @@ import { siteConfig } from "@/lib/site-config"
 import { services } from "@/lib/services"
 import { locations } from "@/lib/locations"
 import { abuDhabiAreas } from "@/lib/abu-dhabi-areas"
+import { cityDistricts } from "@/lib/city-districts"
+import { specialtyServices } from "@/lib/specialty-services"
 import { getAllPosts } from "@/lib/blog/posts"
 
 export const dynamic = "force-static"
@@ -27,6 +29,7 @@ export function GET() {
     "",
     "## Services",
     ...services.map((service) => link(service.title, service.href, service.capacityRange)),
+    ...specialtyServices.map((service) => link(service.label, service.href)),
     link("All services", "/services", "every equipment type in every emirate"),
     "",
     "## Equipment specifications",
@@ -37,6 +40,9 @@ export function GET() {
     "",
     "## Abu Dhabi districts",
     ...abuDhabiAreas.map((area) => link(area.title, area.href)),
+    "",
+    "## Dubai and Sharjah districts",
+    ...cityDistricts.map((district) => link(district.title, district.href)),
     "",
     "## Emirates",
     ...locations.map((location) => link(location.title, location.href)),

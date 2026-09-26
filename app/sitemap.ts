@@ -3,6 +3,8 @@ import { siteConfig } from "@/lib/site-config"
 import { services } from "@/lib/services"
 import { locations } from "@/lib/locations"
 import { abuDhabiAreas } from "@/lib/abu-dhabi-areas"
+import { cityDistricts } from "@/lib/city-districts"
+import { specialtyServices } from "@/lib/specialty-services"
 import { serviceAreaPages } from "@/lib/service-areas"
 import { getAllPosts } from "@/lib/blog/posts"
 
@@ -12,7 +14,7 @@ import { getAllPosts } from "@/lib/blog/posts"
  * Google the field is unreliable, and it then ignores lastmod for the whole site
  * — which slows the crawl of new pages.
  */
-const CONTENT_UPDATED = new Date("2026-09-19")
+const CONTENT_UPDATED = new Date("2026-09-27")
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = CONTENT_UPDATED
@@ -39,6 +41,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.95,
   }))
 
+  const specialtyRoutes: MetadataRoute.Sitemap = specialtyServices.map((service) => ({
+    url: `${siteConfig.url}${service.href}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.9,
+  }))
+
   // Generated service × city pages — the UAE-wide long-tail coverage.
   const serviceAreaRoutes: MetadataRoute.Sitemap = serviceAreaPages.map((page) => ({
     url: `${siteConfig.url}${page.href}`,
@@ -55,7 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: location.primary ? 0.95 : 0.85,
   }))
 
-  const abuDhabiAreaRoutes: MetadataRoute.Sitemap = abuDhabiAreas.map((area) => ({
+  const districtRoutes: MetadataRoute.Sitemap = [...abuDhabiAreas, ...cityDistricts].map((area) => ({
     url: `${siteConfig.url}${area.href}`,
     lastModified: now,
     changeFrequency: "monthly",
@@ -72,9 +81,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const all = [
     ...staticRoutes,
     ...serviceRoutes,
+    ...specialtyRoutes,
     ...serviceAreaRoutes,
     ...locationRoutes,
-    ...abuDhabiAreaRoutes,
+    ...districtRoutes,
     ...blogRoutes,
   ]
 

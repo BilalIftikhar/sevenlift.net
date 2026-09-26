@@ -3,6 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { trackLead } from "@/components/lead-tracking"
 import { waLink } from "@/lib/site-config"
 
 type FormFields = {
@@ -37,6 +38,7 @@ export function ContactForm({ showEquipmentSelect = false }: { showEquipmentSele
       `Phone: ${formData.phone}`,
       `Email: ${formData.email}`,
     ].filter(Boolean)
+    trackLead("form", "contact-form")
     window.open(waLink(lines.join("\n")), "_blank")
   }
 

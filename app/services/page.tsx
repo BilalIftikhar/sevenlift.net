@@ -10,6 +10,7 @@ import { breadcrumbSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { services } from "@/lib/services"
 import { equipmentCityLinksByEquipment } from "@/lib/service-areas"
+import { specialtyServices } from "@/lib/specialty-services"
 import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = pageMetadata({
@@ -123,6 +124,24 @@ export default function ServicesPage() {
                   </div>
                 </Reveal>
               ))}
+
+              <Reveal className="rounded-xl border border-border bg-card p-7">
+                <div className="mb-5">
+                  <h3 className="text-xl font-extrabold text-foreground">Specialist Equipment</h3>
+                </div>
+                <div className="flex flex-wrap gap-2.5">
+                  {specialtyServices.map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={service.href}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/50 px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-accent/50 hover:text-accent"
+                    >
+                      {service.label}
+                      <ArrowRight size={13} />
+                    </Link>
+                  ))}
+                </div>
+              </Reveal>
             </div>
           </section>
 

@@ -9,13 +9,16 @@ import { cityLinksForEquipment } from "@/lib/service-areas"
 const path = "/services/man-lift-access"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Man Lift Rental UAE | Scissor & Boom Lifts",
+  title: "Manlift Rental UAE | Scissor & Boom Lifts, 10–50 m",
   description:
-    "Man lift and aerial access rental across the UAE. Scissor and boom lifts, 10–50 m working height for elevated maintenance and construction work.",
+    "Manlift rental across the UAE: scissor lifts, boom lifts & man baskets, 10–50 m working height, with operator. Same-day in Abu Dhabi & Dubai.",
   path,
   image: "/images/fleet/scissor-lift.jpg",
   keywords: [
     "man lift rental UAE",
+    "manlift rental UAE",
+    "manlift Abu Dhabi",
+    "man basket rental",
     "aerial platform rental Abu Dhabi",
     "scissor lift rental Dubai",
     "boom lift rental UAE",
@@ -24,6 +27,11 @@ export const metadata: Metadata = pageMetadata({
 })
 
 const faqs = [
+  {
+    question: "Is a manlift the same as a man lift or a man basket?",
+    answer:
+      "Yes, they are names for the same family of machines. \"Manlift\" and \"man lift\" both mean a powered platform that lifts people to height, usually a scissor lift or a boom lift. A man basket is a work cage lifted by a telehandler or crane; we supply those too when a self-propelled platform cannot reach the spot.",
+  },
   {
     question: "What is the difference between a scissor lift and a boom lift?",
     answer:
@@ -69,7 +77,7 @@ export default function ManLiftAccessPage() {
       <ServiceLandingTemplate
         eyebrow="Man Lift & Aerial Access · UAE-Wide"
         title="Man Lift & Aerial Access Rental Across the UAE"
-        intro="Scissor lifts and boom lifts from 10m to 50m working height for safe elevated maintenance, installation, and construction work — deployed across Abu Dhabi, Dubai, and every emirate."
+        intro="Manlift rental across the UAE: scissor lifts and boom lifts from 10m to 50m working height for safe elevated maintenance, installation, and construction work — deployed across Abu Dhabi, Dubai, and every emirate."
         heroImage="/images/fleet/scissor-lift.jpg"
         heroImageAlt="Scissor lift being used for elevated maintenance work in a UAE warehouse"
         specs={[
@@ -110,6 +118,8 @@ export default function ManLiftAccessPage() {
         areasHeading="Man Lift Coverage Across the UAE"
         areas={[
           ...cityLinksForEquipment("man-lift"),
+          { name: "Scissor Lift Rental", href: "/services/scissor-lift-rental" },
+          { name: "Boom Lift Rental", href: "/services/boom-lift-rental" },
           { name: "All Coverage Areas", href: "/locations" },
           { name: "Full Man Lift Fleet Specs", href: "/equipment/man-lift" },
         ]}

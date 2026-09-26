@@ -13,7 +13,7 @@ import { siteConfig, waLink } from "@/lib/site-config"
 export function StickyMobileCta() {
   return (
     <>
-      <div className="animate-slide-up fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-black/10 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] md:hidden">
+      <div data-lead-placement="sticky-mobile" className="animate-slide-up fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-black/10 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] md:hidden">
         <a
           href={siteConfig.telHref}
           className="flex items-center justify-center gap-2 bg-primary py-3.5 text-sm font-bold text-primary-foreground transition-colors active:bg-primary/90"
@@ -37,6 +37,7 @@ export function StickyMobileCta() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with Seven Lift on WhatsApp"
+        data-lead-placement="floating-whatsapp"
         className="animate-pulse-ring fixed bottom-6 right-6 z-50 hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:scale-110 md:flex"
       >
         <WhatsAppIcon size={28} />
