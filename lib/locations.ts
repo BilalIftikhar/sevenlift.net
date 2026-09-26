@@ -154,10 +154,11 @@ export const locations: LocationSummary[] = [
 
     metaTitle: "Heavy Equipment Rental Abu Dhabi | Musaffah",
     metaDescription:
-      "Forklift, crane, telehandler & man lift rental in Abu Dhabi. Fleet based in Musaffah, serving ICAD, KIZAD & Khalifa Port. Same-day dispatch, 24/7.",
+      "Forklift, crane, telehandler & man lift rental in Abu Dhabi. Fleet based in Musaffah (Mussafah), serving ICAD, KIZAD & Khalifa Port. Same-day dispatch, 24/7.",
     keywords: [
       "heavy equipment rental Abu Dhabi",
       "forklift rental Musaffah",
+      "equipment rental Mussafah",
       "crane rental Abu Dhabi",
       "equipment rental ICAD",
       "equipment rental KIZAD",
@@ -282,7 +283,7 @@ export const locations: LocationSummary[] = [
 
     metaTitle: "Heavy Equipment Rental Dubai | JAFZA & Al Quoz",
     metaDescription:
-      "Forklift, crane, telehandler & man lift rental in Dubai. Serving JAFZA, Al Quoz, DIP & Dubai Industrial City. Certified operators, 24/7 deployment.",
+      "Forklift, crane, telehandler & manlift rental in Dubai: JAFZA, Al Quoz, DIP & Dubai Industrial City. Same-day delivery, certified operators, 24/7.",
     keywords: [
       "heavy equipment rental Dubai",
       "forklift rental Dubai",

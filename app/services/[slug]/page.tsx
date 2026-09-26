@@ -5,24 +5,37 @@ import { JsonLd } from "@/components/json-ld"
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { serviceAreaPages, getServiceAreaPage } from "@/lib/service-areas"
+import { specialtyServices, getSpecialtyService, type SpecialtyService } from "@/lib/specialty-services"
 import { siteConfig } from "@/lib/site-config"
 
 type PageProps = { params: Promise<{ slug: string }> }
 
 /**
- * Generates the service × city landing pages. The four hand-written pages under
+ * Generates the service × city landing pages, plus the UAE-wide specialty
+ * pages (scissor lift, boom lift, electric forklift). The four hand-written pages under
  * app/services/ (forklift-rental-abu-dhabi, mobile-crane-rental-uae,
  * telehandler-rental, man-lift-access) are static route segments, which take
  * precedence over this dynamic route, and are excluded from `serviceAreaPages`.
  */
 export function generateStaticParams() {
-  return serviceAreaPages.map((page) => ({ slug: page.slug }))
+  return [...serviceAreaPages, ...specialtyServices].map((page) => ({ slug: page.slug }))
 }
 
 export const dynamicParams = false
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
+  const specialty = getSpecialtyService(slug)
+  if (specialty) {
+    return pageMetadata({
+      title: specialty.metaTitle,
+      description: specialty.metaDescription,
+      path: specialty.href,
+      image: specialty.heroImage,
+      keywords: specialty.keywords,
+    })
+  }
+
   const page = getServiceAreaPage(slug)
   if (!page) return {}
 
@@ -37,6 +50,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ServiceAreaPage({ params }: PageProps) {
   const { slug } = await params
+  const specialty = getSpecialtyService(slug)
+  if (specialty) return <SpecialtyServicePage service={specialty} />
+
   const page = getServiceAreaPage(slug)
   if (!page) notFound()
 
@@ -76,6 +92,48 @@ export default async function ServiceAreaPage({ params }: PageProps) {
         ctaHeading={page.ctaHeading}
         ctaSubheading={page.ctaSubheading}
         whatsappMessage={page.whatsappMessage}
+      />
+    </>
+  )
+}
+
+function SpecialtyServicePage({ service }: { service: SpecialtyService }) {
+  const url = `${siteConfig.url}${service.href}`
+
+  return (
+    <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", url: siteConfig.url },
+            { name: "Services", url: `${siteConfig.url}/services` },
+            { name: service.label, url },
+          ]),
+          serviceSchema({
+            name: service.h1,
+            serviceType: service.serviceType,
+            description: service.metaDescription,
+            areaServed: ["Abu Dhabi", "Dubai", "Sharjah", "United Arab Emirates"],
+            url,
+          }),
+          faqSchema(service.faqs),
+        ]}
+      />
+      <ServiceLandingTemplate
+        eyebrow={service.eyebrow}
+        title={service.h1}
+        intro={service.intro}
+        heroImage={service.heroImage}
+        heroImageAlt={service.heroImageAlt}
+        specs={service.specs}
+        bulletGroups={service.bulletGroups}
+        localContext={service.localContext}
+        areasHeading={service.areasHeading}
+        areas={service.areas}
+        faqs={service.faqs}
+        ctaHeading={service.ctaHeading}
+        ctaSubheading={service.ctaSubheading}
+        whatsappMessage={service.whatsappMessage}
       />
     </>
   )

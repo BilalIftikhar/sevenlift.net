@@ -1,12 +1,18 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
+import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { JsonLd } from "@/components/json-ld"
+import { LeadTracking } from "@/components/lead-tracking"
 import { StickyMobileCta } from "@/components/sticky-mobile-cta"
 import { organizationSchema, websiteSchema } from "@/lib/schema"
 import { siteConfig } from "@/lib/site-config"
 import "./globals.css"
+
+// Optional GA4 property. Vercel Analytics only records custom (lead) events on
+// paid plans, so GA4 is the free way to count leads per page.
+const gaId = process.env.NEXT_PUBLIC_GA_ID
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" })
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
@@ -90,7 +96,16 @@ export default function RootLayout({
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         {children}
         <StickyMobileCta />
+        <LeadTracking />
         <Analytics />
+        {gaId && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
+            <Script id="ga4" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${gaId}');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   )

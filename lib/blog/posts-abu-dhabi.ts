@@ -101,10 +101,12 @@ export const abuDhabiPosts: BlogPost[] = [
   {
     slug: "scissor-lift-vs-boom-lift-abu-dhabi",
     title: "Scissor Lift vs Boom Lift: Choosing a Man Lift",
+    seoTitle: "Scissor Lift vs Boom Lift vs Manlift: Which to Rent",
     description:
       "When a scissor lift is enough and when you need an articulating or telescopic boom, with examples from Abu Dhabi fit-out, facade and plant jobs.",
     category: "Equipment Guides",
     datePublished: "2026-09-19",
+    dateModified: "2026-09-27",
     readingTime: "6 min read",
     heroImage: "/images/fleet/scissor-lift.jpg",
     heroImageAlt: "Scissor lift raised to ceiling height",
@@ -113,6 +115,12 @@ export const abuDhabiPosts: BlogPost[] = [
         type: "paragraph",
         text:
           "\"Man lift\" covers several very different machines. Choosing the wrong one is the most common reason work at height stalls: a scissor lift that can't reach over the racking, or a boom lift that won't fit through the loading-bay door. Here's how to choose.",
+      },
+      { type: "heading", level: 2, text: "Manlift vs Scissor Lift vs Boom Lift: Are They Different?" },
+      {
+        type: "paragraph",
+        text:
+          "\"Manlift\" (or \"man lift\") is the umbrella name for any powered platform that lifts people to work at height. Scissor lifts and boom lifts are the two main types of manlift, so \"manlift vs scissor lift\" is really a question of which kind of manlift you need. A man basket is different again: a work cage lifted by a telehandler or crane, used where a self-propelled platform can't get close.",
       },
       { type: "heading", level: 2, text: "Scissor Lifts: Straight Up, Big Platform" },
       {
@@ -185,6 +193,8 @@ export const abuDhabiPosts: BlogPost[] = [
       },
     ],
     relatedLinks: [
+      { title: "Scissor Lift Rental", href: "/services/scissor-lift-rental" },
+      { title: "Boom Lift Rental", href: "/services/boom-lift-rental" },
       { title: "Man Lift Rental in Abu Dhabi", href: "/services/man-lift-rental-abu-dhabi" },
       { title: "Man Lift & Aerial Platform Fleet", href: "/equipment/man-lift" },
       { title: "Equipment Rental on Al Reem Island", href: "/locations/abu-dhabi/al-reem-island" },

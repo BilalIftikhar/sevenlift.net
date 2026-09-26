@@ -7,6 +7,7 @@ import { pageMetadata } from "@/lib/seo"
 import { locations, getLocationBySlug } from "@/lib/locations"
 import { equipmentLinksForLocation } from "@/lib/service-areas"
 import { abuDhabiAreas } from "@/lib/abu-dhabi-areas"
+import { districtsForCity } from "@/lib/city-districts"
 import { siteConfig } from "@/lib/site-config"
 
 type PageProps = { params: Promise<{ slug: string }> }
@@ -44,11 +45,13 @@ export default async function LocationPage({ params }: PageProps) {
       href: nearby!.href,
     }))
 
-  // The Abu Dhabi hub is the parent of the district pages, so it links to all of them.
+  // An emirate page is the parent of its district pages, so it links to all of them.
   const isAbuDhabi = location.slug === "abu-dhabi-musaffah"
-  const nearbyLinks = isAbuDhabi
-    ? [...abuDhabiAreas.map((area) => ({ name: `Equipment Rental ${area.name}`, href: area.href })), ...cityLinks]
-    : cityLinks
+  const districts = isAbuDhabi ? abuDhabiAreas : districtsForCity(location.slug)
+  const nearbyLinks = [
+    ...districts.map((area) => ({ name: `Equipment Rental ${area.name}`, href: area.href })),
+    ...cityLinks,
+  ]
 
   return (
     <>
@@ -85,7 +88,7 @@ export default async function LocationPage({ params }: PageProps) {
         whyPoints={location.whyPoints}
         faqs={location.faqs}
         nearbyLinks={nearbyLinks}
-        nearbyHeading={isAbuDhabi ? "Abu Dhabi Areas We Serve" : undefined}
+        nearbyHeading={districts.length > 0 ? `${location.cityName} Areas We Serve` : undefined}
         ctaHeading={location.ctaHeading}
         ctaSubheading={location.ctaSubheading}
         whatsappMessage={location.whatsappMessage}

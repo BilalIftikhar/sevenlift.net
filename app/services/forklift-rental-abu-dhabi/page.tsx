@@ -10,14 +10,16 @@ import { cityLinksForEquipment, equipmentTypes, localContextFor } from "@/lib/se
 const path = "/services/forklift-rental-abu-dhabi"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Forklift Rental Abu Dhabi | Musaffah & ICAD",
+  title: "Forklift Rental Abu Dhabi | Same-Day, Musaffah & ICAD",
   description:
-    "Forklift rental in Abu Dhabi, 3–25 ton diesel & electric with certified operators. Serving Musaffah, ICAD & KIZAD. Same-day deployment, flexible terms.",
+    "Forklift rental in Abu Dhabi, 3–25 ton diesel & electric, with certified operator. Same-day delivery from our Mussafah yard to ICAD & KIZAD. Daily to monthly.",
   path,
   image: "/images/fleet/forklift-warehouse.jpg",
   keywords: [
     "forklift rental Abu Dhabi",
     "forklift rental Musaffah",
+    "forklift rental Mussafah",
+    "forklift hire Abu Dhabi",
     "forklift rental ICAD",
     "forklift rental Khalifa Industrial Zone",
     "3 ton forklift rental Abu Dhabi",
@@ -75,7 +77,7 @@ export default function ForkliftRentalAbuDhabiPage() {
       <ServiceLandingTemplate
         eyebrow="Forklift Rental · Abu Dhabi"
         title="Forklift Rental in Abu Dhabi — Musaffah, ICAD & KIZAD"
-        intro="3 to 25 ton diesel and electric forklifts, delivered fast to Musaffah Industrial City, ICAD, and Khalifa Industrial Zone Abu Dhabi (KIZAD). Certified operators, flexible terms, and same-day deployment for warehouses, factories, and ports."
+        intro="3 to 25 ton diesel and electric forklifts, dispatched from our yard in Musaffah (Mussafah) Industrial City to ICAD and Khalifa Industrial Zone Abu Dhabi (KIZAD). Certified operators, flexible terms, and same-day deployment for warehouses, factories, and ports."
         heroImage="/images/fleet/forklift-warehouse.jpg"
         heroImageAlt="Forklift operating inside an Abu Dhabi warehouse"
         specs={[
@@ -117,8 +119,9 @@ export default function ForkliftRentalAbuDhabiPage() {
         areasHeading="Forklift Rental Across Abu Dhabi & the UAE"
         areas={[
           { name: "Musaffah Industrial City", href: "/locations/abu-dhabi-musaffah" },
-          { name: "ICAD 1, 2 & 3", href: "/locations/abu-dhabi-musaffah" },
-          { name: "Khalifa Industrial Zone (KIZAD)", href: "/locations/abu-dhabi-musaffah" },
+          { name: "ICAD 1, 2 & 3", href: "/locations/abu-dhabi/icad" },
+          { name: "Khalifa Industrial Zone (KIZAD)", href: "/locations/abu-dhabi/kizad-khalifa-port" },
+          { name: "Electric Forklift Rental", href: "/services/electric-forklift-rental" },
           ...cityLinksForEquipment("forklift").filter((link) => link.href !== path),
           { name: "Full Forklift Fleet Specs", href: "/equipment/forklift" },
         ]}

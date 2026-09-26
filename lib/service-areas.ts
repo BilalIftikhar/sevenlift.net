@@ -33,7 +33,20 @@ export type EquipmentType = {
   useCase: string
   /** Typical lead time phrasing. */
   leadTime: string
+  /** Lead time in a few words, for meta descriptions. */
+  leadTimeShort: string
   extraSpec: SpecRow
+  /**
+   * Selling point for the <title> on primary-city pages, where the searches are
+   * competitive and the result needs a reason to be clicked over the others.
+   */
+  titleHook: string
+  /** Other names people search for this machine ("manlift", "man basket"). */
+  searchAliases: string[]
+  /** Optional closing sentence for the intro, naming the machine the way buyers do. */
+  introAside?: string
+  /** UAE-wide pages for specific machines in this family (lib/specialty-services.ts). */
+  familyLinks?: AreaLink[]
 }
 
 export const equipmentTypes: EquipmentType[] = [
@@ -57,7 +70,11 @@ export const equipmentTypes: EquipmentType[] = [
     ],
     useCase: "pallet handling, container loading, and moving heavy material around yards and warehouses",
     leadTime: "Same-day and next-day delivery",
+    leadTimeShort: "Same-day delivery",
     extraSpec: { label: "Mast Options", value: "3–6 m" },
+    titleHook: "Same-Day, 3–25 Ton",
+    familyLinks: [{ name: "Electric Forklift Rental", href: "/services/electric-forklift-rental" }],
+    searchAliases: ["forklift hire", "diesel forklift rental", "electric forklift rental"],
   },
   {
     key: "mobile-crane",
@@ -79,7 +96,10 @@ export const equipmentTypes: EquipmentType[] = [
     ],
     useCase: "structural erection, plant installation, and heavy machinery relocation",
     leadTime: "Advance scheduling (3–5 days for larger capacities)",
+    leadTimeShort: "Fast mobilization",
     extraSpec: { label: "Riggers", value: "Certified" },
+    titleHook: "25–500 Ton + Operator",
+    searchAliases: ["crane rental", "crane hire"],
   },
   {
     key: "telehandler",
@@ -101,7 +121,10 @@ export const equipmentTypes: EquipmentType[] = [
     ],
     useCase: "lifting and placing material at height on sites where a crane is too much and a forklift cannot reach",
     leadTime: "Same-day and next-day delivery",
+    leadTimeShort: "Same-day delivery",
     extraSpec: { label: "Max Reach", value: "5–17 m" },
+    titleHook: "Same-Day, 3–10 Ton",
+    searchAliases: ["telescopic handler rental", "telehandler hire"],
   },
   {
     key: "man-lift",
@@ -123,7 +146,16 @@ export const equipmentTypes: EquipmentType[] = [
     ],
     useCase: "safe elevated access during maintenance, installation, cleaning, and inspection work",
     leadTime: "Same-day and next-day delivery",
+    leadTimeShort: "Same-day delivery",
     extraSpec: { label: "Platform", value: "2–3 Person" },
+    titleHook: "Manlift, Scissor & Boom",
+    searchAliases: ["manlift rental", "man basket rental", "scissor lift rental", "boom lift rental"],
+    familyLinks: [
+      { name: "Scissor Lift Rental", href: "/services/scissor-lift-rental" },
+      { name: "Boom Lift Rental", href: "/services/boom-lift-rental" },
+    ],
+    introAside:
+      "Whether your site calls it a man lift, a manlift, a man basket, or an aerial work platform, tell us the working height and we will send the right one.",
   },
 ]
 
@@ -292,6 +324,7 @@ function buildAreaLinks(equipment: EquipmentType, location: LocationSummary): Ar
   return [
     { name: `All Equipment in ${location.cityName}`, href: location.href },
     { name: `${equipment.label} Specifications`, href: equipment.equipmentHref },
+    ...(equipment.familyLinks ?? []),
     ...siblingLinks,
     ...nearbyLinks,
     { name: "Full UAE Coverage", href: "/locations" },
@@ -319,13 +352,25 @@ function buildPage(equipment: EquipmentType, location: LocationSummary): Service
 
     eyebrow: `${equipment.label} Rental · ${city}`,
     h1: `${equipment.label} Rental in ${city}`,
-    intro: `${equipment.capacityRange} ${equipment.nounPlural} in ${city} for ${equipment.useCase}. We deliver to ${topZones} — with certified operators, full insurance, and flexible daily to monthly terms. ${location.demandNote}`,
-    // Kept inside Google's display limits: ~60 chars for title (before the
-    // " | Seven Lift" template suffix) and ~155 for the description.
-    metaTitle: `${equipment.label} Rental ${city} | ${equipment.capacityRange}`,
-    metaDescription: `${equipment.label} rental in ${city} — ${equipment.capacityRange}, certified operators. Serving ${location.metaZoneShort}. Daily to monthly hire. Call ${siteConfig.phoneDisplay}.`,
+    intro: [
+      `${equipment.capacityRange} ${equipment.nounPlural} in ${city} for ${equipment.useCase}. We deliver to ${topZones} — with certified operators, full insurance, and flexible daily to monthly terms. ${location.demandNote}`,
+      equipment.introAside,
+    ]
+      .filter(Boolean)
+      .join(" "),
+    // Kept inside Google's display limits: ~52 chars for title (before the
+    // " | Seven Lift" template suffix) and ~160 for the description.
+    // Secondary-city pages already rank top 10 with a strong CTR on the plain
+    // capacity title, so only the competitive primary cities get the hook.
+    metaTitle: location.primary
+      ? `${equipment.label} Rental ${city} | ${equipment.titleHook}`
+      : `${equipment.label} Rental ${city} | ${equipment.capacityRange}`,
+    metaDescription: location.primary
+      ? `${equipment.label.charAt(0)}${equipment.noun.slice(1)} rental in ${city}, ${equipment.capacityRange}, with certified operator. ${equipment.leadTimeShort} to ${location.metaZoneShort}. WhatsApp ${siteConfig.phoneDisplay}.`
+      : `${equipment.label} rental in ${city} — ${equipment.capacityRange}, certified operators. Serving ${location.metaZoneShort}. Daily to monthly hire. Call ${siteConfig.phoneDisplay}.`,
     keywords: [
       `${equipment.noun} rental ${city}`,
+      ...equipment.searchAliases.map((alias) => `${alias} ${city}`),
       `${equipment.noun} hire ${city}`,
       `${equipment.noun} rental ${location.emirate}`,
       `${equipment.nounPlural} for rent ${city}`,
