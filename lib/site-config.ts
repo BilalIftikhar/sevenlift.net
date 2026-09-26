@@ -48,6 +48,10 @@ export const siteConfig = {
     facebook: "https://facebook.com/sevenlift",
   },
 
+  // GA4 web stream for https://www.sevenlift.net (stream "sevenlift"). Public
+  // by design; NEXT_PUBLIC_GA_ID overrides it, e.g. to point previews elsewhere.
+  gaMeasurementId: "G-MV20JLJHYW",
+
   openingHours: "Mo-Su 00:00-23:59",
   // schema.org expects a symbolic range ("$$"), not a currency string. Rates are
   // quote-based, so this stays symbolic rather than naming figures.

@@ -10,9 +10,9 @@ import { organizationSchema, websiteSchema } from "@/lib/schema"
 import { siteConfig } from "@/lib/site-config"
 import "./globals.css"
 
-// Optional GA4 property. Vercel Analytics only records custom (lead) events on
-// paid plans, so GA4 is the free way to count leads per page.
-const gaId = process.env.NEXT_PUBLIC_GA_ID
+// GA4 counts page views and leads per page. Vercel Analytics only records the
+// custom lead events on paid plans, so GA4 is where leads are reported.
+const gaId = process.env.NEXT_PUBLIC_GA_ID || siteConfig.gaMeasurementId
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" })
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
