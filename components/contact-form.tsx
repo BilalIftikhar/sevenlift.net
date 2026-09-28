@@ -4,6 +4,7 @@ import type React from "react"
 import { useId, useState } from "react"
 import { CheckCircle2, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { trackLead } from "@/components/lead-tracking"
 import { siteConfig, waLink } from "@/lib/site-config"
 
@@ -36,11 +37,11 @@ type ContactFormProps = {
   placement?: string
 }
 
-type Status = "idle" | "sending" | "sent" | "error"
+type Status = "idle" | "sent"
 
 /**
- * Quote request form that emails the sales inbox through /api/quote, so a
- * visitor who does not use WhatsApp can still reach us. Used in every page hero.
+ * Quote request form used in every page hero. Submitting opens WhatsApp with
+ * the details and also emails them to the sales inbox through /api/quote.
  */
 export function ContactForm({
   variant = "full",
@@ -66,25 +67,8 @@ export function ContactForm({
   const update = (field: keyof FormFields) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setFormData({ ...formData, [field]: e.target.value })
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus("sending")
-    try {
-      const response = await fetch("/api/quote", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, page: window.location.pathname }),
-      })
-      if (!response.ok) throw new Error(`Quote request failed: ${response.status}`)
-      trackLead("form", placement)
-      setStatus("sent")
-    } catch {
-      setStatus("error")
-    }
-  }
-
-  /** Same details as a WhatsApp message, so a failed send does not lose the lead. */
-  const whatsappFallback = () =>
+  /** The form's details as a pre-filled WhatsApp message to the sales number. */
+  const whatsappHref = () =>
     waLink(
       [
         "Hi Seven Lift, I'd like a quote.",
@@ -94,10 +78,30 @@ export function ContactForm({
         formData.equipment && `Equipment: ${formData.equipment}`,
         formData.location && `Site: ${formData.location}`,
         formData.message && `Details: ${formData.message}`,
+        `Page: ${window.location.pathname}`,
       ]
         .filter(Boolean)
         .join("\n"),
     )
+
+  /**
+   * Every submission opens WhatsApp with the details filled in. The same lead
+   * is also emailed through /api/quote in the background, so it still arrives
+   * if the visitor closes WhatsApp without pressing send.
+   */
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Opened synchronously inside the submit event so browsers do not block it.
+    window.open(whatsappHref(), "_blank", "noopener,noreferrer")
+    fetch("/api/quote", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...formData, page: window.location.pathname }),
+      keepalive: true,
+    }).catch(() => {})
+    trackLead("form", placement)
+    setStatus("sent")
+  }
 
   const inputClass = hero
     ? "w-full rounded-lg border border-border bg-white px-3.5 py-2.5 text-sm font-medium text-foreground transition-colors focus:border-accent focus:outline-none"
@@ -110,9 +114,13 @@ export function ContactForm({
     return (
       <div className={hero ? "rounded-2xl bg-card p-6 text-foreground shadow-2xl" : ""} role="status">
         <CheckCircle2 size={36} className="mb-3 text-accent" />
-        <p className="text-lg font-extrabold">Thanks, {formData.name.split(" ")[0]}. Your request is in.</p>
+        <p className="text-lg font-extrabold">Thanks, {formData.name.split(" ")[0]}. WhatsApp has opened with your details.</p>
         <p className="mt-2 text-sm font-medium text-muted-foreground">
-          Our team will reply by phone or email, usually within the hour. For an urgent job, call{" "}
+          Press send in WhatsApp and our team will reply there. If it did not open,{" "}
+          <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className="font-bold text-primary underline">
+            tap here to send on WhatsApp
+          </a>{" "}
+          or call{" "}
           <a href={siteConfig.telHref} className="font-bold text-primary">
             {siteConfig.phoneDisplay}
           </a>
@@ -130,7 +138,7 @@ export function ContactForm({
       {hero && (
         <div className="pb-1">
           <p className="text-lg font-extrabold text-foreground">{heading}</p>
-          <p className="text-xs font-medium text-muted-foreground">Reply by phone or email, usually within the hour.</p>
+          <p className="text-xs font-medium text-muted-foreground">Your details open in WhatsApp, ready to send.</p>
         </div>
       )}
 
@@ -215,30 +223,12 @@ export function ContactForm({
         />
       </div>
 
-      {status === "error" && (
-        <p className="rounded-lg bg-destructive/10 px-3 py-2 text-sm font-medium text-destructive" role="alert">
-          We could not send the form just now. Please email{" "}
-          <a href={`mailto:${siteConfig.email}`} className="font-bold underline">
-            {siteConfig.email}
-          </a>{" "}
-          or call{" "}
-          <a href={siteConfig.telHref} className="font-bold underline">
-            {siteConfig.phoneDisplay}
-          </a>
-          , or{" "}
-          <a href={whatsappFallback()} target="_blank" rel="noopener noreferrer" className="font-bold underline">
-            send these details on WhatsApp
-          </a>
-          .
-        </p>
-      )}
-
       <Button
         type="submit"
-        disabled={status === "sending"}
         className="w-full rounded-lg bg-accent py-3 font-bold text-accent-foreground transition-all hover:scale-[1.01] hover:bg-accent/90 hover:shadow-lg disabled:opacity-70"
       >
-        {status === "sending" ? "Sending..." : "Request a Quote"}
+        <WhatsAppIcon size={18} />
+        Send via WhatsApp
       </Button>
 
       <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs font-semibold text-muted-foreground">

@@ -4,8 +4,9 @@ import { z } from "zod"
 import { siteConfig } from "@/lib/site-config"
 
 /**
- * Receives the quote form on every page and emails it to the sales inbox, so
- * enquiries do not depend on the visitor using WhatsApp.
+ * Emails every quote form submission to the sales inbox. The form also opens
+ * WhatsApp with the same details; this copy arrives even if the visitor never
+ * presses send there.
  *
  * Sends through the company's own Zoho Mail mailbox over SMTP (the domain's MX
  * and SPF records already point at Zoho). Set in the Vercel project:
@@ -15,8 +16,8 @@ import { siteConfig } from "@/lib/site-config"
  *   SMTP_PORT       default 465 (SSL)
  *   QUOTE_TO_EMAIL  inbox that receives leads, comma-separated for several
  *                   (default: siteConfig.email)
- * Without SMTP_USER / SMTP_PASS the route answers 503 and the form shows the
- * email address and phone number instead.
+ * Without SMTP_USER / SMTP_PASS the route answers 503 and only the WhatsApp
+ * copy of the lead is delivered.
  */
 
 export const runtime = "nodejs"
