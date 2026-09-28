@@ -7,6 +7,7 @@ import { pageMetadata } from "@/lib/seo"
 import { serviceAreaPages, getServiceAreaPage } from "@/lib/service-areas"
 import { specialtyServices, getSpecialtyService, type SpecialtyService } from "@/lib/specialty-services"
 import { siteConfig } from "@/lib/site-config"
+import { formEquipmentLabel } from "@/lib/trust"
 
 type PageProps = { params: Promise<{ slug: string }> }
 
@@ -86,12 +87,17 @@ export default async function ServiceAreaPage({ params }: PageProps) {
         specs={page.specs}
         bulletGroups={page.bulletGroups}
         localContext={page.localContext}
+        siteFacts={page.siteFacts}
+        siteFactsHeading={`${page.equipment.label} Hire in ${page.location.cityName} at a Glance`}
         areasHeading={page.areasHeading}
         areas={page.areas}
         faqs={page.faqs}
         ctaHeading={page.ctaHeading}
         ctaSubheading={page.ctaSubheading}
         whatsappMessage={page.whatsappMessage}
+        equipment={page.equipment.key}
+        formEquipment={formEquipmentLabel[page.equipment.key]}
+        formLocation={page.location.cityName}
       />
     </>
   )
@@ -134,6 +140,8 @@ function SpecialtyServicePage({ service }: { service: SpecialtyService }) {
         ctaHeading={service.ctaHeading}
         ctaSubheading={service.ctaSubheading}
         whatsappMessage={service.whatsappMessage}
+        equipment={service.family}
+        formEquipment={formEquipmentLabel[service.family]}
       />
     </>
   )

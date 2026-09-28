@@ -72,6 +72,7 @@ export default function TelehandlerPage() {
         ctaHeading="Need a Telehandler?"
         ctaSubheading="Contact us for flexible rental options and professional operator support."
         whatsappMessage="I am interested in telehandler rental services."
+        equipment="telehandler"
       />
     </>
   )

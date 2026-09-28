@@ -4,7 +4,11 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Reveal } from "@/components/reveal"
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
+import { ContactForm } from "@/components/contact-form"
+import { TrustSection } from "@/components/trust-section"
+import type { EquipmentKey } from "@/lib/locations"
 import { siteConfig, waLink } from "@/lib/site-config"
+import { formEquipmentLabel } from "@/lib/trust"
 
 export type EquipmentModel = {
   capacity: string
@@ -30,6 +34,7 @@ type EquipmentDetailTemplateProps = {
   ctaHeading: string
   ctaSubheading: string
   whatsappMessage: string
+  equipment: EquipmentKey
 }
 
 export function EquipmentDetailTemplate({
@@ -45,6 +50,7 @@ export function EquipmentDetailTemplate({
   ctaHeading,
   ctaSubheading,
   whatsappMessage,
+  equipment,
 }: EquipmentDetailTemplateProps) {
   const whatsappHref = waLink(whatsappMessage)
 
@@ -53,14 +59,19 @@ export function EquipmentDetailTemplate({
       <Header />
 
       <section className="bg-gradient-to-br from-primary/10 to-accent/10 py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="animate-slide-up space-y-5">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-5 lg:items-center">
+          <div className="animate-slide-up space-y-5 lg:col-span-3">
             <p className="text-sm font-bold uppercase tracking-widest text-accent">{eyebrow}</p>
             <h1 className="text-foreground">{title}</h1>
             <p className="max-w-2xl text-lg font-medium text-muted-foreground">{intro}</p>
           </div>
+          <div className="animate-fade-in lg:col-span-2">
+            <ContactForm variant="hero" defaultEquipment={formEquipmentLabel[equipment]} placement="hero-form" />
+          </div>
         </div>
       </section>
+
+      <TrustSection equipment={equipment} />
 
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4">

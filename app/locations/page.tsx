@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { ContactForm } from "@/components/contact-form"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
@@ -39,14 +40,19 @@ export default function LocationsPage() {
 
       <div className="min-h-screen bg-gradient-to-b from-background to-secondary pb-20 pt-16 md:pt-24">
         <div className="mx-auto max-w-7xl px-4">
-          <Reveal className="mb-16 max-w-3xl space-y-4">
-            <p className="text-sm font-bold uppercase tracking-widest text-accent">UAE Service Network</p>
-            <h1 className="text-foreground">Where We Operate</h1>
-            <p className="text-lg font-medium text-muted-foreground">
-              Equipment rental across all seven emirates. Our fleet is based in Musaffah, Abu Dhabi, with scheduled
-              routes into Dubai, the Northern Emirates, Al Ain, and the east coast.
-            </p>
-          </Reveal>
+          <div className="mb-16 grid gap-10 lg:grid-cols-5 lg:items-start">
+            <Reveal className="space-y-4 lg:col-span-3">
+              <p className="text-sm font-bold uppercase tracking-widest text-accent">UAE Service Network</p>
+              <h1 className="text-foreground">Where We Operate</h1>
+              <p className="text-lg font-medium text-muted-foreground">
+                Equipment rental across all seven emirates. Our fleet is based in Musaffah, Abu Dhabi, with scheduled
+                routes into Dubai, the Northern Emirates, Al Ain, and the east coast.
+              </p>
+            </Reveal>
+            <div className="lg:col-span-2">
+              <ContactForm variant="hero" placement="hero-form" />
+            </div>
+          </div>
 
           <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2">
             {primaryLocations.map((location, idx) => (

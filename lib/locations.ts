@@ -97,7 +97,7 @@ export const locations: LocationSummary[] = [
       {
         title: "ICAD & KIZAD Gate Procedures",
         description:
-          "We hold the documentation and gate-pass experience needed for equipment entry into ICAD 1–3 and Khalifa Industrial Zone without delays at the checkpoint.",
+          "We hold the documentation and gate-pass experience needed for equipment entry into ICAD 1 to 3 and Khalifa Industrial Zone without delays at the checkpoint.",
       },
       {
         title: "Khalifa Port & Heavy Lift",
@@ -117,7 +117,7 @@ export const locations: LocationSummary[] = [
       {
         title: "24/7 Emergency Deployment",
         description:
-          "Breakdown replacement and unplanned lifts handled around the clock — critical for the continuous-shift factories across Musaffah and ICAD.",
+          "Breakdown replacement and unplanned lifts handled around the clock, critical for the continuous-shift factories across Musaffah and ICAD.",
       },
     ],
     faqs: [
@@ -149,7 +149,7 @@ export const locations: LocationSummary[] = [
     ],
     ctaHeading: "Need Equipment in Musaffah or ICAD Today?",
     ctaSubheading:
-      "Send your site location and equipment need — our Abu Dhabi yard confirms availability within the hour.",
+      "Send your site location and equipment need. Our Abu Dhabi yard confirms availability within the hour.",
     whatsappMessage: "Hi Seven Lift, I need heavy equipment rental in Abu Dhabi (Musaffah/ICAD).",
 
     metaTitle: "Heavy Equipment Rental Abu Dhabi | Musaffah",
@@ -258,7 +258,7 @@ export const locations: LocationSummary[] = [
       {
         question: "Can you support free zone logistics and warehousing operations in Dubai?",
         answer:
-          "Absolutely — we regularly supply forklifts and side loaders to logistics and 3PL operators inside JAFZA and DIC, with flexible shift-based or monthly rental arrangements to match warehouse operating hours.",
+          "Absolutely. We regularly supply forklifts and side loaders to logistics and 3PL operators inside JAFZA and DIC, with flexible shift-based or monthly rental arrangements to match warehouse operating hours.",
       },
       {
         question: "Do you offer mobile crane rental for Dubai construction sites?",
@@ -278,7 +278,7 @@ export const locations: LocationSummary[] = [
     ],
     ctaHeading: "Need Equipment in JAFZA or Al Quoz Today?",
     ctaSubheading:
-      "Share your site location and equipment need — our Dubai team will confirm availability within the hour.",
+      "Share your site location and equipment need. Our Dubai team will confirm availability within the hour.",
     whatsappMessage: "Hi Seven Lift, I need heavy equipment rental in Dubai.",
 
     metaTitle: "Heavy Equipment Rental Dubai | JAFZA & Al Quoz",
@@ -352,7 +352,7 @@ export const locations: LocationSummary[] = [
       {
         title: "Industrial Area Density",
         description:
-          "Sharjah's Industrial Areas 1–18 are tight, busy, and hard to manoeuvre in. We match unit size to the yard rather than sending the biggest machine available.",
+          "Sharjah's Industrial Areas 1 to 18 are tight, busy, and hard to manoeuvre in. We match unit size to the yard rather than sending the biggest machine available.",
       },
       {
         title: "Hamriyah Free Zone Access",
@@ -408,12 +408,12 @@ export const locations: LocationSummary[] = [
       },
     ],
     ctaHeading: "Need Equipment in Sharjah Industrial Area?",
-    ctaSubheading: "Tell us your zone and load requirement — we'll confirm availability and a delivery slot today.",
+    ctaSubheading: "Tell us your zone and load requirement. We'll confirm availability and a delivery slot today.",
     whatsappMessage: "Hi Seven Lift, I need heavy equipment rental in Sharjah.",
 
     metaTitle: "Heavy Equipment Rental Sharjah | HFZA & SAIF",
     metaDescription:
-      "Forklift, crane, telehandler & man lift rental in Sharjah. Covering Industrial Areas 1–18, Hamriyah Free Zone & SAIF Zone. Daily to monthly hire.",
+      "Forklift, crane, telehandler & man lift rental in Sharjah. Covering Industrial Areas 1 to 18, Hamriyah Free Zone & SAIF Zone. Daily to monthly hire.",
     keywords: [
       "heavy equipment rental Sharjah",
       "forklift rental Sharjah",
@@ -476,13 +476,13 @@ export const locations: LocationSummary[] = [
 
     eyebrow: "Ajman · Al Jurf · Free Zone",
     intro:
-      "Equipment rental for Ajman's manufacturing and distribution base — Industrial Area 1 and 2, the Al Jurf industrial zones, and Ajman Free Zone. Forklifts, telehandlers, man lifts, and mobile cranes delivered on our Northern Emirates route.",
+      "Equipment rental for Ajman's manufacturing and distribution base: Industrial Area 1 and 2, the Al Jurf industrial zones, and Ajman Free Zone. Forklifts, telehandlers, man lifts, and mobile cranes delivered on our Northern Emirates route.",
     whyHeading: "Why Ajman Businesses Choose Seven Lift",
     whyPoints: [
       {
         title: "Al Jurf Coverage",
         description:
-          "Regular runs into Al Jurf Industrial 1–3, where much of Ajman's furniture, plastics, and building-materials manufacturing sits.",
+          "Regular runs into Al Jurf Industrial 1 to 3, where much of Ajman's furniture, plastics, and building-materials manufacturing sits.",
       },
       {
         title: "Ajman Free Zone Delivery",
@@ -492,12 +492,12 @@ export const locations: LocationSummary[] = [
       {
         title: "Cost-Effective Northern Route",
         description:
-          "Ajman sits on our Sharjah–RAK corridor, so mobilization costs stay lower than a dedicated trip from Abu Dhabi.",
+          "Ajman sits on our Sharjah to RAK corridor, so mobilization costs stay lower than a dedicated trip from Abu Dhabi.",
       },
       {
         title: "Right-Sized Units",
         description:
-          "Ajman's units are typically mid-size workshops — we lead with 3–5 ton forklifts and compact telehandlers rather than oversized machines.",
+          "Ajman's units are typically mid-size workshops. We lead with 3 to 5 ton forklifts and compact telehandlers rather than oversized machines.",
       },
       {
         title: "Certified Operators",
@@ -534,11 +534,11 @@ export const locations: LocationSummary[] = [
       {
         question: "Can you supply man lifts for building maintenance in Ajman?",
         answer:
-          "Yes — scissor lifts and boom lifts from 10 m to 50 m for facade cleaning, signage installation, lighting, and warehouse maintenance across Ajman's commercial and industrial buildings.",
+          "Yes, scissor lifts and boom lifts from 10 m to 50 m for facade cleaning, signage installation, lighting, and warehouse maintenance across Ajman's commercial and industrial buildings.",
       },
     ],
     ctaHeading: "Need Equipment in Ajman?",
-    ctaSubheading: "Send your location and equipment type — we'll confirm a delivery slot on our next Ajman run.",
+    ctaSubheading: "Send your location and equipment type. We'll confirm a delivery slot on our next Ajman run.",
     whatsappMessage: "Hi Seven Lift, I need heavy equipment rental in Ajman.",
 
     metaTitle: "Heavy Equipment Rental Ajman | Al Jurf & AFZ",
@@ -627,7 +627,7 @@ export const locations: LocationSummary[] = [
       {
         title: "Higher-Capacity Fleet",
         description:
-          "RAK jobs skew heavy. We lead with 10–25 ton forklifts and larger crane capacities rather than the light units suited to warehouse work.",
+          "RAK jobs skew heavy. We lead with 10 to 25 ton forklifts and larger crane capacities rather than the light units suited to warehouse work.",
       },
       {
         title: "Longer-Term Contracts",
@@ -637,7 +637,7 @@ export const locations: LocationSummary[] = [
       {
         title: "Planned Mobilization",
         description:
-          "We schedule RAK deliveries in advance so the right capacity arrives on the agreed day — no substituting a smaller unit to make a slot.",
+          "We schedule RAK deliveries in advance so the right capacity arrives on the agreed day, with no substituting a smaller unit to make a slot.",
       },
     ],
     faqs: [
@@ -668,7 +668,7 @@ export const locations: LocationSummary[] = [
       },
     ],
     ctaHeading: "Need Equipment in Ras Al Khaimah?",
-    ctaSubheading: "Share your site and capacity requirement — we'll schedule the right unit on our next RAK run.",
+    ctaSubheading: "Share your site and capacity requirement. We'll schedule the right unit on our next RAK run.",
     whatsappMessage: "Hi Seven Lift, I need heavy equipment rental in Ras Al Khaimah.",
 
     metaTitle: "Heavy Equipment Rental Ras Al Khaimah | RAK FTZ",
@@ -691,7 +691,7 @@ export const locations: LocationSummary[] = [
       "marine and bulk logistics at RAK Maritime City",
     ],
     demandNote:
-      "Ras Al Khaimah's demand is heavy and continuous — quarries, cement plants, and ceramics operations that run on monthly contracts rather than day hire.",
+      "Ras Al Khaimah's demand is heavy and continuous: quarries, cement plants, and ceramics operations that run on monthly contracts rather than day hire.",
     equipmentNotes: {
       forklift: [
         "Ras Al Khaimah's ceramics and glass manufacturers move heavy, fragile pallets that need a smooth-hydraulic 7–10 ton forklift and a careful operator rather than just raw capacity. The quarry and cement operations need rugged diesel units that can cope with dust all day.",
@@ -789,7 +789,7 @@ export const locations: LocationSummary[] = [
       {
         question: "Do you support plant shutdowns and turnarounds in Fujairah?",
         answer:
-          "Yes. Shutdown and turnaround work is a common reason clients call us here — we can supply multiple units under one contract for the duration, with replacement cover if a machine goes down mid-shutdown.",
+          "Yes. Shutdown and turnaround work is a common reason clients call us here. We can supply multiple units under one contract for the duration, with replacement cover if a machine goes down mid-shutdown.",
       },
       {
         question: "What equipment is available for Al Hayl Industrial Area?",
@@ -799,7 +799,7 @@ export const locations: LocationSummary[] = [
     ],
     ctaHeading: "Need Equipment in Fujairah?",
     ctaSubheading:
-      "Tell us your site, dates, and documentation requirements — we'll schedule an east coast mobilization.",
+      "Tell us your site, dates, and documentation requirements. We'll schedule an east coast mobilization.",
     whatsappMessage: "Hi Seven Lift, I need heavy equipment rental in Fujairah.",
 
     metaTitle: "Heavy Equipment Rental Fujairah | Port & FFZ",
@@ -866,7 +866,7 @@ export const locations: LocationSummary[] = [
 
     eyebrow: "Umm Al Quwain · UAQ FTZ",
     intro:
-      "Equipment rental across Umm Al Quwain — UAQ Free Trade Zone, the Industrial Area, Al Salamah, and the agricultural and light-industrial belt around Falaj Al Mualla. Forklifts, telehandlers, man lifts, and mobile cranes on our Northern Emirates route.",
+      "Equipment rental across Umm Al Quwain: UAQ Free Trade Zone, the Industrial Area, Al Salamah, and the agricultural and light-industrial belt around Falaj Al Mualla. Forklifts, telehandlers, man lifts, and mobile cranes on our Northern Emirates route.",
     whyHeading: "Why UAQ Businesses Choose Seven Lift",
     whyPoints: [
       {
@@ -882,7 +882,7 @@ export const locations: LocationSummary[] = [
       {
         title: "Small-Site Suitability",
         description:
-          "Much of UAQ is smaller units and open sites — compact telehandlers and 3–5 ton forklifts usually beat larger machines here.",
+          "Much of UAQ is smaller units and open sites: compact telehandlers and 3 to 5 ton forklifts usually beat larger machines here.",
       },
       {
         title: "Construction & Development",
@@ -926,7 +926,7 @@ export const locations: LocationSummary[] = [
       },
     ],
     ctaHeading: "Need Equipment in Umm Al Quwain?",
-    ctaSubheading: "Send your site location and equipment type — we'll confirm a slot on our next Northern route run.",
+    ctaSubheading: "Send your site location and equipment type. We'll confirm a slot on our next Northern route run.",
     whatsappMessage: "Hi Seven Lift, I need heavy equipment rental in Umm Al Quwain.",
 
     metaTitle: "Heavy Equipment Rental Umm Al Quwain | UAQ FTZ",
@@ -993,7 +993,7 @@ export const locations: LocationSummary[] = [
 
     eyebrow: "Al Ain · Sanaiya · Industrial City",
     intro:
-      "Equipment rental across Al Ain and the eastern region of Abu Dhabi — Al Ain Industrial City, the Sanaiya workshop district, and the construction and agricultural belt running out to Remah and Al Faqa.",
+      "Equipment rental across Al Ain and the eastern region of Abu Dhabi: Al Ain Industrial City, the Sanaiya workshop district, and the construction and agricultural belt running out to Remah and Al Faqa.",
     whyHeading: "Why Al Ain Contractors Choose Seven Lift",
     whyPoints: [
       {
@@ -1054,7 +1054,7 @@ export const locations: LocationSummary[] = [
       },
     ],
     ctaHeading: "Need Equipment in Al Ain or Sanaiya?",
-    ctaSubheading: "Tell us your site and load requirement — we'll dispatch from Abu Dhabi on the Al Ain route.",
+    ctaSubheading: "Tell us your site and load requirement. We'll dispatch from Abu Dhabi on the Al Ain route.",
     whatsappMessage: "Hi Seven Lift, I need heavy equipment rental in Al Ain.",
 
     metaTitle: "Heavy Equipment Rental Al Ain | Sanaiya",

@@ -5,9 +5,12 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
 import { Reveal } from "@/components/reveal"
+import { ContactForm } from "@/components/contact-form"
+import { TrustSection } from "@/components/trust-section"
 import { aboutPageSchema, breadcrumbSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
+import { totalJobsCompleted, yearsInBusiness } from "@/lib/trust"
 import { services } from "@/lib/services"
 import { locations } from "@/lib/locations"
 import { abuDhabiAreas } from "@/lib/abu-dhabi-areas"
@@ -28,7 +31,8 @@ export const metadata: Metadata = pageMetadata({
  */
 const facts: { label: string; value: string }[] = [
   { label: "Legal name", value: siteConfig.legalName },
-  { label: "Founded", value: `${siteConfig.foundingYear}` },
+  { label: "Founded", value: `${siteConfig.foundingYear} (${yearsInBusiness} years in business)` },
+  { label: "Jobs completed", value: `${totalJobsCompleted.toLocaleString("en-US")}+ rental jobs across all seven emirates` },
   {
     label: "Yard & head office",
     value: `${siteConfig.address.streetAddress}, ${siteConfig.address.addressLocality}, United Arab Emirates`,
@@ -63,7 +67,8 @@ export default function AboutPage() {
       <Header />
 
       <section className="bg-gradient-to-b from-background to-secondary pb-16 pt-16 md:pt-24">
-        <div className="mx-auto max-w-4xl space-y-6 px-4">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-5 lg:items-start">
+          <div className="space-y-6 lg:col-span-3">
           <p className="text-sm font-bold uppercase tracking-widest text-accent">About Us</p>
           <h1 className="text-foreground">About Seven Lift General Transport</h1>
           <p className="text-lg font-medium leading-relaxed text-muted-foreground">
@@ -77,8 +82,14 @@ export default function AboutPage() {
             within easy reach for same-day delivery. From there we run scheduled routes to Dubai, the Northern
             Emirates, Al Ain, and the east coast.
           </p>
+          </div>
+          <div className="lg:col-span-2">
+            <ContactForm variant="hero" placement="hero-form" />
+          </div>
         </div>
       </section>
+
+      <TrustSection />
 
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-4xl px-4">

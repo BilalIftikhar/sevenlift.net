@@ -1,15 +1,16 @@
 import type { Faq } from "@/lib/faqs"
 import { locations, type EquipmentKey, type LocationSummary } from "@/lib/locations"
-import { siteConfig } from "@/lib/site-config"
+import { citySiteFacts, serviceAreaCopyFor, type ServiceAreaCopy } from "@/lib/service-area-copy"
 import type { BulletGroup, SpecRow, AreaLink, LocalContext } from "@/components/service-landing-template"
 
 /**
  * Generates the service × city landing pages that give the site UAE-wide
  * organic coverage (e.g. /services/forklift-rental-sharjah).
  *
- * Every generated page interpolates real, location-specific detail — industrial
- * zones, dominant industries, mobilization reality — so the pages are genuinely
- * distinct rather than a templated city swap, which Google treats as a doorway.
+ * Every generated page carries hand-written copy from lib/service-area-copy.ts
+ * (intro, meta description, typical jobs, local FAQs) plus the city's own
+ * equipment notes and site facts, so the pages are genuinely distinct rather
+ * than a templated city swap, which Google treats as a doorway.
  */
 
 export type EquipmentType = {
@@ -65,7 +66,7 @@ export const equipmentTypes: EquipmentType[] = [
       "3–5 ton diesel & electric forklifts for standard pallet handling",
       "7–10 ton forklifts for container stuffing and heavy pallet loads",
       "15–25 ton industrial forklifts for machinery and steel coils",
-      "Side loaders for long materials — pipe, timber, and steel sections",
+      "Side loaders for long materials such as pipe, timber, and steel sections",
       "Non-marking tyres and indoor-rated electric units on request",
     ],
     useCase: "pallet handling, container loading, and moving heavy material around yards and warehouses",
@@ -201,6 +202,7 @@ export type ServiceAreaPage = {
   specs: SpecRow[]
   bulletGroups: BulletGroup[]
   localContext: LocalContext
+  siteFacts: SpecRow[]
   areasHeading: string
   areas: AreaLink[]
   faqs: Faq[]
@@ -210,89 +212,76 @@ export type ServiceAreaPage = {
   areaServed: string[]
 }
 
-function buildFaqs(equipment: EquipmentType, location: LocationSummary): Faq[] {
+function buildFaqs(equipment: EquipmentType, location: LocationSummary, copy: ServiceAreaCopy): Faq[] {
   const city = location.cityName
-  const topAreas = location.areas.slice(0, 3).join(", ")
-  const primaryIndustry = location.industries[0]
-
-  const shared: Faq[] = [
-    {
-      question: `Do you deliver ${equipment.nounPlural} to ${topAreas}?`,
-      answer: `Yes. ${location.areas.slice(0, 4).join(", ")} are all within our ${city} coverage. ${equipment.leadTime} is standard for ${equipment.nounPlural} here, and we confirm the exact slot when you send your site location.`,
-    },
-    {
-      question: `What ${equipment.noun} capacities are available in ${city}?`,
-      answer: `Our ${city} fleet covers ${equipment.capacityRange} (${equipment.capacityLabel.toLowerCase()}). We size the unit to the job rather than sending whatever is free — tell us the load weight, the working height or reach, and the ground conditions, and we will specify it.`,
-    },
-    {
-      question: `Is a certified operator included with ${equipment.noun} rental in ${city}?`,
-      answer: `Yes, every ${equipment.noun} rental can be supplied with a licensed, certified operator. If you have certified staff in house, self-drive hire is available at a lower rate, and we will supply the machine documentation your safety officer needs.`,
-    },
-    {
-      question: `What rental terms do you offer for ${equipment.nounPlural} in ${city}?`,
-      answer: `Daily, weekly, and monthly hire, extendable on site without a new contract. Given ${city}'s ${primaryIndustry}, ${location.primary ? "both short-term and monthly contracts are common here" : "monthly rates usually work out better than repeated day hire"}. Servicing and breakdown replacement are included for the full term.`,
-    },
-  ]
 
   const equipmentSpecific: Record<EquipmentKey, Faq> = {
     forklift: {
-      question: `Can you supply electric ${equipment.nounPlural} for indoor work in ${city}?`,
-      answer: `Yes. We supply electric ${equipment.nounPlural} with non-marking tyres for work on finished floors, cold stores, and food-grade facilities — the usual requirement for indoor warehouse operations across ${city}.`,
+      question: `What should I tell you to get the right forklift in ${city}?`,
+      answer: `Your heaviest regular load, the top lift height, and whether the floor is finished concrete or open yard. From that we size the capacity and mast, and choose diesel or electric. Our most common ${city} unit is a ${copy.typicalUnit.toLowerCase()}.`,
     },
     "mobile-crane": {
-      question: `Do you provide lift plans and permits for crane work in ${city}?`,
-      answer: `We supply load charts, third-party inspection certificates, operator and rigger certifications, and a documented lift plan for every job. These are the documents your contractor or the ${city} authority will ask for; our team can advise on the approval route for your specific site.`,
+      question: `What do you need to quote a crane lift in ${city}?`,
+      answer: `The load weight, its dimensions, the lift radius, and photos of the setup area. For ${city} lifts we also ask about access routes and any permit your site needs, then confirm the crane class and crew. A ${copy.typicalUnit.toLowerCase()} covers many jobs here.`,
     },
     telehandler: {
-      question: `Which telehandler size suits a typical ${city} site?`,
-      answer: `${location.demandNote} For most work here a 3–4 ton compact unit with 7 m reach handles it; where you need to place material at height on multi-storey work, the 13–17 m boom units are the right call.`,
+      question: `Which telehandler do you send most often in ${city}?`,
+      answer: `A ${copy.typicalUnit.toLowerCase()}. We go larger when the load has to reach a higher floor or further over an obstacle, and we fit forks, bucket, or jib to suit the job.`,
     },
     "man-lift": {
-      question: `Can you supply man lifts for occupied buildings in ${city}?`,
-      answer: `Yes. For work in occupied offices, malls, and hotels across ${city} we supply low-noise electric scissor and boom lifts with non-marking tyres, which are accepted for use on finished floors during business hours.`,
+      question: `Which man lift do you send most often in ${city}?`,
+      answer: `A ${copy.typicalUnit.toLowerCase()}. Tell us the working height, whether the floor is finished or rough, and any obstacles below the work, and we will specify the smallest platform that does the job safely.`,
     },
   }
 
   const closing: Faq = {
     question: `How quickly can you get a ${equipment.noun} to my site in ${city}?`,
-    answer: location.primary
-      ? `${city} is one of our core coverage areas, so same-day mobilization is realistic for standard ${equipment.nounPlural} and we can often be on site within a few hours for urgent requests.`
-      : `We run a scheduled route into ${city}, so next-day delivery is standard for ${equipment.nounPlural} and same-day is possible when a unit is already in the area. For larger capacities we ask for a few days' notice to route the right machine.`,
+    answer: `${citySiteFacts[location.slug].standardLeadTime} for standard ${equipment.nounPlural}. ${
+      location.primary
+        ? "For urgent requests we can often be on site within a few hours."
+        : `We serve ${city} on a scheduled route, so larger capacities need a few days' notice.`
+    }`,
   }
 
-  return [...shared.slice(0, 2), equipmentSpecific[equipment.key], ...shared.slice(2), closing]
+  return [...copy.faqs, equipmentSpecific[equipment.key], closing]
 }
 
-function buildBulletGroups(equipment: EquipmentType, location: LocationSummary): BulletGroup[] {
+function buildBulletGroups(equipment: EquipmentType, location: LocationSummary, copy: ServiceAreaCopy): BulletGroup[] {
   const city = location.cityName
 
   return [
     {
-      title: `${equipment.label} Fleet Available in ${city}`,
+      title: `Typical ${equipment.label} Jobs in ${city}`,
+      items: copy.jobs,
+    },
+    {
+      title: `${equipment.label} Fleet We Send to ${city}`,
       items: equipment.fleetItems,
     },
     {
-      title: `Specified for ${city} Sites`,
+      title: "Included With Every Hire",
       items: [
-        `Delivered into ${location.areas.slice(0, 3).join(", ")}`,
-        `Specified for ${location.industries[0]}`,
-        `Also supporting ${location.industries[1]} and ${location.industries[2]}`,
-        `${equipment.leadTime} on standard units`,
-        location.primary
-          ? `Fleet held nearby for same-day ${city} dispatch`
-          : `Scheduled ${city} route keeps mobilization cost down`,
-      ],
-    },
-    {
-      title: "What's Included",
-      items: [
-        "Certified, licensed operator (optional — self-drive available)",
+        "Certified, licensed operator, or self-drive for your own certified staff",
         "Full insurance cover on every unit",
         "Preventive maintenance and breakdown replacement",
         "Load charts and inspection certificates on request",
-        `Daily, weekly, or monthly terms across ${city}`,
       ],
     },
+  ]
+}
+
+/** "At a glance" facts for one machine in one city, also used by the hand-written Abu Dhabi forklift page. */
+export function siteFactsFor(equipment: EquipmentType, location: LocationSummary): SpecRow[] {
+  const copy = serviceAreaCopyFor(equipment.key, location.slug)
+  const facts = citySiteFacts[location.slug]
+  if (!copy || !facts) return []
+  return [
+    { label: "Most requested unit", value: copy.typicalUnit },
+    { label: "From our Musaffah yard", value: facts.driveFromYard },
+    { label: "Standard lead time", value: facts.standardLeadTime },
+    { label: "Authorities & permits", value: facts.authority },
+    { label: "Typical ground", value: facts.ground },
+    { label: `${equipment.label} range`, value: equipment.capacityRange },
   ]
 }
 
@@ -341,6 +330,8 @@ function buildPage(equipment: EquipmentType, location: LocationSummary): Service
   const city = location.cityName
   const slug = `${equipment.slugBase}-${citySlugFor(location)}`
   const topZones = location.areas.slice(0, 3).join(", ")
+  const copy = serviceAreaCopyFor(equipment.key, location.slug)
+  if (!copy) throw new Error(`Missing service-area copy for ${equipment.key}:${location.slug}`)
 
   return {
     slug,
@@ -352,12 +343,7 @@ function buildPage(equipment: EquipmentType, location: LocationSummary): Service
 
     eyebrow: `${equipment.label} Rental · ${city}`,
     h1: `${equipment.label} Rental in ${city}`,
-    intro: [
-      `${equipment.capacityRange} ${equipment.nounPlural} in ${city} for ${equipment.useCase}. We deliver to ${topZones} — with certified operators, full insurance, and flexible daily to monthly terms. ${location.demandNote}`,
-      equipment.introAside,
-    ]
-      .filter(Boolean)
-      .join(" "),
+    intro: [copy.intro, equipment.introAside].filter(Boolean).join(" "),
     // Kept inside Google's display limits: ~52 chars for title (before the
     // " | Seven Lift" template suffix) and ~160 for the description.
     // Secondary-city pages already rank top 10 with a strong CTR on the plain
@@ -365,9 +351,7 @@ function buildPage(equipment: EquipmentType, location: LocationSummary): Service
     metaTitle: location.primary
       ? `${equipment.label} Rental ${city} | ${equipment.titleHook}`
       : `${equipment.label} Rental ${city} | ${equipment.capacityRange}`,
-    metaDescription: location.primary
-      ? `${equipment.label.charAt(0)}${equipment.noun.slice(1)} rental in ${city}, ${equipment.capacityRange}, with certified operator. ${equipment.leadTimeShort} to ${location.metaZoneShort}. WhatsApp ${siteConfig.phoneDisplay}.`
-      : `${equipment.label} rental in ${city} — ${equipment.capacityRange}, certified operators. Serving ${location.metaZoneShort}. Daily to monthly hire. Call ${siteConfig.phoneDisplay}.`,
+    metaDescription: copy.metaDescription,
     keywords: [
       `${equipment.noun} rental ${city}`,
       ...equipment.searchAliases.map((alias) => `${alias} ${city}`),
@@ -382,13 +366,14 @@ function buildPage(equipment: EquipmentType, location: LocationSummary): Service
       { label: "Operators", value: "Certified" },
       { label: "Support", value: "24/7" },
     ],
-    bulletGroups: buildBulletGroups(equipment, location),
+    bulletGroups: buildBulletGroups(equipment, location, copy),
     localContext: localContextFor(equipment, location),
+    siteFacts: siteFactsFor(equipment, location),
     areasHeading: `${equipment.label} Delivery Across ${city}`,
     areas: buildAreaLinks(equipment, location),
-    faqs: buildFaqs(equipment, location),
+    faqs: buildFaqs(equipment, location, copy),
     ctaHeading: `Need a ${equipment.label} in ${city}?`,
-    ctaSubheading: `Send your load requirement and site location — we'll confirm the right unit and a delivery slot.`,
+    ctaSubheading: `Send your load requirement and site location. We will confirm the right unit and a delivery slot for ${city}.`,
     whatsappMessage: `Hi Seven Lift, I need ${equipment.noun} rental in ${city}.`,
     areaServed: location.areaServed,
   }

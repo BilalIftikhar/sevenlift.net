@@ -1,4 +1,30 @@
+import Link from "next/link"
+import type { ReactNode } from "react"
 import type { ContentBlock } from "@/lib/blog/types"
+
+const INLINE_LINK = /\[([^\]]+)\]\((\/[^)\s]*)\)/g
+
+/**
+ * Renders `[anchor text](/internal/path)` inside post text as a Link, so posts
+ * can point at the service page a sentence is about. Internal paths only.
+ */
+function withLinks(text: string): ReactNode {
+  const parts: ReactNode[] = []
+  let last = 0
+  for (const match of text.matchAll(INLINE_LINK)) {
+    const index = match.index ?? 0
+    if (index > last) parts.push(text.slice(last, index))
+    parts.push(
+      <Link key={index} href={match[2]} className="font-semibold text-accent underline-offset-2 hover:underline">
+        {match[1]}
+      </Link>,
+    )
+    last = index + match[0].length
+  }
+  if (parts.length === 0) return text
+  if (last < text.length) parts.push(text.slice(last))
+  return parts
+}
 
 export function ContentRenderer({ blocks }: { blocks: ContentBlock[] }) {
   return (
@@ -18,7 +44,7 @@ export function ContentRenderer({ blocks }: { blocks: ContentBlock[] }) {
               {block.items.map((item) => (
                 <li key={item} className="flex gap-3 font-medium leading-relaxed text-foreground">
                   <span className="mt-0.5 shrink-0 font-bold text-accent">✓</span>
-                  <span>{item}</span>
+                  <span>{withLinks(item)}</span>
                 </li>
               ))}
             </ul>
@@ -63,13 +89,13 @@ export function ContentRenderer({ blocks }: { blocks: ContentBlock[] }) {
               key={index}
               className="border-l-4 border-accent bg-secondary/50 py-3 pl-5 font-medium italic text-foreground"
             >
-              {block.text}
+              {withLinks(block.text)}
             </blockquote>
           )
         }
         return (
           <p key={index} className="font-medium leading-relaxed text-muted-foreground">
-            {block.text}
+            {withLinks(block.text)}
           </p>
         )
       })}

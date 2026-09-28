@@ -72,6 +72,7 @@ export default function MobileCranePage() {
         ctaHeading="Need a Mobile Crane?"
         ctaSubheading="Get a free quote and professional consultation for your next lifting project."
         whatsappMessage="I am interested in mobile crane rental services."
+        equipment="mobile-crane"
       />
     </>
   )

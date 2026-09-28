@@ -1,4 +1,5 @@
 import type { Faq } from "@/lib/faqs"
+import type { EquipmentKey } from "@/lib/locations"
 import type { AreaLink, BulletGroup, LocalContext, SpecRow } from "@/components/service-landing-template"
 import { cityLinksForEquipment } from "@/lib/service-areas"
 
@@ -15,6 +16,8 @@ export type SpecialtyService = {
   href: string
   /** Card and link label: "Scissor Lift Rental". */
   label: string
+  /** Fleet family, for shared job counts and layout. */
+  family: EquipmentKey
   eyebrow: string
   h1: string
   intro: string
@@ -40,22 +43,20 @@ const guide = { name: "Guide: Scissor Lift vs Boom Lift", href: "/blog/scissor-l
 export const specialtyServices: SpecialtyService[] = [
   {
     slug: "scissor-lift-rental",
+    family: "man-lift",
     href: "/services/scissor-lift-rental",
     label: "Scissor Lift Rental",
     eyebrow: "Scissor Lift Rental · UAE-Wide",
-    h1: "Scissor Lift Rental in Abu Dhabi, Dubai & the UAE",
+    h1: "Scissor Lift Rental Across the UAE",
     intro:
-      "Electric scissor lifts from 10 to 14 m for indoor work on finished floors, and rough-terrain diesel scissor lifts from 12 to 18 m for outdoor sites. Delivered same-day across Abu Dhabi and Dubai, with a certified operator if you need one.",
+      "Electric scissor lifts from 10 to 14 m for indoor work on finished floors, and rough-terrain diesel scissor lifts from 12 to 18 m for outdoor sites. Delivered to any emirate, with a certified operator if you need one. This page covers the scissor lift fleet itself; each emirate has its own man lift page with local delivery details.",
     heroImage: "/images/fleet/scissor-lift.jpg",
     heroImageAlt: "Scissor lift raised to ceiling height inside a building",
     metaTitle: "Scissor Lift Rental UAE | Electric & Diesel, 10–18 m",
     metaDescription:
-      "Scissor lift rental in Abu Dhabi, Dubai & the UAE: electric 10–14 m for indoor work, rough-terrain diesel 12–18 m for sites. Same-day, with operator.",
+      "Scissor lift rental across the UAE: electric 10 to 14 m for indoor work, rough-terrain diesel 12 to 18 m for outdoor sites. Operator available.",
     keywords: [
       "scissor lift rental UAE",
-      "scissor lift rental Abu Dhabi",
-      "scissor lift rental Dubai",
-      "scissor lift rental Sharjah",
       "electric scissor lift hire",
     ],
     serviceType: "Scissor lift rental",
@@ -87,7 +88,7 @@ export const specialtyServices: SpecialtyService[] = [
       {
         title: "What's Included",
         items: [
-          "Certified operator (optional — self-drive available)",
+          "Certified operator (optional, self-drive available)",
           "Full insurance cover on every unit",
           "Maintenance and breakdown replacement",
           "Daily, weekly, or monthly terms",
@@ -137,27 +138,26 @@ export const specialtyServices: SpecialtyService[] = [
       },
     ],
     ctaHeading: "Need a Scissor Lift?",
-    ctaSubheading: "Send the working height, the site, and the door width — we'll confirm the right scissor lift and a delivery slot.",
+    ctaSubheading: "Send the working height, the site, and the door width. We'll confirm the right scissor lift and a delivery slot.",
     whatsappMessage: "Hi Seven Lift, I need a scissor lift rental.",
   },
   {
     slug: "boom-lift-rental",
+    family: "man-lift",
     href: "/services/boom-lift-rental",
     label: "Boom Lift Rental",
     eyebrow: "Boom Lift Rental · UAE-Wide",
-    h1: "Boom Lift Rental in Abu Dhabi, Dubai & the UAE",
+    h1: "Boom Lift Rental Across the UAE",
     intro:
-      "Articulating boom lifts from 16 to 28 m to reach up and over obstacles, and telescopic boom lifts from 30 to 50 m for facades and high-level access. Delivered across Abu Dhabi, Dubai, and every emirate, with a certified operator.",
+      "Articulating boom lifts from 16 to 28 m to reach up and over obstacles, and telescopic boom lifts from 30 to 50 m for facades and high-level access. Delivered to every emirate with a certified operator. This page covers the boom lift fleet; each emirate has its own man lift page with local delivery details.",
     // TODO: replace with a photo of one of our own boom lifts.
     heroImage: "/images/fleet/scissor-lift.jpg",
     heroImageAlt: "Scissor lift aerial work platform raised indoors",
     metaTitle: "Boom Lift Rental UAE | Articulating & Telescopic",
     metaDescription:
-      "Boom lift rental in Abu Dhabi, Dubai & the UAE: articulating 16–28 m and telescopic 30–50 m manlifts for facades, plant, and high access. With operator.",
+      "Boom lift rental across the UAE: articulating 16 to 28 m and telescopic 30 to 50 m booms for facades, plant and high access. Operator available.",
     keywords: [
       "boom lift rental UAE",
-      "boom lift rental Abu Dhabi",
-      "boom lift rental Dubai",
       "articulating boom lift hire",
       "telescopic boom lift rental",
     ],
@@ -235,26 +235,25 @@ export const specialtyServices: SpecialtyService[] = [
       },
     ],
     ctaHeading: "Need a Boom Lift?",
-    ctaSubheading: "Send the working height, what's in the way, and the ground — we'll recommend the right boom.",
+    ctaSubheading: "Send the working height, what's in the way, and the ground. We'll recommend the right boom.",
     whatsappMessage: "Hi Seven Lift, I need a boom lift rental.",
   },
   {
     slug: "electric-forklift-rental",
+    family: "forklift",
     href: "/services/electric-forklift-rental",
     label: "Electric Forklift Rental",
     eyebrow: "Electric Forklift Rental · UAE-Wide",
-    h1: "Electric Forklift Rental in Abu Dhabi, Dubai & the UAE",
+    h1: "Electric Forklift Rental Across the UAE",
     intro:
-      "Electric forklifts in the 3–5 ton range for indoor warehouses, food and pharmaceutical facilities, and finished floors: no exhaust fumes, low noise, and non-marking tyres. Delivered same-day across Abu Dhabi and Dubai, with a certified operator if you need one.",
+      "Electric forklifts in the 3–5 ton range for indoor warehouses, food and pharmaceutical facilities, and finished floors: no exhaust fumes, low noise, and non-marking tyres. Delivered to every emirate, with a certified operator if you need one.",
     heroImage: "/images/fleet/forklift-warehouse.jpg",
     heroImageAlt: "Forklift inside a clean indoor warehouse",
     metaTitle: "Electric Forklift Rental UAE | Indoor, Non-Marking",
     metaDescription:
-      "Electric forklift rental in Abu Dhabi, Dubai & the UAE: 3–5 ton, zero fumes, non-marking tyres for indoor warehouses. Daily to monthly, with operator.",
+      "Electric forklift rental across the UAE: 3 to 5 ton, zero fumes, non-marking tyres for indoor warehouses. Daily to monthly hire, operator available.",
     keywords: [
       "electric forklift rental UAE",
-      "electric forklift rental Dubai",
-      "electric forklift rental Abu Dhabi",
       "electric forklift hire",
       "indoor forklift rental",
     ],
@@ -287,7 +286,7 @@ export const specialtyServices: SpecialtyService[] = [
       {
         title: "What's Included",
         items: [
-          "Certified operator (optional — self-drive available)",
+          "Certified operator (optional, self-drive available)",
           "Full insurance cover on every unit",
           "Maintenance and breakdown replacement",
           "Daily, weekly, or monthly terms",
@@ -330,7 +329,7 @@ export const specialtyServices: SpecialtyService[] = [
       },
     ],
     ctaHeading: "Need an Electric Forklift?",
-    ctaSubheading: "Send the load, the floor type, and your working hours — we'll confirm the right electric forklift.",
+    ctaSubheading: "Send the load, the floor type, and your working hours. We'll confirm the right electric forklift.",
     whatsappMessage: "Hi Seven Lift, I need an electric forklift rental.",
   },
 ]

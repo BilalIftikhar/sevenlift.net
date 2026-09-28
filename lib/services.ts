@@ -19,7 +19,7 @@ export const services: ServiceSummary[] = [
     title: "Forklift Rental in Abu Dhabi",
     shortTitle: "Forklift Rental",
     href: "/services/forklift-rental-abu-dhabi",
-    capacityRange: "3 Ton – 25 Ton",
+    capacityRange: "3 to 25 Ton",
     description:
       "Diesel and electric forklifts from 3 to 25 tons for Musaffah, ICAD, and Khalifa Industrial Zone warehouses, ports, and factories.",
     heroImage: "/images/fleet/forklift-warehouse.jpg",
@@ -29,7 +29,7 @@ export const services: ServiceSummary[] = [
     title: "Mobile Crane Rental UAE-Wide",
     shortTitle: "Mobile Crane Rental",
     href: "/services/mobile-crane-rental-uae",
-    capacityRange: "25 Ton – 500 Ton",
+    capacityRange: "25 to 500 Ton",
     description:
       "All-terrain mobile cranes with certified riggers and operators for complex lifts across Abu Dhabi, Dubai, and every emirate.",
     heroImage: "/images/mobile-crane.jpeg",
@@ -39,7 +39,7 @@ export const services: ServiceSummary[] = [
     title: "Telehandler Rental",
     shortTitle: "Telehandler Rental",
     href: "/services/telehandler-rental",
-    capacityRange: "3 Ton – 10 Ton · 5m – 17m Reach",
+    capacityRange: "3 to 10 Ton · 5 to 17 m Reach",
     description:
       "Compact, high-reach telehandlers for confined construction sites, warehouses, and material handling in tight spaces.",
     heroImage: "/images/fleet/telehandler-jcb.jpg",
@@ -49,7 +49,7 @@ export const services: ServiceSummary[] = [
     title: "Man Lift & Aerial Access Rental",
     shortTitle: "Man Lift / Aerial Access",
     href: "/services/man-lift-access",
-    capacityRange: "10m – 50m Working Height",
+    capacityRange: "10 to 50 m Working Height",
     description:
       "Scissor lifts and boom lifts for safe elevated maintenance, installation, and construction work at height.",
     heroImage: "/images/fleet/scissor-lift.jpg",

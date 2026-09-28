@@ -5,14 +5,14 @@ import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
 import { getLocationBySlug } from "@/lib/locations"
-import { cityLinksForEquipment, equipmentTypes, localContextFor } from "@/lib/service-areas"
+import { cityLinksForEquipment, equipmentTypes, localContextFor, siteFactsFor } from "@/lib/service-areas"
 
 const path = "/services/forklift-rental-abu-dhabi"
 
 export const metadata: Metadata = pageMetadata({
   title: "Forklift Rental Abu Dhabi | Same-Day, Musaffah & ICAD",
   description:
-    "Forklift rental in Abu Dhabi, 3–25 ton diesel & electric, with certified operator. Same-day delivery from our Mussafah yard to ICAD & KIZAD. Daily to monthly.",
+    "Forklift rental in Abu Dhabi, 3 to 25 ton diesel & electric, with certified operator. Same-day delivery from our Mussafah yard to ICAD & KIZAD. Daily to monthly.",
   path,
   image: "/images/fleet/forklift-warehouse.jpg",
   keywords: [
@@ -49,7 +49,7 @@ const faqs = [
   {
     question: "What rental terms do you offer for forklifts?",
     answer:
-      "We offer daily, weekly, and monthly forklift rental agreements with transparent, all-inclusive pricing and no hidden charges — ideal for both short-term projects and ongoing warehouse operations.",
+      "We offer daily, weekly, and monthly forklift rental agreements with transparent, all-inclusive pricing and no hidden charges, ideal for both short-term projects and ongoing warehouse operations.",
   },
 ]
 
@@ -76,7 +76,7 @@ export default function ForkliftRentalAbuDhabiPage() {
       />
       <ServiceLandingTemplate
         eyebrow="Forklift Rental · Abu Dhabi"
-        title="Forklift Rental in Abu Dhabi — Musaffah, ICAD & KIZAD"
+        title="Forklift Rental in Abu Dhabi: Musaffah, ICAD & KIZAD"
         intro="3 to 25 ton diesel and electric forklifts, dispatched from our yard in Musaffah (Mussafah) Industrial City to ICAD and Khalifa Industrial Zone Abu Dhabi (KIZAD). Certified operators, flexible terms, and same-day deployment for warehouses, factories, and ports."
         heroImage="/images/fleet/forklift-warehouse.jpg"
         heroImageAlt="Forklift operating inside an Abu Dhabi warehouse"
@@ -90,7 +90,7 @@ export default function ForkliftRentalAbuDhabiPage() {
           {
             title: "Forklift Types Available",
             items: [
-              "3–5 ton diesel & electric forklifts for standard warehousing",
+              "3 to 5 ton diesel & electric forklifts for standard warehousing",
               "10 ton heavy-duty forklifts for container & pallet handling",
               "25 ton industrial forklifts for heavy machinery loads",
               "Side loaders and boom loaders for long/oversized materials",
@@ -116,6 +116,8 @@ export default function ForkliftRentalAbuDhabiPage() {
           },
         ]}
         localContext={localContextFor(forklift, abuDhabi)}
+        siteFacts={siteFactsFor(forklift, abuDhabi)}
+        siteFactsHeading="Forklift Hire in Abu Dhabi at a Glance"
         areasHeading="Forklift Rental Across Abu Dhabi & the UAE"
         areas={[
           { name: "Musaffah Industrial City", href: "/locations/abu-dhabi-musaffah" },
@@ -127,8 +129,11 @@ export default function ForkliftRentalAbuDhabiPage() {
         ]}
         faqs={faqs}
         ctaHeading="Need a Forklift in Musaffah or ICAD Today?"
-        ctaSubheading="Tell us your capacity and site location — we'll confirm availability and dispatch within the hour."
+        ctaSubheading="Tell us your capacity and site location. We will confirm availability and dispatch within the hour."
         whatsappMessage="Hi Seven Lift, I need forklift rental in Abu Dhabi (Musaffah/ICAD)."
+        equipment="forklift"
+        formEquipment="Forklift"
+        formLocation="Abu Dhabi"
       />
     </>
   )

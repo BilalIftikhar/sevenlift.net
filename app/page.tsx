@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Header from "@/components/header"
 import HeroSection from "@/components/hero-section"
+import { TrustSection } from "@/components/trust-section"
 import EquipmentShowcase from "@/components/equipment-showcase"
 import ServicesSection from "@/components/services-section"
 import WhyChooseUs from "@/components/why-choose-us"
@@ -17,7 +18,7 @@ import { generalFaqs } from "@/lib/faqs"
 export const metadata: Metadata = pageMetadata({
   title: "Heavy Equipment Rental UAE | Forklift, Crane & Lift Hire",
   description:
-    "Forklifts (3–25 ton), mobile cranes (25–500 ton), telehandlers & man lifts for rent across all 7 emirates. Certified operators, 24/7 deployment.",
+    "Forklifts (3 to 25 ton), mobile cranes (25 to 500 ton), telehandlers & man lifts for rent across all 7 emirates. Certified operators, 24/7 deployment.",
   path: "/",
 })
 
@@ -27,6 +28,7 @@ export default function Home() {
       <JsonLd data={[localBusinessSchema(), faqSchema(generalFaqs)]} />
       <Header />
       <HeroSection />
+      <TrustSection />
       <EquipmentShowcase />
       <ServicesSection />
       <WhyChooseUs />

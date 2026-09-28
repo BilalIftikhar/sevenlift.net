@@ -44,7 +44,7 @@ export const abuDhabiPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "Diesel forklifts suit outdoor yards and long shifts. Electric forklifts suit indoor warehouses, cold stores, and food-grade sites. Check whether fuel is included or charged separately, and for electric units, whether you need to provide charging power.",
+          "Diesel forklifts suit outdoor yards and long shifts. [Electric forklifts](/services/electric-forklift-rental) suit indoor warehouses, cold stores, and food-grade sites. Check whether fuel is included or charged separately, and for electric units, whether you need to provide charging power.",
       },
       { type: "heading", level: 2, text: "5. Delivery Distance" },
       {
@@ -89,7 +89,7 @@ export const abuDhabiPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "Send those six things and you will get a quote you can compare line by line. Seven Lift quotes forklift rentals across Abu Dhabi from our Musaffah yard. Send the details on WhatsApp and we will confirm the right unit and the full inclusive price.",
+          "Send those six things and you will get a quote you can compare line by line. Seven Lift quotes [forklift rentals across Abu Dhabi](/services/forklift-rental-abu-dhabi) from our Musaffah yard. Send the details on WhatsApp and we will confirm the right unit and the full inclusive price.",
       },
     ],
     relatedLinks: [
@@ -120,7 +120,7 @@ export const abuDhabiPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "\"Manlift\" (or \"man lift\") is the umbrella name for any powered platform that lifts people to work at height. Scissor lifts and boom lifts are the two main types of manlift, so \"manlift vs scissor lift\" is really a question of which kind of manlift you need. A man basket is different again: a work cage lifted by a telehandler or crane, used where a self-propelled platform can't get close.",
+          "\"Manlift\" (or \"man lift\") is the umbrella name for any powered platform that lifts people to work at height. [Scissor lifts](/services/scissor-lift-rental) and [boom lifts](/services/boom-lift-rental) are the two main types of manlift, so \"manlift vs scissor lift\" is really a question of which kind of manlift you need. A man basket is different again: a work cage lifted by a telehandler or crane, used where a self-propelled platform can't get close.",
       },
       { type: "heading", level: 2, text: "Scissor Lifts: Straight Up, Big Platform" },
       {
@@ -225,7 +225,7 @@ export const abuDhabiPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "In practice, crane lifts, outdoor man lift work, and yard forklift work shift to early mornings and late afternoons. Many Abu Dhabi contractors start at dawn in summer and schedule critical lifts for the first hours of the day, when it is cooler and the wind is usually calmer.",
+          "In practice, [crane lifts](/services/mobile-crane-rental-abu-dhabi), outdoor man lift work, and yard forklift work shift to early mornings and late afternoons. Many Abu Dhabi contractors start at dawn in summer and schedule critical lifts for the first hours of the day, when it is cooler and the wind is usually calmer.",
       },
       { type: "heading", level: 2, text: "Heat Stress for Operators" },
       {
@@ -260,7 +260,7 @@ export const abuDhabiPosts: BlogPost[] = [
         items: [
           "Schedule outdoor lifts and man lift work before 12:30 pm or after 3:00 pm",
           "Book early-morning crane mobilization so the lift starts at first light",
-          "Specify air-conditioned cabs for long forklift and telehandler shifts",
+          "Specify air-conditioned cabs for long forklift and [telehandler](/services/telehandler-rental-abu-dhabi) shifts",
           "Add wind contingency days for crane and boom work on coastal and desert sites",
           "Confirm your supplier's breakdown response time before the hottest months",
         ],
@@ -297,13 +297,13 @@ export const abuDhabiPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "A forklift lifts vertically, close to the ground, and is the most efficient way to move pallets and heavy items around a warehouse or a paved yard. Standard forklifts need firm, level ground. On loose sand or rough plots they lose traction and stability. Choose a forklift for warehouses in ICAD, KIZAD, and Mafraq, for truck and container loading, and for any work on concrete.",
+          "A [forklift](/services/forklift-rental-abu-dhabi) lifts vertically, close to the ground, and is the most efficient way to move pallets and heavy items around a warehouse or a paved yard. Standard forklifts need firm, level ground. On loose sand or rough plots they lose traction and stability. Choose a forklift for warehouses in ICAD, KIZAD, and Mafraq, for truck and container loading, and for any work on concrete.",
       },
       { type: "heading", level: 2, text: "Telehandler: Height and Forward Reach on Rough Ground" },
       {
         type: "paragraph",
         text:
-          "A telehandler has a telescopic boom that reaches up and forward, typically 7 to 17 m. With four-wheel drive and rough-terrain tyres, it works on unfinished plots and sand. It can place blocks on a roof, lift steel to a second floor, or unload a truck from across a trench. With a bucket, jib, or man-basket attachment it does several jobs. This is why villa sites in Al Shamkha, Riyadh City, and Khalifa City rely on it.",
+          "A [telehandler](/services/telehandler-rental-abu-dhabi) has a telescopic boom that reaches up and forward, typically 7 to 17 m. With four-wheel drive and rough-terrain tyres, it works on unfinished plots and sand. It can place blocks on a roof, lift steel to a second floor, or unload a truck from across a trench. With a bucket, jib, or man-basket attachment it does several jobs. This is why villa sites in Al Shamkha, Riyadh City, and Khalifa City rely on it.",
       },
       {
         type: "paragraph",
@@ -314,7 +314,7 @@ export const abuDhabiPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "When the load is heavy and needs to go high or far, such as precast panels, roof steel, plant, tanks, or machinery through a roof opening, a mobile crane is the tool. A crane lift needs more planning: a lift plan, a certified operator and rigger, an outrigger setup on firm ground or mats, and sometimes road or site permits. For a single heavy lift, one crane day is usually cheaper than trying to force it with the wrong machine.",
+          "When the load is heavy and needs to go high or far, such as precast panels, roof steel, plant, tanks, or machinery through a roof opening, a [mobile crane](/services/mobile-crane-rental-abu-dhabi) is the tool. A crane lift needs more planning: a lift plan, a certified operator and rigger, an outrigger setup on firm ground or mats, and sometimes road or site permits. For a single heavy lift, one crane day is usually cheaper than trying to force it with the wrong machine.",
       },
       {
         type: "table",
@@ -382,7 +382,7 @@ export const abuDhabiPosts: BlogPost[] = [
         type: "list",
         items: [
           "A single lift: one crane day to place a tank, a precast element, or a machine",
-          "One-off access work: a day of signage or AC maintenance with a man lift",
+          "One-off access work: a day of signage or AC maintenance with a [man lift](/services/man-lift-rental-abu-dhabi)",
           "Unloading a container or a delivery that you know will finish in a day",
           "Sites close to the supplier's yard, where delivery is quick and cheap",
         ],
@@ -412,7 +412,7 @@ export const abuDhabiPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "Repeated day hire adds costs you don't see in the rate: transport each time, waiting for the machine to arrive, and the risk that no machine is free on the day you need it. On a villa site where the telehandler is needed three days a week, a monthly machine that stays on the plot is usually cheaper and always more reliable.",
+          "Repeated day hire adds costs you don't see in the rate: transport each time, waiting for the machine to arrive, and the risk that no machine is free on the day you need it. On a villa site where the [telehandler](/services/telehandler-rental-abu-dhabi) is needed three days a week, a monthly machine that stays on the plot is usually cheaper and always more reliable.",
       },
       { type: "heading", level: 2, text: "Questions to Ask Before Signing" },
       {
@@ -457,7 +457,7 @@ export const abuDhabiPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "Excavation and foundations are earthworks jobs, usually done by the earthworks subcontractor's own machines. The lifting work starts when steel and blockwork arrive. From then on a telehandler earns its keep: unloading trucks, moving rebar bundles to the fixers, and stacking blocks close to the work.",
+          "Excavation and foundations are earthworks jobs, usually done by the earthworks subcontractor's own machines. The lifting work starts when steel and blockwork arrive. From then on a [telehandler](/services/telehandler-rental-abu-dhabi) earns its keep: unloading trucks, moving rebar bundles to the fixers, and stacking blocks close to the work.",
       },
       { type: "heading", level: 2, text: "Blockwork and Upper Floors" },
       {
@@ -469,13 +469,13 @@ export const abuDhabiPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "Precast elements, roof steel, water tanks, and pool equipment are often beyond a telehandler's capacity at the reach needed. That is when you book a small mobile crane for a day. A 25–50 ton crane covers most villa lifts, as long as it has a firm, level area to set up.",
+          "Precast elements, roof steel, water tanks, and pool equipment are often beyond a telehandler's capacity at the reach needed. That is when you book a [small mobile crane](/services/mobile-crane-rental-abu-dhabi) for a day. A 25–50 ton crane covers most villa lifts, as long as it has a firm, level area to set up.",
       },
       { type: "heading", level: 2, text: "Finishing and External Works" },
       {
         type: "paragraph",
         text:
-          "Facade finishing, external lighting, and high ceilings in the majlis or entrance hall call for a scissor lift or a small boom lift. For landscaping and boundary walls, the telehandler with a bucket attachment often returns for a few days.",
+          "Facade finishing, external lighting, and high ceilings in the majlis or entrance hall call for a [scissor lift](/services/scissor-lift-rental) or a small boom lift. For landscaping and boundary walls, the telehandler with a bucket attachment often returns for a few days.",
       },
       { type: "heading", level: 2, text: "Ground Conditions in the New Communities" },
       {

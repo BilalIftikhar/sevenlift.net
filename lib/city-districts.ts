@@ -39,7 +39,7 @@ export const cityDistricts: CityDistrict[] = [
       {
         title: "Sized for Tight Units",
         description:
-          "Al Quoz warehouses and workshops sit on narrow service roads with shared loading areas. We send compact 3–5 ton forklifts and narrow-chassis scissor lifts that fit, not the biggest unit on the yard.",
+          "Al Quoz warehouses and workshops sit on narrow service roads with shared loading areas. We send compact 3 to 5 ton forklifts and narrow-chassis scissor lifts that fit, not the biggest unit on the yard.",
       },
       {
         title: "Indoor-Ready Man Lifts",
@@ -88,11 +88,11 @@ export const cityDistricts: CityDistrict[] = [
       },
     ],
     ctaHeading: "Need a Forklift or Man Lift in Al Quoz?",
-    ctaSubheading: "Send the unit location, door width, and job — we'll confirm the right machine and a delivery slot.",
+    ctaSubheading: "Send the unit location, door width, and job. We'll confirm the right machine and a delivery slot.",
     whatsappMessage: "Hi Seven Lift, I need equipment rental in Al Quoz, Dubai.",
     metaTitle: "Forklift & Man Lift Rental Al Quoz, Dubai",
     metaDescription:
-      "Forklift, manlift, scissor lift & telehandler rental in Al Quoz Industrial Areas 1–4, Dubai. Compact units for tight warehouses. Daily hire, with operator.",
+      "Forklift, manlift, scissor lift & telehandler rental in Al Quoz Industrial Areas 1 to 4, Dubai. Compact units for tight warehouses. Daily hire, with operator.",
     keywords: [
       "forklift rental Al Quoz",
       "man lift rental Al Quoz",
@@ -132,7 +132,7 @@ export const cityDistricts: CityDistrict[] = [
       {
         title: "Heavy Forklifts for Container Work",
         description:
-          "7–10 ton forklifts for container stuffing and destuffing, and 15–25 ton units for machinery and steel, which is what free zone warehouses and yards move.",
+          "7 to 10 ton forklifts for container stuffing and destuffing, and 15 to 25 ton units for machinery and steel, which is what free zone warehouses and yards move.",
       },
       {
         title: "Free Zone Paperwork Handled",
@@ -142,7 +142,7 @@ export const cityDistricts: CityDistrict[] = [
       {
         title: "Cranes for Plant and Steel",
         description:
-          "25–500 ton mobile cranes with certified riggers and a documented lift plan for plant installation, steel erection, and heavy machinery moves.",
+          "25 to 500 ton mobile cranes with certified riggers and a documented lift plan for plant installation, steel erection, and heavy machinery moves.",
       },
     ],
     context: {
@@ -176,11 +176,11 @@ export const cityDistricts: CityDistrict[] = [
       },
     ],
     ctaHeading: "Need Equipment in Jebel Ali or JAFZA?",
-    ctaSubheading: "Send the plot or warehouse, the load, and the gate-pass contact — we'll plan the delivery.",
+    ctaSubheading: "Send the plot or warehouse, the load, and the gate-pass contact. We'll plan the delivery.",
     whatsappMessage: "Hi Seven Lift, I need equipment rental in Jebel Ali / JAFZA.",
     metaTitle: "Forklift & Crane Rental Jebel Ali | JAFZA",
     metaDescription:
-      "Forklift, crane, telehandler & man lift rental in Jebel Ali, JAFZA & Dubai South. 7–25 ton forklifts for container work, gate-pass documents supplied.",
+      "Forklift, crane, telehandler & man lift rental in Jebel Ali, JAFZA & Dubai South. 7 to 25 ton forklifts for container work, gate-pass documents supplied.",
     keywords: [
       "forklift rental Jebel Ali",
       "equipment rental JAFZA",
@@ -215,7 +215,7 @@ export const cityDistricts: CityDistrict[] = [
       {
         title: "Forklifts for Every Yard",
         description:
-          "3–5 ton forklifts for warehouses, 7–10 ton for containers and heavy pallets, and side loaders for pipe, steel, and timber, the loads Sharjah's yards handle every day.",
+          "3 to 5 ton forklifts for warehouses, 7 to 10 ton for containers and heavy pallets, and side loaders for pipe, steel, and timber, the loads Sharjah's yards handle every day.",
       },
       {
         title: "Monthly Hire Without Lock-In",
@@ -264,11 +264,11 @@ export const cityDistricts: CityDistrict[] = [
       },
     ],
     ctaHeading: "Need a Forklift in Sharjah Industrial Area?",
-    ctaSubheading: "Send the Industrial Area number, the load, and the dates — we'll confirm the unit and delivery slot.",
+    ctaSubheading: "Send the Industrial Area number, the load, and the dates. We'll confirm the unit and delivery slot.",
     whatsappMessage: "Hi Seven Lift, I need forklift / equipment rental in Sharjah Industrial Area.",
     metaTitle: "Forklift Rental Sharjah Industrial Area 1–18",
     metaDescription:
-      "Forklift, side loader, manlift & telehandler rental in Sharjah Industrial Areas 1–18, Al Sajaa & Muwaileh. Daily to monthly hire, certified operators.",
+      "Forklift, side loader, manlift & telehandler rental in Sharjah Industrial Areas 1 to 18, Al Sajaa & Muwaileh. Daily to monthly hire, certified operators.",
     keywords: [
       "forklift rental Sharjah Industrial Area",
       "forklift rental Sharjah",

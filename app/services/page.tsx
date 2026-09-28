@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { ContactForm } from "@/components/contact-form"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, ShieldCheck, Timer, Gauge, Headset } from "lucide-react"
@@ -48,14 +49,19 @@ export default function ServicesPage() {
 
       <div className="min-h-screen bg-gradient-to-b from-background to-secondary pb-20 pt-16 md:pt-24">
         <div className="mx-auto max-w-7xl px-4">
-          <Reveal className="mb-16 max-w-3xl space-y-4">
-            <p className="text-sm font-bold uppercase tracking-widest text-accent">Comprehensive Solutions</p>
-            <h1 className="text-foreground">Professional Equipment Rental Services</h1>
-            <p className="text-lg font-medium text-muted-foreground">
-              Tailored lifting and material handling solutions for every industry and project requirement — with
-              dedicated support for Abu Dhabi (Musaffah, ICAD) and Dubai (JAFZA, Al Quoz) operations.
-            </p>
-          </Reveal>
+          <div className="mb-16 grid gap-10 lg:grid-cols-5 lg:items-start">
+            <Reveal className="space-y-4 lg:col-span-3">
+              <p className="text-sm font-bold uppercase tracking-widest text-accent">Comprehensive Solutions</p>
+              <h1 className="text-foreground">Professional Equipment Rental Services</h1>
+              <p className="text-lg font-medium text-muted-foreground">
+                Tailored lifting and material handling solutions for every industry and project requirement, with
+                dedicated support for Abu Dhabi (Musaffah, ICAD) and Dubai (JAFZA, Al Quoz) operations.
+              </p>
+            </Reveal>
+            <div className="lg:col-span-2">
+              <ContactForm variant="hero" placement="hero-form" />
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {services.map((service, idx) => (

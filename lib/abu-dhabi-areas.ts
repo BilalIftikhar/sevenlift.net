@@ -70,7 +70,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       {
         title: "Built for Heavy Manufacturing",
         description:
-          "Steel, pipe, cable, and building-materials plants in ICAD need 7–25 ton forklifts, side loaders, and cranes for plant installation. That is the core of our fleet.",
+          "Steel, pipe, cable, and building-materials plants in ICAD need 7 to 25 ton forklifts, side loaders, and cranes for plant installation. That is the core of our fleet.",
       },
       {
         title: "Shift-Pattern Support",
@@ -114,7 +114,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       },
     ],
     ctaHeading: "Need Equipment in ICAD Today?",
-    ctaSubheading: "Send the plant location and the load — our Musaffah yard is minutes away.",
+    ctaSubheading: "Send the plant location and the load. Our Musaffah yard is minutes away.",
     whatsappMessage: "Hi Seven Lift, I need equipment rental in ICAD, Abu Dhabi.",
     metaTitle: "ICAD Equipment Rental | Forklift & Crane Hire",
     metaDescription:
@@ -152,7 +152,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       {
         title: "Container & Logistics Handling",
         description:
-          "7–10 ton forklifts for container stuffing and destuffing, and 3–5 ton electric units for the logistics parks' finished floors.",
+          "7 to 10 ton forklifts for container stuffing and destuffing, and 3 to 5 ton electric units for the logistics parks' finished floors.",
       },
       {
         title: "Port-Side Crane Lifts",
@@ -201,7 +201,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       },
     ],
     ctaHeading: "Need Equipment in KIZAD or Khalifa Port?",
-    ctaSubheading: "Tell us the plot, the gate, and the load — we'll plan the delivery slot.",
+    ctaSubheading: "Tell us the plot, the gate, and the load. We'll plan the delivery slot.",
     whatsappMessage: "Hi Seven Lift, I need equipment rental in KIZAD / Khalifa Port.",
     metaTitle: "Equipment Rental KIZAD & Khalifa Port",
     metaDescription:
@@ -287,7 +287,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       },
     ],
     ctaHeading: "Need a Machine in MBZ City Today?",
-    ctaSubheading: "Send the plot location and what you need to lift — we're minutes away.",
+    ctaSubheading: "Send the plot location and what you need to lift. We're minutes away.",
     whatsappMessage: "Hi Seven Lift, I need equipment rental in Mohammed Bin Zayed City.",
     metaTitle: "Equipment Rental MBZ City & Mussafah Shabiya",
     metaDescription:
@@ -374,7 +374,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       },
     ],
     ctaHeading: "Need Equipment in Khalifa City?",
-    ctaSubheading: "Send the plot or community name and the job — we'll recommend the right machine.",
+    ctaSubheading: "Send the plot or community name and the job. We'll recommend the right machine.",
     whatsappMessage: "Hi Seven Lift, I need equipment rental in Khalifa City, Abu Dhabi.",
     metaTitle: "Equipment Rental Khalifa City & Al Raha",
     metaDescription:
@@ -461,7 +461,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       },
     ],
     ctaHeading: "Planning Work on Yas Island?",
-    ctaSubheading: "Send the venue or site and your access window — we'll plan the delivery.",
+    ctaSubheading: "Send the venue or site and your access window. We'll plan the delivery.",
     whatsappMessage: "Hi Seven Lift, I need equipment rental on Yas Island.",
     metaTitle: "Equipment Rental Yas Island | Lifts & Cranes",
     metaDescription:
@@ -548,7 +548,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       },
     ],
     ctaHeading: "Need Equipment on Saadiyat Island?",
-    ctaSubheading: "Send the site, the logistics slot, and the lift — we'll plan it with you.",
+    ctaSubheading: "Send the site, the logistics slot, and the lift. We'll plan it with you.",
     whatsappMessage: "Hi Seven Lift, I need equipment rental on Saadiyat Island.",
     metaTitle: "Equipment Rental Saadiyat Island | Cranes",
     metaDescription:
@@ -634,7 +634,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       },
     ],
     ctaHeading: "Working in a City-Centre Tower?",
-    ctaSubheading: "Send the building and the lift dimensions — we'll specify a platform that fits.",
+    ctaSubheading: "Send the building and the lift dimensions. We'll specify a platform that fits.",
     whatsappMessage: "Hi Seven Lift, I need equipment rental on Al Reem Island / Abu Dhabi city.",
     metaTitle: "Equipment Rental Al Reem Island & Abu Dhabi",
     metaDescription:
@@ -682,7 +682,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       {
         title: "Small Cranes for Villa Lifts",
         description:
-          "25–50 ton mobile cranes for precast, steel, roof elements, tanks, and pools, with a lift plan for each.",
+          "25 to 50 ton mobile cranes for precast, steel, roof elements, tanks, and pools, with a lift plan for each.",
       },
       {
         title: "Close to Musaffah",
@@ -721,7 +721,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       },
     ],
     ctaHeading: "Building Villas in Al Shamkha or Riyadh City?",
-    ctaSubheading: "Tell us the number of plots and the programme — we'll quote the right machine.",
+    ctaSubheading: "Tell us the number of plots and the programme. We'll quote the right machine.",
     whatsappMessage: "Hi Seven Lift, I need equipment for a villa project in Al Shamkha / Riyadh City.",
     metaTitle: "Equipment Rental Al Shamkha & Riyadh City",
     metaDescription:
@@ -758,7 +758,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       {
         title: "Workshop & Yard Forklifts",
         description:
-          "3–10 ton diesel forklifts and side loaders for the steel, timber, and equipment yards across Mafraq Industrial Area.",
+          "3 to 10 ton diesel forklifts and side loaders for the steel, timber, and equipment yards across Mafraq Industrial Area.",
       },
       {
         title: "Fast From Musaffah",
@@ -807,7 +807,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       },
     ],
     ctaHeading: "Need a Forklift in Mafraq Today?",
-    ctaSubheading: "Send the yard location and the load — we'll confirm a unit and a delivery time.",
+    ctaSubheading: "Send the yard location and the load. We'll confirm a unit and a delivery time.",
     whatsappMessage: "Hi Seven Lift, I need equipment rental in Mafraq / Baniyas.",
     metaTitle: "Equipment Rental Mafraq & Baniyas, Abu Dhabi",
     metaDescription:
@@ -893,7 +893,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       },
     ],
     ctaHeading: "Need Equipment in Masdar or Near the Airport?",
-    ctaSubheading: "Send the site and access requirements — we'll prepare the documents in advance.",
+    ctaSubheading: "Send the site and access requirements. We'll prepare the documents in advance.",
     whatsappMessage: "Hi Seven Lift, I need equipment rental in Masdar City / airport area.",
     metaTitle: "Equipment Rental Masdar City & Airport",
     metaDescription:
@@ -979,7 +979,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       },
     ],
     ctaHeading: "Planning Work in Ruwais or Al Dhafra?",
-    ctaSubheading: "Send the site, the dates, and the HSE requirements — we'll plan mobilization.",
+    ctaSubheading: "Send the site, the dates, and the HSE requirements. We'll plan mobilization.",
     whatsappMessage: "Hi Seven Lift, I need equipment rental in Ruwais / Al Dhafra.",
     metaTitle: "Equipment Rental Ruwais & Al Dhafra",
     metaDescription:

@@ -9,18 +9,16 @@ import { cityLinksForEquipment } from "@/lib/service-areas"
 const path = "/services/man-lift-access"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Manlift Rental UAE | Scissor & Boom Lifts, 10–50 m",
+  title: "Manlift Rental UAE | Scissor & Boom Lifts, 10 to 50 m",
   description:
-    "Manlift rental across the UAE: scissor lifts, boom lifts & man baskets, 10–50 m working height, with operator. Same-day in Abu Dhabi & Dubai.",
+    "Manlift rental across the UAE: scissor lifts, boom lifts and man baskets from 10 to 50 m working height, in every emirate. Certified operator available.",
   path,
   image: "/images/fleet/scissor-lift.jpg",
   keywords: [
     "man lift rental UAE",
     "manlift rental UAE",
-    "manlift Abu Dhabi",
-    "man basket rental",
-    "aerial platform rental Abu Dhabi",
-    "scissor lift rental Dubai",
+    "man basket rental UAE",
+    "aerial platform rental UAE",
     "boom lift rental UAE",
     "aerial work platform rental",
   ],
@@ -48,9 +46,9 @@ const faqs = [
       "Yes. Every unit includes guardrails, harness anchor points, and safety interlocks, and we provide trained, certified operators or safety briefings for your own site personnel.",
   },
   {
-    question: "Can you deliver man lifts to Abu Dhabi and Dubai the same day?",
+    question: "Do you deliver man lifts to every emirate?",
     answer:
-      "Same-day delivery is available for most requests across Abu Dhabi (Musaffah, ICAD, KIZAD) and Dubai (JAFZA, Al Quoz, Dubai Industrial City), subject to fleet availability.",
+      "Yes. We deliver scissor and boom lifts to all seven emirates. Lead times vary by emirate, and each emirate's own man lift page lists the local delivery details.",
   },
 ]
 
@@ -68,7 +66,7 @@ export default function ManLiftAccessPage() {
             name: "Man Lift & Aerial Access Rental",
             serviceType: "Aerial work platform rental",
             description: "Scissor lift and boom lift rental from 10m to 50m working height across the UAE.",
-            areaServed: ["Abu Dhabi", "Dubai", "United Arab Emirates"],
+            areaServed: ["United Arab Emirates"],
             url: `${siteConfig.url}${path}`,
           }),
           faqSchema(faqs),
@@ -77,20 +75,28 @@ export default function ManLiftAccessPage() {
       <ServiceLandingTemplate
         eyebrow="Man Lift & Aerial Access · UAE-Wide"
         title="Man Lift & Aerial Access Rental Across the UAE"
-        intro="Manlift rental across the UAE: scissor lifts and boom lifts from 10m to 50m working height for safe elevated maintenance, installation, and construction work — deployed across Abu Dhabi, Dubai, and every emirate."
+        intro="Manlift rental across the UAE: scissor lifts and boom lifts from 10 m to 50 m working height for safe maintenance, installation, and construction work at height, in every emirate. Each emirate has its own man lift page with local details; this page covers the platform types and how to choose one."
         heroImage="/images/fleet/scissor-lift.jpg"
         heroImageAlt="Scissor lift being used for elevated maintenance work in a UAE warehouse"
+        localContext={{
+          heading: "Choosing a Platform: Three Questions",
+          paragraphs: [
+            "How high is the work, and is anything in the way? Straight up with clear floor below means a scissor lift. Reaching over racking, pipework or a canopy means an articulating boom. Long straight reach to a facade or roofline means a telescopic boom.",
+            "What is the floor? Finished slabs indoors need electric units with non-marking tyres. Compacted yards and site ground need rough-terrain diesel machines with four-wheel drive or outriggers.",
+            "Who is on the platform, and for how long? Tell us the crew size and tools, so the platform capacity is right, and whether you need our certified operator or will use your own trained staff.",
+          ],
+        }}
         specs={[
           { label: "Working Height", value: "10–50m" },
           { label: "Platform Types", value: "Scissor & Boom" },
-          { label: "Coverage", value: "All UAE" },
+          { label: "Coverage", value: "All 7 Emirates" },
           { label: "Support", value: "24/7" },
         ]}
         bulletGroups={[
           {
             title: "Aerial Platform Types",
             items: [
-              "10–18m scissor lifts for indoor & flat-surface work",
+              "10 to 18 m scissor lifts for indoor and flat-surface work",
               "26m articulating boom lifts for obstacle access",
               "50m telescopic boom lifts for maximum height",
               "Electric units available for indoor/dust-free sites",
@@ -115,7 +121,7 @@ export default function ManLiftAccessPage() {
             ],
           },
         ]}
-        areasHeading="Man Lift Coverage Across the UAE"
+        areasHeading="Man Lift Rental by Emirate"
         areas={[
           ...cityLinksForEquipment("man-lift"),
           { name: "Scissor Lift Rental", href: "/services/scissor-lift-rental" },
@@ -125,8 +131,10 @@ export default function ManLiftAccessPage() {
         ]}
         faqs={faqs}
         ctaHeading="Need Safe Access at Height?"
-        ctaSubheading="Tell us your required working height and site type — we'll recommend the right platform."
+        ctaSubheading="Tell us your required working height and site type. We will recommend the right platform."
         whatsappMessage="Hi Seven Lift, I need man lift / aerial platform rental in the UAE."
+        equipment="man-lift"
+        formEquipment="Man Lift / Scissor Lift / Boom Lift"
       />
     </>
   )

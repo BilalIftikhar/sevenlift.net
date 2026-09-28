@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { ContactForm } from "@/components/contact-form"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { PostCard } from "@/components/blog/post-card"
@@ -31,14 +32,19 @@ export default function BlogIndexPage() {
 
       <div className="min-h-screen bg-gradient-to-b from-background to-secondary pb-20 pt-16 md:pt-24">
         <div className="mx-auto max-w-7xl px-4">
-          <Reveal className="mb-16 max-w-3xl space-y-4">
-            <p className="text-sm font-bold uppercase tracking-widest text-accent">Guides &amp; Insights</p>
-            <h1 className="text-foreground">Heavy Equipment Rental Blog</h1>
-            <p className="text-lg font-medium text-muted-foreground">
-              Practical, UAE-specific guidance on choosing equipment, staying compliant, and planning rental
-              strategy for projects in Abu Dhabi, Dubai, and beyond.
-            </p>
-          </Reveal>
+          <div className="mb-16 grid gap-10 lg:grid-cols-5 lg:items-start">
+            <Reveal className="space-y-4 lg:col-span-3">
+              <p className="text-sm font-bold uppercase tracking-widest text-accent">Guides &amp; Insights</p>
+              <h1 className="text-foreground">Heavy Equipment Rental Blog</h1>
+              <p className="text-lg font-medium text-muted-foreground">
+                Practical, UAE-specific guidance on choosing equipment, staying compliant, and planning rental
+                strategy for projects in Abu Dhabi, Dubai, and beyond.
+              </p>
+            </Reveal>
+            <div className="lg:col-span-2">
+              <ContactForm variant="hero" placement="hero-form" />
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post, index) => (

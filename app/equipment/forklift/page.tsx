@@ -72,6 +72,7 @@ export default function ForkliftsPage() {
         ctaHeading="Ready to Get Started?"
         ctaSubheading="Contact us today for a free consultation and competitive quote on your forklift rental needs."
         whatsappMessage="I am interested in forklift rental services."
+        equipment="forklift"
       />
     </>
   )

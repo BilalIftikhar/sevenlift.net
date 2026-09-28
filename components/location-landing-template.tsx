@@ -6,6 +6,8 @@ import Footer from "@/components/footer"
 import { FaqList } from "@/components/faq-list"
 import { Reveal } from "@/components/reveal"
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
+import { ContactForm } from "@/components/contact-form"
+import { TrustSection } from "@/components/trust-section"
 import { siteConfig, waLink } from "@/lib/site-config"
 import type { Faq } from "@/lib/faqs"
 
@@ -25,7 +27,7 @@ type LocationLandingTemplateProps = {
   heroImage: string
   heroImageAlt: string
   areas: string[]
-  /** Equipment pages scoped to this city — the main internal-linking hub. */
+  /** Equipment pages scoped to this city, the main internal-linking hub. */
   serviceLinks: LocationServiceLink[]
   cityName: string
   whyHeading: string
@@ -70,8 +72,8 @@ export function LocationLandingTemplate({
           <Image src={heroImage} alt={heroImageAlt} fill priority className="object-cover opacity-30" sizes="100vw" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80" />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24">
-          <div className="animate-slide-up max-w-2xl space-y-5">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 md:py-20 lg:grid-cols-5 lg:items-center">
+          <div className="animate-slide-up space-y-5 lg:col-span-3">
             <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-foreground">
               <MapPin size={13} />
               {eyebrow}
@@ -83,10 +85,10 @@ export function LocationLandingTemplate({
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-7 py-3.5 text-sm font-bold text-accent-foreground shadow-lg transition-transform hover:scale-[1.02]"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/30 bg-white/10 px-7 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
               >
                 <WhatsAppIcon size={18} />
-                Request a Quote
+                WhatsApp
               </a>
               <a
                 href={siteConfig.telHref}
@@ -97,8 +99,13 @@ export function LocationLandingTemplate({
               </a>
             </div>
           </div>
+          <div className="animate-fade-in lg:col-span-2">
+            <ContactForm variant="hero" defaultLocation={cityName} placement="hero-form" />
+          </div>
         </div>
       </section>
+
+      <TrustSection />
 
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4">

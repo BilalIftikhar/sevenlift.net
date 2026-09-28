@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { ContactForm } from "@/components/contact-form"
 import Link from "next/link"
 import Image from "next/image"
 import Header from "@/components/header"
@@ -13,7 +14,7 @@ import { siteConfig, waLink } from "@/lib/site-config"
 export const metadata: Metadata = pageMetadata({
   title: "Equipment Fleet | Forklifts, Cranes, Lifts",
   description:
-    "Our full UAE rental fleet: 3–25 ton forklifts, 25–500 ton mobile cranes, telehandlers and man lifts. Certified operators and flexible terms.",
+    "Our full UAE rental fleet: 3 to 25 ton forklifts, 25 to 500 ton mobile cranes, telehandlers and man lifts. Certified operators and flexible terms.",
   path: "/equipment",
 })
 
@@ -74,14 +75,19 @@ export default function EquipmentPage() {
       <Header />
       <div className="min-h-screen bg-gradient-to-b from-background to-secondary pb-20 pt-16 md:pt-24">
         <div className="mx-auto max-w-7xl px-4">
-          <Reveal className="mb-16 max-w-3xl space-y-4">
-            <p className="text-sm font-bold uppercase tracking-widest text-accent">Our Premium Fleet</p>
-            <h1 className="text-foreground">Equipment Rental Solutions</h1>
-            <p className="text-lg font-medium text-muted-foreground">
-              State-of-the-art heavy lifting and access equipment maintained to enterprise standards, with certified
-              operators available across Abu Dhabi, Dubai, and the wider UAE.
-            </p>
-          </Reveal>
+          <div className="mb-16 grid gap-10 lg:grid-cols-5 lg:items-start">
+            <Reveal className="space-y-4 lg:col-span-3">
+              <p className="text-sm font-bold uppercase tracking-widest text-accent">Our Premium Fleet</p>
+              <h1 className="text-foreground">Equipment Rental Solutions</h1>
+              <p className="text-lg font-medium text-muted-foreground">
+                State-of-the-art heavy lifting and access equipment maintained to enterprise standards, with certified
+                operators available across Abu Dhabi, Dubai, and the wider UAE.
+              </p>
+            </Reveal>
+            <div className="lg:col-span-2">
+              <ContactForm variant="hero" placement="hero-form" />
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {equipment.map((item, idx) => (

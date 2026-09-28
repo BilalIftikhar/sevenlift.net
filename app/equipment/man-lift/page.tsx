@@ -72,6 +72,7 @@ export default function ManLiftPage() {
         ctaHeading="Need a Man Lift or Aerial Platform?"
         ctaSubheading="Talk to our team for the right platform height and configuration for your job site."
         whatsappMessage="I am interested in man lift / aerial platform rental services."
+        equipment="man-lift"
       />
     </>
   )

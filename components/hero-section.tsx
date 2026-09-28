@@ -1,7 +1,8 @@
 import { Phone, ShieldCheck, Clock3, BadgeCheck } from "lucide-react"
 import Image from "next/image"
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
-import { siteConfig, waLink } from "@/lib/site-config"
+import { ContactForm } from "@/components/contact-form"
+import { siteConfig, waLink, yearsInBusiness } from "@/lib/site-config"
 
 export default function HeroSection() {
   const whatsappHref = waLink("Hi Seven Lift, I am interested in equipment rental across the UAE.")
@@ -34,7 +35,7 @@ export default function HeroSection() {
             className="animate-slide-up max-w-xl text-lg font-medium leading-relaxed text-white/85"
             style={{ animationDelay: "160ms" }}
           >
-            Forklifts, mobile cranes, telehandlers, and man lifts with certified operators — deployed fast across
+            Forklifts, mobile cranes, telehandlers, and man lifts with certified operators, deployed fast across
             Musaffah, ICAD, Khalifa Industrial Zone, JAFZA, and Dubai Industrial City. Flexible daily, weekly, and
             monthly terms with 24/7 emergency support.
           </p>
@@ -47,7 +48,7 @@ export default function HeroSection() {
               <dt className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-white/60">
                 <BadgeCheck size={14} className="text-accent" /> Since {siteConfig.foundingYear}
               </dt>
-              <dd className="mt-1 text-2xl font-extrabold">{siteConfig.yearsInBusiness}+ Yrs</dd>
+              <dd className="mt-1 text-2xl font-extrabold">{yearsInBusiness}+ Yrs</dd>
             </div>
             <div>
               <dt className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-white/60">
@@ -71,7 +72,7 @@ export default function HeroSection() {
               className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-sm font-bold text-accent-foreground shadow-lg shadow-black/20 transition-transform hover:scale-[1.02] sm:flex-none"
             >
               <WhatsAppIcon size={18} />
-              Request a Quote
+              WhatsApp Us
             </a>
             <a
               href={siteConfig.telHref}
@@ -83,21 +84,8 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="animate-fade-in relative hidden md:block" style={{ animationDelay: "200ms" }}>
-          <div className="animate-float relative h-full min-h-[420px] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
-            <Image
-              src="/images/fleet/telehandler-jcb.jpg"
-              alt="Telehandler and mobile crane deployed on a UAE construction site"
-              fill
-              priority
-              className="object-cover"
-              sizes="(min-width: 768px) 50vw, 100vw"
-            />
-          </div>
-          <div className="absolute -bottom-6 -left-6 hidden rounded-xl bg-white p-5 shadow-xl lg:block">
-            <p className="text-3xl font-extrabold text-primary">500 Ton</p>
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Max Crane Capacity</p>
-          </div>
+        <div className="animate-fade-in md:self-center" style={{ animationDelay: "200ms" }}>
+          <ContactForm variant="hero" placement="hero-form" />
         </div>
       </div>
     </section>

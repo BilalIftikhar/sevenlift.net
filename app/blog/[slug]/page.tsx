@@ -5,11 +5,11 @@ import Image from "next/image"
 import { ArrowRight, Calendar, Clock } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import { ContactForm } from "@/components/contact-form"
 import { ContentRenderer } from "@/components/blog/content-renderer"
 import { PostCard } from "@/components/blog/post-card"
 import { JsonLd } from "@/components/json-ld"
 import { Reveal } from "@/components/reveal"
-import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { blogPostingSchema, breadcrumbSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog/posts"
@@ -135,21 +135,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </div>
           )}
 
-          <div className="mt-10 rounded-xl bg-primary p-8 text-center text-white md:p-10">
-            <h2 className="text-white">Need Equipment for Your Next Project?</h2>
-            <p className="mx-auto mt-2 max-w-xl text-white/85">
-              Talk to our team for a fast quote on forklifts, mobile cranes, telehandlers, or man lifts anywhere in
-              the UAE.
-            </p>
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-sm font-bold text-accent-foreground transition-transform hover:scale-105"
-            >
-              <WhatsAppIcon size={18} />
-              Request a Quote on WhatsApp
-            </a>
+          <div className="mt-10 grid gap-8 rounded-xl bg-primary p-8 text-white md:grid-cols-2 md:items-center md:p-10">
+            <div>
+              <h2 className="text-white">Need Equipment for Your Next Project?</h2>
+              <p className="mt-2 text-white/85">
+                Send the job details for a fast quote on forklifts, mobile cranes, telehandlers, or man lifts anywhere
+                in the UAE. Prefer WhatsApp?{" "}
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="font-bold underline">
+                  Message us here
+                </a>
+                .
+              </p>
+            </div>
+            <ContactForm variant="hero" heading="Request a Quote" placement="blog-form" />
           </div>
         </div>
 

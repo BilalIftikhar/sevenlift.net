@@ -13,7 +13,7 @@ import { Phone, Mail, Clock, MapPin } from "lucide-react"
 export const metadata: Metadata = pageMetadata({
   title: "Contact Us | Request a Quote for Equipment Rental",
   description:
-    "Get a forklift, crane, telehandler or man lift rental quote anywhere in the UAE. Call, email or WhatsApp us — available 24/7, reply in minutes.",
+    "Get a forklift, crane, telehandler or man lift rental quote anywhere in the UAE. Call, email or WhatsApp us. Available 24/7, reply in minutes.",
   path: "/contact",
 })
 
@@ -76,7 +76,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm font-bold uppercase tracking-widest text-foreground">Availability</p>
-                    <p className="font-semibold text-foreground">24/7 Available — Emergency Support</p>
+                    <p className="font-semibold text-foreground">Available 24/7, Including Emergency Support</p>
                   </div>
                 </div>
               </Reveal>
@@ -88,7 +88,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm font-bold uppercase tracking-widest text-foreground">Service Area</p>
-                    <p className="font-semibold text-foreground">Abu Dhabi, Dubai &amp; All UAE Regions — Same-Day Service</p>
+                    <p className="font-semibold text-foreground">Abu Dhabi, Dubai &amp; All UAE Regions with Same-Day Service</p>
                   </div>
                 </div>
               </Reveal>
@@ -107,7 +107,7 @@ export default function ContactPage() {
             </div>
 
             <Reveal delay={120} className="rounded-xl border-2 border-border bg-gradient-to-br from-primary/5 to-accent/5 p-8 md:p-10">
-              <ContactForm showEquipmentSelect />
+              <ContactForm />
             </Reveal>
           </div>
         </div>

@@ -20,7 +20,7 @@ export const generalFaqs: Faq[] = [
   {
     question: "Can you handle emergency or same-day equipment requests?",
     answer:
-      "Yes — our dispatch team operates 24/7 and can typically mobilize equipment to your site within hours for urgent breakdowns, project delays, or unplanned lifts, subject to fleet availability in your area.",
+      "Yes. Our dispatch team operates 24/7 and can typically mobilize equipment to your site within hours for urgent breakdowns, project delays, or unplanned lifts, subject to fleet availability in your area.",
   },
   {
     question: "Is your equipment insured and safety-certified?",
@@ -68,7 +68,7 @@ export const dubaiFaqs: Faq[] = [
   {
     question: "Can you support free zone logistics and warehousing operations in Dubai?",
     answer:
-      "Absolutely — we regularly supply forklifts and side loaders to logistics and 3PL operators inside JAFZA and DIC, with flexible shift-based or monthly rental arrangements to match warehouse operating hours.",
+      "Absolutely. We regularly supply forklifts and side loaders to logistics and 3PL operators inside JAFZA and DIC, with flexible shift-based or monthly rental arrangements to match warehouse operating hours.",
   },
   {
     question: "Do you offer mobile crane rental for Dubai construction sites?",

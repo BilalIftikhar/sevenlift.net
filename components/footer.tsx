@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
-import { siteConfig, serviceAreas } from "@/lib/site-config"
+import { siteConfig } from "@/lib/site-config"
 import { services } from "@/lib/services"
 import { locations } from "@/lib/locations"
 
@@ -39,7 +39,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="max-w-sm text-sm leading-relaxed text-white/70">
-              Certified forklift, mobile crane, telehandler, and man lift rental across the UAE — with dedicated
+              Certified forklift, mobile crane, telehandler, and man lift rental across the UAE, with dedicated
               coverage in Abu Dhabi (Musaffah, ICAD, KIZAD) and Dubai (JAFZA, Al Quoz, Dubai Industrial City).
             </p>
             <div className="space-y-2.5 pt-2 text-sm text-white/80">
@@ -60,7 +60,7 @@ export default function Footer() {
               </p>
               <p className="flex items-center gap-2.5">
                 <Clock size={16} className="shrink-0 text-accent" />
-                Available 24/7 — Emergency Deployment
+                Available 24/7 for Emergency Deployment
               </p>
             </div>
           </div>
@@ -138,14 +138,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-8">
-          <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-white/50">UAE Service Network</h3>
-          <p className="text-sm leading-relaxed text-white/60">
-            {serviceAreas.map((area) => area.name).join(" · ")}
-          </p>
-        </div>
-
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-white/60 md:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-white/60 md:flex-row">
           <p>
             &copy; {year} {siteConfig.legalName}. All rights reserved.
           </p>

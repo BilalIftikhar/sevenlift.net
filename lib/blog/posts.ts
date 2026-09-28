@@ -29,23 +29,23 @@ const originalPosts: BlogPost[] = [
       {
         type: "list",
         items: [
-          "3 Ton — general warehousing, retail distribution, light manufacturing pallets",
-          "5 Ton — construction materials, steel coils, palletized machinery components",
-          "10 Ton — container handling, heavy industrial parts, port-adjacent logistics",
-          "25 Ton — heavy machinery relocation, shipyard and industrial plant loads",
+          "3 Ton: general warehousing, retail distribution, light manufacturing pallets",
+          "5 Ton: construction materials, steel coils, palletized machinery components",
+          "10 Ton: container handling, heavy industrial parts, port-adjacent logistics",
+          "25 Ton: heavy machinery relocation, shipyard and industrial plant loads",
         ],
       },
       { type: "heading", level: 2, text: "Match Mast Height to Your Racking, Not Just Your Ceiling" },
       {
         type: "paragraph",
         text:
-          "Many ICAD and Musaffah warehouses run narrow-aisle racking up to 8-10 meters. Mast height needs to clear your top racking beam with the load raised, plus overhead clearance for sprinkler systems and lighting. If you're unsure, measure your tallest regular pick location and add at least 500mm of clearance — our team can also do a free site assessment before delivery.",
+          "Many ICAD and Musaffah warehouses run narrow-aisle racking up to 8-10 meters. Mast height needs to clear your top racking beam with the load raised, plus overhead clearance for sprinkler systems and lighting. If you're unsure, measure your tallest regular pick location and add at least 500mm of clearance. Our team can also do a free site assessment before delivery.",
       },
       { type: "heading", level: 2, text: "Diesel vs. Electric: What Actually Matters in Abu Dhabi's Climate" },
       {
         type: "paragraph",
         text:
-          "Diesel forklifts remain the default for outdoor yards, container handling, and continuous multi-shift operations because refueling is faster than recharging. Electric forklifts are the better choice for enclosed warehouses — no exhaust emissions, lower noise, and lower running costs — but require charging infrastructure and are more sensitive to Abu Dhabi's summer heat affecting battery life. For mixed indoor/outdoor operations common in Musaffah, many operators run a diesel unit for yard work and an electric unit for indoor picking.",
+          "Diesel forklifts remain the default for outdoor yards, container handling, and continuous multi-shift operations because refueling is faster than recharging. [Electric forklifts](/services/electric-forklift-rental) are the better choice for enclosed warehouses (no exhaust emissions, lower noise, and lower running costs) but require charging infrastructure and are more sensitive to Abu Dhabi's summer heat affecting battery life. For mixed indoor/outdoor operations common in Musaffah, many operators run a diesel unit for yard work and an electric unit for indoor picking.",
       },
       { type: "heading", level: 3, text: "Attachments Worth Considering" },
       {
@@ -60,7 +60,7 @@ const originalPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "If your Musaffah facility experiences seasonal peaks — Ramadan stock builds, year-end inventory pushes, or short-term project contracts — renting lets you scale capacity up and down without carrying idle equipment on your balance sheet. A flexible daily, weekly, or monthly forklift rental also shifts maintenance and breakdown risk onto the rental provider, which matters when uptime is critical to your supply chain commitments.",
+          "If your Musaffah facility experiences seasonal peaks (Ramadan stock builds, year-end inventory pushes, or short-term project contracts), renting lets you scale capacity up and down without carrying idle equipment on your balance sheet. A flexible daily, weekly, or monthly [forklift rental in Abu Dhabi](/services/forklift-rental-abu-dhabi) also shifts maintenance and breakdown risk onto the rental provider, which matters when uptime is critical to your supply chain commitments.",
       },
       { type: "heading", level: 2, text: "Getting It Right the First Time" },
       {
@@ -90,13 +90,13 @@ const originalPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "Mobile crane operations sit near the top of construction risk registers for good reason — a mishandled lift can cause catastrophic injury, structural damage, or project delays that cost far more than the crane rental itself. Abu Dhabi's Department of Municipalities and Transport (DMT) and site-level HSE requirements set clear expectations for lifting operations. This guide covers what to verify before any mobile crane mobilizes on your site.",
+          "Mobile crane operations sit near the top of construction risk registers for good reason: a mishandled lift can cause catastrophic injury, structural damage, or project delays that cost far more than the crane rental itself. Abu Dhabi's Department of Municipalities and Transport (DMT) and site-level HSE requirements set clear expectations for lifting operations. This guide covers what to verify before any mobile crane mobilizes on your site.",
       },
       { type: "heading", level: 2, text: "1. Operator and Rigger Certification" },
       {
         type: "paragraph",
         text:
-          "Every crane operator must hold a valid operator license appropriate to the crane class being used, along with documented experience on similar lifts. Riggers responsible for slinging and signaling should carry separate certification. Before any lift begins, request copies of the operator's license and the rigger's certification — a reputable rental provider will supply these without hesitation.",
+          "Every crane operator must hold a valid operator license appropriate to the crane class being used, along with documented experience on similar lifts. Riggers responsible for slinging and signaling should carry separate certification. Before any lift begins, request copies of the operator's license and the rigger's certification. A reputable rental provider will supply these without hesitation.",
       },
       { type: "heading", level: 3, text: "Documents to Request Before Mobilization" },
       {
@@ -134,19 +134,19 @@ const originalPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "Abu Dhabi's shamal wind events and summer dust storms can exceed a crane's safe wind-speed rating with little warning. Every load chart specifies a maximum wind speed for the configuration in use — exceeding it, even briefly, is one of the most common causes of tip-over incidents. Site supervisors should monitor local wind forecasts and have a clear stop-work threshold agreed with the crane operator before lifting begins.",
+          "Abu Dhabi's shamal wind events and summer dust storms can exceed a crane's safe wind-speed rating with little warning. Every load chart specifies a maximum wind speed for the configuration in use, and exceeding it, even briefly, is one of the most common causes of tip-over incidents. Site supervisors should monitor local wind forecasts and have a clear stop-work threshold agreed with the crane operator before lifting begins.",
       },
       { type: "heading", level: 2, text: "5. Insurance and Liability Coverage" },
       {
         type: "paragraph",
         text:
-          "Confirm that the rental provider carries third-party liability insurance covering the lift, and that this coverage is documented in the rental agreement — not just assumed. This protects your project financially in the rare event of property damage during a lift.",
+          "Confirm that the rental provider carries third-party liability insurance covering the lift, and that this coverage is documented in the rental agreement, not just assumed. This protects your project financially in the rare event of property damage during a lift.",
       },
       { type: "heading", level: 2, text: "Working With a Compliant Crane Partner" },
       {
         type: "paragraph",
         text:
-          "The fastest way to keep a lift compliant is to work with a rental provider that treats documentation as standard practice, not paperwork requested after the fact. Seven Lift maintains current load test certificates, licensed operators, and rigging crews across our 25 to 500 ton mobile crane fleet for projects throughout Abu Dhabi and the wider UAE.",
+          "The fastest way to keep a lift compliant is to work with a rental provider that treats documentation as standard practice, not paperwork requested after the fact. Seven Lift maintains current load test certificates, licensed operators, and rigging crews across our [25 to 500 ton mobile crane fleet](/services/mobile-crane-rental-abu-dhabi) for projects throughout Abu Dhabi and the wider UAE.",
       },
     ],
     relatedLinks: [
@@ -170,7 +170,7 @@ const originalPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "Contractors bidding on projects across Dubai's Jebel Ali Free Zone, Al Quoz, and Abu Dhabi's ICAD often default to purchasing equipment because it feels like the safer long-term investment. In practice, the total cost of ownership for heavy equipment — forklifts, cranes, telehandlers, and access platforms — usually outweighs rental costs unless utilization stays consistently high year-round. Here's the real math.",
+          "Contractors bidding on projects across Dubai's Jebel Ali Free Zone, Al Quoz, and Abu Dhabi's ICAD often default to purchasing equipment because it feels like the safer long-term investment. In practice, the total cost of ownership for heavy equipment (forklifts, cranes, telehandlers, and access platforms) usually outweighs rental costs unless utilization stays consistently high year-round. Here's the real math.",
       },
       { type: "heading", level: 2, text: "The Hidden Costs of Ownership" },
       {
@@ -192,7 +192,7 @@ const originalPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "Equipment ownership only pays off when utilization is high and predictable — generally above 70-80% of available working days across the year. Most construction and logistics projects in Dubai Industrial City and ICAD don't run at that utilization rate; they have peaks tied to specific project phases (foundation work, structural steel, fit-out, container surges) separated by lulls where owned equipment sits idle and still costs money.",
+          "Equipment ownership only pays off when utilization is high and predictable, generally above 70-80% of available working days across the year. Most construction and logistics projects in Dubai Industrial City and ICAD don't run at that utilization rate; they have peaks tied to specific project phases (foundation work, structural steel, fit-out, container surges) separated by lulls where owned equipment sits idle and still costs money.",
       },
       { type: "heading", level: 3, text: "A Simplified Comparison" },
       {
@@ -207,25 +207,25 @@ const originalPosts: BlogPost[] = [
       {
         type: "paragraph",
         text:
-          "When you rent, breakdown risk, maintenance scheduling, and even operator certification currency become the rental provider's responsibility. For contractors managing tight JAFZA and Dubai Industrial City delivery schedules, this predictability is often worth more than the marginal savings of ownership — a breakdown on owned equipment with no backup unit can delay a project far longer than a same-day rental swap.",
+          "When you rent, breakdown risk, maintenance scheduling, and even operator certification currency become the rental provider's responsibility. For contractors managing tight JAFZA and Dubai Industrial City delivery schedules, this predictability is often worth more than the marginal savings of ownership, a breakdown on owned equipment with no backup unit can delay a project far longer than a same-day rental swap.",
       },
       { type: "heading", level: 2, text: "Access to the Right Equipment for Each Phase" },
       {
         type: "paragraph",
         text:
-          "Different construction phases need different equipment: telehandlers for structural steel and roofing, mobile cranes for heavy lifts, forklifts for material logistics, and man lifts for MEP and facade work. Owning a fleet that covers every phase means paying for specialized equipment that sits unused most of the year. Renting lets you bring in exactly the right machine — and capacity — for each phase, then release it once that phase is complete.",
+          "Different construction phases need different equipment: [telehandlers](/services/telehandler-rental-dubai) for structural steel and roofing, [mobile cranes](/services/mobile-crane-rental-dubai) for heavy lifts, forklifts for material logistics, and man lifts for MEP and facade work. Owning a fleet that covers every phase means paying for specialized equipment that sits unused most of the year. Renting lets you bring in exactly the right machine, and capacity, for each phase, then release it once that phase is complete.",
       },
       { type: "heading", level: 2, text: "When Ownership Still Makes Sense" },
       {
         type: "paragraph",
         text:
-          "Ownership can make sense for contractors running continuous, high-utilization operations — a permanent warehouse forklift fleet with multi-shift daily use, for example. But even in these cases, many operators keep a core owned fleet and rent additional capacity during peak periods rather than over-investing in equipment sized for their busiest month.",
+          "Ownership can make sense for contractors running continuous, high-utilization operations, such as a permanent [warehouse forklift fleet](/services/forklift-rental-dubai) with multi-shift daily use, for example. But even in these cases, many operators keep a core owned fleet and rent additional capacity during peak periods rather than over-investing in equipment sized for their busiest month.",
       },
       { type: "heading", level: 2, text: "The Bottom Line for Dubai & ICAD Contractors" },
       {
         type: "paragraph",
         text:
-          "For most project-based construction work in Dubai and ICAD, renting heavy equipment converts a large fixed capital cost into a flexible, project-billable expense — while shifting maintenance, certification, and breakdown risk to the rental provider. Seven Lift supports project-phase rentals with flexible daily, weekly, and monthly terms across forklifts, mobile cranes, telehandlers, and man lifts throughout Dubai and Abu Dhabi.",
+          "For most project-based construction work in Dubai and ICAD, renting heavy equipment converts a large fixed capital cost into a flexible, project-billable expense, while shifting maintenance, certification, and breakdown risk to the rental provider. Seven Lift supports project-phase rentals with flexible daily, weekly, and monthly terms across forklifts, mobile cranes, telehandlers, and man lifts throughout Dubai and Abu Dhabi.",
       },
     ],
     relatedLinks: [
