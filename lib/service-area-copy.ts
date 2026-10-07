@@ -18,7 +18,23 @@ export type ServiceAreaCopy = {
   /** The jobs this machine does most often in this city. */
   jobs: string[]
   faqs: Faq[]
+  /** Size-by-size guide to what each machine does in this city, shown as a table. */
+  capacityGuide?: CapacityGuide
+  /** What to send so the quote is right first time. */
+  quoteChecklist?: QuoteChecklist
 }
+
+export type CapacityGuideRow = { size: string; work: string; sites: string }
+
+export type CapacityGuide = {
+  heading: string
+  intro: string
+  /** Column headings for size, typical work, and where it is used. */
+  columns: [string, string, string]
+  rows: CapacityGuideRow[]
+}
+
+export type QuoteChecklist = { heading: string; items: string[] }
 
 /** Facts about operating in a city, shared by its four equipment pages. */
 export type CitySiteFacts = {
@@ -104,7 +120,66 @@ const copy: Record<string, ServiceAreaCopy> = {
         answer:
           "Yes. For cold stores and food-grade warehouses in KIZAD we supply electric forklifts with non-marking tyres and cold-rated batteries, so they hold charge in chilled rooms.",
       },
+      {
+        question: "How much does forklift rental cost in Abu Dhabi?",
+        answer:
+          "The rate depends on the capacity, diesel or electric power, the hire period, whether you need our operator, and the delivery distance from Musaffah. Monthly hire costs less per day than daily hire. Send us those details and we reply with a fixed written quote.",
+      },
+      {
+        question: "Can I rent a forklift for a single day in Abu Dhabi?",
+        answer:
+          "Yes. One-day hires are common for container unloading and machinery deliveries in Musaffah and ICAD. Book the day before where you can, so the forklift is on site when the container arrives.",
+      },
+      {
+        question: "Should I hire a diesel or an electric forklift?",
+        answer:
+          "Choose diesel for open yards, rough ground and loads above 5 ton. Choose electric for indoor work on finished floors, food and pharma stores, and anywhere exhaust fumes are not allowed.",
+      },
     ],
+    capacityGuide: {
+      heading: "Forklift Capacity Guide for Abu Dhabi",
+      intro:
+        "Pick the capacity from your heaviest load, then add a margin for the lift height. This is how the sizes in our Musaffah fleet are used across Abu Dhabi.",
+      columns: ["Forklift size", "Typical work", "Where we send it most"],
+      rows: [
+        {
+          size: "3 ton diesel or electric",
+          work: "Pallet handling, lorry loading and racking work",
+          sites: "Musaffah M-sector workshops and KIZAD cold stores",
+        },
+        {
+          size: "5 ton diesel",
+          work: "Heavier pallets, block and steel bundles, small machines",
+          sites: "Musaffah yards and ICAD fabrication plants",
+        },
+        {
+          size: "7 to 10 ton",
+          work: "Container stuffing and destuffing, steel plate, heavy pallets",
+          sites: "KIZAD logistics sheds and ICAD factories",
+        },
+        {
+          size: "15 to 25 ton",
+          work: "Machinery moves, steel coils and heavy moulds",
+          sites: "ICAD heavy industry and Khalifa Port cargo yards",
+        },
+        {
+          size: "Side loader",
+          work: "Long loads such as pipe, timber and steel sections",
+          sites: "Steel stockyards in ICAD and Musaffah",
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "What to Send for a Forklift Quote",
+      items: [
+        "Heaviest load in kg and its size",
+        "Highest point you need to lift to",
+        "Indoor or outdoor work, and the floor type",
+        "Site location and gate pass requirements",
+        "Hire period and working hours per day",
+        "Whether you need our operator or will use your own",
+      ],
+    },
   },
   "mobile-crane:abu-dhabi-musaffah": {
     intro:
@@ -129,7 +204,61 @@ const copy: Record<string, ServiceAreaCopy> = {
         answer:
           "Yes. We regularly work inside both, and arrange the gate passes and crew documents the port and free zone require. Allow a working day for pass approval on a first visit.",
       },
+      {
+        question: "How much does mobile crane rental cost in Abu Dhabi?",
+        answer:
+          "The rate depends on the crane class, the hire period, the rigging crew, the lift plan and permits, and the travel distance from Musaffah. Send the load weight, lift radius and site location and we reply with a written quote.",
+      },
+      {
+        question: "Does the crane come with an operator and rigger?",
+        answer:
+          "Yes. Every crane is supplied with a certified operator, and we add certified riggers and a banksman to suit the lift. Their certificates are sent with the lift plan before mobilization.",
+      },
+      {
+        question: "Can I hire a crane for one day in Abu Dhabi?",
+        answer:
+          "Yes. Single-day hires are common for generator, chiller and machinery lifts. The quote covers the crane and crew for the shift and the mobilization from our Musaffah yard.",
+      },
     ],
+    capacityGuide: {
+      heading: "Mobile Crane Capacity Guide for Abu Dhabi",
+      intro:
+        "The crane class depends on the load weight and the radius, not the weight alone. A 5 ton chiller placed 30 m from the crane can need a 100 ton machine. These are the classes we send most across Abu Dhabi.",
+      columns: ["Crane class", "Typical lifts", "Where we send it most"],
+      rows: [
+        {
+          size: "25 to 50 ton",
+          work: "Generators, chillers, containers and small machinery",
+          sites: "Musaffah workshops and Abu Dhabi island rooftops",
+        },
+        {
+          size: "60 to 80 ton",
+          work: "Machinery installation and steel frame erection",
+          sites: "ICAD factories and new Musaffah warehouses",
+        },
+        {
+          size: "100 to 160 ton",
+          work: "Precast panels, long-radius steel, tanks and vessels",
+          sites: "KIZAD plants and Khalifa Port",
+        },
+        {
+          size: "200 to 500 ton",
+          work: "Heavy plant, modules and shutdown lifts",
+          sites: "Ruwais and Al Dhafra project sites",
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "What to Send for a Crane Quote",
+      items: [
+        "Load weight and dimensions",
+        "Lift radius and height, or a sketch of the setup area",
+        "Photos of the access route and ground conditions",
+        "Site location and the permits or gate passes it needs",
+        "Lift date and number of lifts",
+        "Any overhead obstructions such as power lines or pipe racks",
+      ],
+    },
   },
   "telehandler:abu-dhabi-musaffah": {
     intro:
@@ -154,7 +283,56 @@ const copy: Record<string, ServiceAreaCopy> = {
         answer:
           "Yes, a certified man basket is available for short access tasks. For longer work at height, a dedicated boom lift is safer and usually cheaper.",
       },
+      {
+        question: "How much does telehandler rental cost in Abu Dhabi?",
+        answer:
+          "The rate depends on the lift capacity and reach, the attachments, the hire period, whether you need our operator, and the delivery distance from Musaffah. Monthly hire costs less per day than daily hire.",
+      },
+      {
+        question: "Should I hire a telehandler or a crane for my Abu Dhabi site?",
+        answer:
+          "A telehandler suits repeated lifts of pallets and blocks up to about 17 m, and it can drive the load across the site. A crane suits heavier single lifts, longer reach, or loads that must go over a building.",
+      },
     ],
+    capacityGuide: {
+      heading: "Telehandler Size Guide for Abu Dhabi",
+      intro:
+        "Choose the telehandler from the weight of the load at full reach, not its headline capacity. Every model lifts less as the boom extends. These are the sizes we send most across Abu Dhabi.",
+      columns: ["Telehandler size", "Typical work", "Where we send it most"],
+      rows: [
+        {
+          size: "3 to 4 ton, 7 m reach",
+          work: "Unloading lorries and moving pallets on tight plots",
+          sites: "Musaffah plots and single villa sites",
+        },
+        {
+          size: "4 ton, 13 m reach",
+          work: "Blockwork and roof material onto villa roof slabs",
+          sites: "Khalifa City, Al Shamkha and Riyadh City",
+        },
+        {
+          size: "4 to 6 ton, 17 m reach",
+          work: "Material placement on low-rise blocks",
+          sites: "Yas and Saadiyat projects",
+        },
+        {
+          size: "Up to 10 ton",
+          work: "Structural material, pipe and valve handling",
+          sites: "ICAD plants and Al Dhafra site works",
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "What to Send for a Telehandler Quote",
+      items: [
+        "Heaviest load and how high it has to go",
+        "How far the load sits from where the machine can stand",
+        "Ground type: paved, compacted or loose sand",
+        "Attachments needed: forks, bucket, jib or man basket",
+        "Site location and hire period",
+        "Whether you need our operator",
+      ],
+    },
   },
   "man-lift:abu-dhabi-musaffah": {
     intro:
@@ -179,7 +357,56 @@ const copy: Record<string, ServiceAreaCopy> = {
         answer:
           "Yes. We supply rough-terrain booms with the operator certification and inspection records these sites require. Share the site's HSE requirements and we will match them.",
       },
+      {
+        question: "How much does man lift rental cost in Abu Dhabi?",
+        answer:
+          "The rate depends on the platform type and working height, electric or diesel power, the hire period, whether you need our operator, and the delivery distance from Musaffah. Send the working height and site and we reply with a written quote.",
+      },
+      {
+        question: "Should I hire a scissor lift or a boom lift?",
+        answer:
+          "A scissor lift goes straight up and gives a larger platform, which suits ceilings, racking and lighting. A boom lift reaches up and over obstacles, which suits pipe racks, facades and steel structures.",
+      },
     ],
+    capacityGuide: {
+      heading: "Man Lift Height Guide for Abu Dhabi",
+      intro:
+        "Working height is the platform height plus about 2 m for the person standing on it. Match that to the highest point of the job, then choose the platform by the ground and what sits below the work.",
+      columns: ["Platform type", "Typical work", "Where we send it most"],
+      rows: [
+        {
+          size: "Electric scissor lift, 10 to 14 m",
+          work: "Racking, sprinklers, lighting and ceiling work on finished floors",
+          sites: "KIZAD warehouses and Abu Dhabi island malls",
+        },
+        {
+          size: "Rough-terrain scissor lift, 12 to 18 m",
+          work: "Cladding and MEP work on unfinished ground",
+          sites: "New warehouse builds in Musaffah and ICAD",
+        },
+        {
+          size: "Articulating boom lift, 16 to 28 m",
+          work: "Reaching up and over pipe racks, machines and cable trays",
+          sites: "ICAD factories and Ruwais plants",
+        },
+        {
+          size: "Telescopic boom lift, 30 to 50 m",
+          work: "Facade, signage and high-level structural access",
+          sites: "Abu Dhabi island buildings and Khalifa Port",
+        },
+      ],
+    },
+    quoteChecklist: {
+      heading: "What to Send for a Man Lift Quote",
+      items: [
+        "Highest point you need to reach",
+        "Indoor or outdoor work, and the floor or ground type",
+        "Obstacles below or around the work area",
+        "Door, gate or service lift size the machine must pass through",
+        "Site location, HSE or permit requirements",
+        "Hire period and whether you need our operator",
+      ],
+    },
   },
 
   // -------------------------------------------------------------------- Dubai

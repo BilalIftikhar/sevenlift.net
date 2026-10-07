@@ -6,6 +6,7 @@ import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
 import { getLocationBySlug } from "@/lib/locations"
 import { cityLinksForEquipment, equipmentTypes, localContextFor, siteFactsFor } from "@/lib/service-areas"
+import { serviceAreaCopyFor } from "@/lib/service-area-copy"
 
 const path = "/services/forklift-rental-abu-dhabi"
 
@@ -29,6 +30,7 @@ export const metadata: Metadata = pageMetadata({
 
 const abuDhabi = getLocationBySlug("abu-dhabi-musaffah")!
 const forklift = equipmentTypes.find((type) => type.key === "forklift")!
+const copy = serviceAreaCopyFor("forklift", abuDhabi.slug)!
 
 const faqs = [
   {
@@ -51,6 +53,7 @@ const faqs = [
     answer:
       "We offer daily, weekly, and monthly forklift rental agreements with transparent, all-inclusive pricing and no hidden charges, ideal for both short-term projects and ongoing warehouse operations.",
   },
+  ...copy.faqs,
 ]
 
 export default function ForkliftRentalAbuDhabiPage() {
@@ -118,6 +121,8 @@ export default function ForkliftRentalAbuDhabiPage() {
         localContext={localContextFor(forklift, abuDhabi)}
         siteFacts={siteFactsFor(forklift, abuDhabi)}
         siteFactsHeading="Forklift Hire in Abu Dhabi at a Glance"
+        capacityGuide={copy.capacityGuide}
+        quoteChecklist={copy.quoteChecklist}
         areasHeading="Forklift Rental Across Abu Dhabi & the UAE"
         areas={[
           { name: "Musaffah Industrial City", href: "/locations/abu-dhabi-musaffah" },

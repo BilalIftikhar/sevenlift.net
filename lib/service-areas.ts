@@ -1,6 +1,12 @@
 import type { Faq } from "@/lib/faqs"
 import { locations, type EquipmentKey, type LocationSummary } from "@/lib/locations"
-import { citySiteFacts, serviceAreaCopyFor, type ServiceAreaCopy } from "@/lib/service-area-copy"
+import {
+  citySiteFacts,
+  serviceAreaCopyFor,
+  type CapacityGuide,
+  type QuoteChecklist,
+  type ServiceAreaCopy,
+} from "@/lib/service-area-copy"
 import type { BulletGroup, SpecRow, AreaLink, LocalContext } from "@/components/service-landing-template"
 
 /**
@@ -203,6 +209,8 @@ export type ServiceAreaPage = {
   bulletGroups: BulletGroup[]
   localContext: LocalContext
   siteFacts: SpecRow[]
+  capacityGuide?: CapacityGuide
+  quoteChecklist?: QuoteChecklist
   areasHeading: string
   areas: AreaLink[]
   faqs: Faq[]
@@ -369,6 +377,8 @@ function buildPage(equipment: EquipmentType, location: LocationSummary): Service
     bulletGroups: buildBulletGroups(equipment, location, copy),
     localContext: localContextFor(equipment, location),
     siteFacts: siteFactsFor(equipment, location),
+    capacityGuide: copy.capacityGuide,
+    quoteChecklist: copy.quoteChecklist,
     areasHeading: `${equipment.label} Delivery Across ${city}`,
     areas: buildAreaLinks(equipment, location),
     faqs: buildFaqs(equipment, location, copy),

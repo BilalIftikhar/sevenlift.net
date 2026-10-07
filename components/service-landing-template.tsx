@@ -11,6 +11,7 @@ import { TrustSection } from "@/components/trust-section"
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import type { EquipmentKey } from "@/lib/locations"
 import { siteConfig, waLink } from "@/lib/site-config"
+import type { CapacityGuide, QuoteChecklist } from "@/lib/service-area-copy"
 
 export type SpecRow = { label: string; value: string }
 export type BulletGroup = { title: string; items: string[] }
@@ -48,6 +49,10 @@ type ServiceLandingTemplateProps = {
   /** Short label/value facts about working in this area (lead time, authority, ground). */
   siteFacts?: SpecRow[]
   siteFactsHeading?: string
+  /** Size-by-size table for this machine in this city. */
+  capacityGuide?: CapacityGuide
+  /** What the customer should send to get an accurate quote. */
+  quoteChecklist?: QuoteChecklist
   areasHeading: string
   areas: AreaLink[]
   faqs: FaqItem[]
@@ -73,6 +78,8 @@ export function ServiceLandingTemplate({
   localContext,
   siteFacts,
   siteFactsHeading = "At a Glance",
+  capacityGuide,
+  quoteChecklist,
   areasHeading,
   areas,
   faqs,
@@ -337,6 +344,68 @@ export function ServiceLandingTemplate({
       {specStrip}
       <TrustSection equipment={equipment} />
       {body}
+
+      {capacityGuide && (
+        <section className="py-16 md:py-24">
+          <div className="mx-auto max-w-5xl space-y-6 px-4">
+            <Reveal>
+              <h2 className="text-foreground">{capacityGuide.heading}</h2>
+            </Reveal>
+            <p className="text-lg font-medium leading-relaxed text-muted-foreground">{capacityGuide.intro}</p>
+            <div className="overflow-x-auto rounded-xl border border-border bg-card">
+              <table className="w-full min-w-[36rem] text-left text-sm">
+                <thead className="bg-primary text-primary-foreground">
+                  <tr>
+                    {capacityGuide.columns.map((column) => (
+                      <th key={column} scope="col" className="px-5 py-3 text-xs font-bold uppercase tracking-wide">
+                        {column}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {capacityGuide.rows.map((row) => (
+                    <tr key={row.size}>
+                      <th scope="row" className="px-5 py-3.5 font-extrabold text-foreground">
+                        {row.size}
+                      </th>
+                      <td className="px-5 py-3.5 font-medium text-foreground">{row.work}</td>
+                      <td className="px-5 py-3.5 font-medium text-muted-foreground">{row.sites}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {quoteChecklist && (
+        <section className="bg-primary py-16 text-white md:py-20">
+          <div className="mx-auto max-w-5xl space-y-8 px-4">
+            <h2 className="text-white">{quoteChecklist.heading}</h2>
+            <ol className="grid gap-4 md:grid-cols-2">
+              {quoteChecklist.items.map((item, idx) => (
+                <li key={item} className="flex gap-4 rounded-xl border border-white/15 bg-white/5 p-5">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-extrabold text-accent-foreground">
+                    {idx + 1}
+                  </span>
+                  <span className="font-medium text-white/90">{item}</span>
+                </li>
+              ))}
+            </ol>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-sm font-bold text-accent-foreground transition-transform hover:scale-105"
+            >
+              <WhatsAppIcon size={18} />
+              Send These on WhatsApp
+            </a>
+          </div>
+        </section>
+      )}
 
       <section className="bg-secondary/40 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4">

@@ -89,6 +89,8 @@ export default async function ServiceAreaPage({ params }: PageProps) {
         localContext={page.localContext}
         siteFacts={page.siteFacts}
         siteFactsHeading={`${page.equipment.label} Hire in ${page.location.cityName} at a Glance`}
+        capacityGuide={page.capacityGuide}
+        quoteChecklist={page.quoteChecklist}
         areasHeading={page.areasHeading}
         areas={page.areas}
         faqs={page.faqs}
