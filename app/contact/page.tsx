@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/contact-form"
 import { JsonLd } from "@/components/json-ld"
 import { Reveal } from "@/components/reveal"
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
-import { breadcrumbSchema } from "@/lib/schema"
+import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
 import { Phone, Mail, Clock, MapPin } from "lucide-react"
@@ -21,10 +21,13 @@ export default function ContactPage() {
   return (
     <main className="w-full overflow-x-hidden">
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", url: siteConfig.url },
-          { name: "Contact", url: `${siteConfig.url}/contact` },
-        ])}
+        data={[
+          breadcrumbSchema([
+            { name: "Home", url: siteConfig.url },
+            { name: "Contact", url: `${siteConfig.url}/contact` },
+          ]),
+          localBusinessSchema(),
+        ]}
       />
       <Header />
       <div className="min-h-screen bg-gradient-to-b from-background to-secondary pb-20 pt-16 md:pt-24">

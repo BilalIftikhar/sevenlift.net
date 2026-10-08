@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { EquipmentDetailTemplate } from "@/components/equipment-detail-template"
 import { JsonLd } from "@/components/json-ld"
-import { breadcrumbSchema, serviceSchema } from "@/lib/schema"
+import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
 import { cityLinksForEquipment } from "@/lib/service-areas"
@@ -34,11 +34,29 @@ const manLifts = [
 
 const features = [
   { title: "Fall Protection", description: "Guardrails, harness anchor points, and interlocks on every unit" },
-  { title: "Trained Operators", description: "IPAF-style trained and certified aerial platform operators available" },
+  { title: "Trained Operators", description: "Trained and certified aerial platform operators available" },
   { title: "Indoor & Outdoor", description: "Electric units for indoor work, diesel/rough-terrain for outdoor sites" },
   { title: "Fast Mobilization", description: "Same-day delivery across Abu Dhabi, Dubai, and the wider UAE" },
   { title: "Maintenance Access", description: "Purpose-built for facade, MEP, and warehouse racking maintenance" },
   { title: "Flexible Terms", description: "Daily, weekly, and monthly rental with transparent pricing" },
+]
+
+const faqs = [
+  {
+    question: "Scissor lift or boom lift: which should I rent?",
+    answer:
+      "A scissor lift goes straight up and gives a larger platform, which suits ceilings, racking and lighting. A boom lift reaches up and over obstacles, which suits pipe racks, facades and steel structures.",
+  },
+  {
+    question: "What working height do I need?",
+    answer:
+      "Working height is the platform height plus about 2 m for the person standing on it. Measure the highest point of the job and choose a platform that reaches it with a small margin.",
+  },
+  {
+    question: "Can a man lift be used indoors?",
+    answer:
+      "Yes. Electric scissor lifts with non-marking tyres work indoors on finished floors without fumes. Narrow models fit through standard doors and many service lifts.",
+  },
 ]
 
 export default function ManLiftPage() {
@@ -57,18 +75,20 @@ export default function ManLiftPage() {
             description: "Scissor lift and boom lift rental from 10m to 50m working height across the UAE.",
             url: `${siteConfig.url}/equipment/man-lift`,
           }),
+          faqSchema(faqs),
         ]}
       />
       <EquipmentDetailTemplate
         eyebrow="Our Fleet"
-        title="Man Lift & Aerial Platform Rentals"
-        intro="Safe elevated work platforms with advanced safety systems for maintenance, construction, and installation tasks at height, backed by certified trained operators."
+        title="Man Lift Rental Fleet: Scissor and Boom Lifts, 10 to 50 m"
+        intro="Electric and rough-terrain scissor lifts and articulating and telescopic boom lifts with 10 to 50 m working height, for maintenance, installation and inspection at height."
         modelsHeading="Available Man Lift Models"
         models={manLifts}
         featuresEyebrow="Safety & Access"
         featuresHeading="Why Rent Man Lifts from Seven Lift"
         features={features}
         cityLinks={{ heading: "Rent a Man Lift by City", links: cityLinksForEquipment("man-lift") }}
+        faqs={faqs}
         ctaHeading="Need a Man Lift or Aerial Platform?"
         ctaSubheading="Talk to our team for the right platform height and configuration for your job site."
         whatsappMessage="I am interested in man lift / aerial platform rental services."

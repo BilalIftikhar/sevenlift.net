@@ -29,7 +29,7 @@ const features = [
   },
   {
     title: "Competitive Pricing",
-    description: "Transparent pricing with no hidden charges, best rates for heavy equipment rental",
+    description: "Written quotes with no hidden charges, for daily, weekly and monthly hire",
     icon: Wallet,
   },
 ]

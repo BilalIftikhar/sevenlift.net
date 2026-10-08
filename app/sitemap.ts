@@ -14,7 +14,7 @@ import { getAllPosts } from "@/lib/blog/posts"
  * Google the field is unreliable, and it then ignores lastmod for the whole site
  * — which slows the crawl of new pages.
  */
-const CONTENT_UPDATED = new Date("2026-09-27")
+const CONTENT_UPDATED = new Date("2026-10-08")
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = CONTENT_UPDATED

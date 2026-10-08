@@ -5,7 +5,9 @@ import Footer from "@/components/footer"
 import { Reveal } from "@/components/reveal"
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { ContactForm } from "@/components/contact-form"
+import { FaqList } from "@/components/faq-list"
 import { TrustSection } from "@/components/trust-section"
+import type { Faq } from "@/lib/faqs"
 import type { EquipmentKey } from "@/lib/locations"
 import { siteConfig, waLink } from "@/lib/site-config"
 import { formEquipmentLabel } from "@/lib/trust"
@@ -31,6 +33,8 @@ type EquipmentDetailTemplateProps = {
   features: EquipmentFeature[]
   /** Links to the per-city rental pages for this equipment type. */
   cityLinks?: { heading: string; links: { name: string; href: string }[] }
+  /** Questions buyers ask before hiring this machine; also emitted as FAQPage schema by the page. */
+  faqs?: Faq[]
   ctaHeading: string
   ctaSubheading: string
   whatsappMessage: string
@@ -47,6 +51,7 @@ export function EquipmentDetailTemplate({
   featuresHeading,
   features,
   cityLinks,
+  faqs,
   ctaHeading,
   ctaSubheading,
   whatsappMessage,
@@ -156,7 +161,18 @@ export function EquipmentDetailTemplate({
         </section>
       )}
 
-      <section className={cityLinks ? "bg-secondary/50 py-20 md:py-28" : "py-20 md:py-28"}>
+      {faqs && faqs.length > 0 && (
+        <section className="bg-secondary/50 py-20 md:py-28">
+          <div className="mx-auto max-w-4xl px-4">
+            <Reveal>
+              <h2 className="mb-10 text-foreground">Frequently Asked Questions</h2>
+            </Reveal>
+            <FaqList faqs={faqs} />
+          </div>
+        </section>
+      )}
+
+      <section className="py-20 md:py-28">
         <div className="mx-auto max-w-4xl space-y-8 px-4 text-center">
           <h2 className="text-foreground">{ctaHeading}</h2>
           <p className="text-xl font-medium text-muted-foreground">{ctaSubheading}</p>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { EquipmentDetailTemplate } from "@/components/equipment-detail-template"
 import { JsonLd } from "@/components/json-ld"
-import { breadcrumbSchema, serviceSchema } from "@/lib/schema"
+import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { siteConfig } from "@/lib/site-config"
 import { cityLinksForEquipment } from "@/lib/service-areas"
@@ -38,7 +38,25 @@ const features = [
   { title: "Precise Positioning", description: "Advanced control systems for exact material placement" },
   { title: "Material Handling", description: "Ideal for construction, landscaping, and farming" },
   { title: "Time Efficient", description: "Quick deployment and minimal setup required" },
-  { title: "Cost Effective", description: "Lower operational costs than traditional equipment" },
+  { title: "Fewer Machines", description: "One telehandler can replace a forklift and a small crane on many sites" },
+]
+
+const faqs = [
+  {
+    question: "Telehandler or crane: which do I need?",
+    answer:
+      "A telehandler suits repeated lifts of pallets, blocks and material up to about 17 m, and it can drive the load across the site. A crane suits heavier single lifts, longer reach, or loads that must go over a building.",
+  },
+  {
+    question: "How much can a telehandler lift at full reach?",
+    answer:
+      "Much less than its headline capacity. Every telehandler loses capacity as the boom extends, so we size the machine from the load weight at the reach your job needs, using its load chart.",
+  },
+  {
+    question: "Which attachments are available?",
+    answer:
+      "Forks, buckets, jibs for lifting slung loads, and certified man baskets for short access tasks. Tell us the job and we send the right attachment with the machine.",
+  },
 ]
 
 export default function TelehandlerPage() {
@@ -57,18 +75,20 @@ export default function TelehandlerPage() {
             description: "5m to 17m reach telehandler rental with certified operators across the UAE.",
             url: `${siteConfig.url}/equipment/telehandler`,
           }),
+          faqSchema(faqs),
         ]}
       />
       <EquipmentDetailTemplate
         eyebrow="Our Fleet"
-        title="Telehandler & Reach Forklift Rentals"
-        intro="Versatile telehandlers engineered for confined spaces with intelligent material positioning and maximum operational efficiency."
+        title="Telehandler Rental Fleet: 3 to 10 Ton, Up to 17 m Reach"
+        intro="Telehandlers from 3 to 10 ton with 7 to 17 m reach, supplied with forks, bucket, jib or a man basket. Hire with or without a certified operator."
         modelsHeading="Available Telehandler Models"
         models={telehandlers}
         featuresEyebrow="Applications"
         featuresHeading="Telehandler Applications & Benefits"
         features={features}
         cityLinks={{ heading: "Rent a Telehandler by City", links: cityLinksForEquipment("telehandler") }}
+        faqs={faqs}
         ctaHeading="Need a Telehandler?"
         ctaSubheading="Contact us for flexible rental options and professional operator support."
         whatsappMessage="I am interested in telehandler rental services."

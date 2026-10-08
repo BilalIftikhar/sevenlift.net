@@ -3,7 +3,7 @@
  * lists referenced across metadata, JSON-LD schema, header, footer, and content.
  *
  * TODO (owner action required before go-live): verify `address` and `geo`
- * against the registered trade license address, and fill in real social URLs.
+ * against the registered trade license address, and add real social URLs.
  */
 
 export const siteConfig = {
@@ -41,11 +41,12 @@ export const siteConfig = {
     longitude: 54.5045,
   },
 
-  social: {
-    instagram: "https://instagram.com/sevenlift",
-    linkedin: "https://www.linkedin.com/company/sevenlift",
-    facebook: "https://facebook.com/sevenlift",
-  },
+  // Only profiles the company owns. These feed schema `sameAs`, which tells
+  // Google and AI assistants the accounts are this business, so a wrong URL
+  // merges Seven Lift with someone else. The old guesses were not ours
+  // (facebook.com/sevenlift is Shandong Seven Machinery, the LinkedIn URL
+  // 404s). Add the Google Business Profile URL here once it is verified.
+  social: {} as Record<string, string>,
 
   // GA4 web stream for https://www.sevenlift.net (stream "sevenlift"). Public
   // by design; NEXT_PUBLIC_GA_ID overrides it, e.g. to point previews elsewhere.

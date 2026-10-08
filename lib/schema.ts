@@ -27,7 +27,9 @@ export function localBusinessSchema(opts?: {
 }): WithContext<Record<string, unknown>> {
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "GeneralContractor"],
+    // schema.org has no equipment-rental type; GeneralContractor described a
+    // building contractor, which Seven Lift is not.
+    "@type": "LocalBusiness",
     // Distinct from the site-wide Organization node (#organization) that the
     // root layout emits on every page; the same @id with different @types
     // produces conflicting entities.
@@ -63,8 +65,14 @@ export function localBusinessSchema(opts?: {
       ["Abu Dhabi", "Dubai", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain", "Al Ain"].map(
         (name) => ({ "@type": "City", name }),
       ),
-    sameAs: Object.values(siteConfig.social),
+    ...sameAs(),
   }
+}
+
+/** `sameAs` only when verified profiles exist; an empty array is invalid. */
+function sameAs() {
+  const urls = Object.values(siteConfig.social)
+  return urls.length > 0 ? { sameAs: urls } : {}
 }
 
 export function organizationSchema(): WithContext<Record<string, unknown>> {
@@ -95,7 +103,7 @@ export function organizationSchema(): WithContext<Record<string, unknown>> {
     areaServed: ["Abu Dhabi", "Dubai", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain", "Al Ain"].map(
       (name) => ({ "@type": "City", name }),
     ),
-    sameAs: Object.values(siteConfig.social),
+    ...sameAs(),
     contactPoint: {
       "@type": "ContactPoint",
       telephone: siteConfig.phoneE164,
