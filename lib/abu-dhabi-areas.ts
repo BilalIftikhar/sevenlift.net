@@ -1,4 +1,5 @@
 import type { Faq } from "@/lib/faqs"
+import { siteConfig } from "@/lib/site-config"
 
 /**
  * District-level landing pages inside Abu Dhabi, served at
@@ -137,7 +138,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       "Khalifa Port",
       "Al Taweelah",
       "KIZAD logistics parks",
-      "Al Samha & Al Rahba",
     ],
     whyHeading: "Why KIZAD Operators Rent From Seven Lift",
     whyPoints: [
@@ -199,7 +199,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaDescription:
       "Forklift & crane rental in KIZAD, Khalifa Port & Al Taweelah. Container handling, port lifts with lift plans, monthly contracts. Certified operators.",
     areaServed: ["KIZAD", "Khalifa Industrial Zone Abu Dhabi", "Khalifa Port", "Al Taweelah", "Abu Dhabi"],
-    nearby: ["icad", "al-reem-island", "yas-island"],
+    nearby: ["icad", "al-samha-al-rahba", "al-reem-island", "yas-island"],
   },
   {
     slug: "mohammed-bin-zayed-city",
@@ -438,7 +438,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaDescription:
       "Boom lift, scissor lift, telehandler & crane rental on Yas Island for event builds, venue maintenance and construction. Overnight delivery available.",
     areaServed: ["Yas Island", "Abu Dhabi"],
-    nearby: ["saadiyat-island", "khalifa-city", "masdar-city-airport"],
+    nearby: ["saadiyat-island", "khalifa-city", "al-shahama-al-bahia", "masdar-city-airport"],
   },
   {
     slug: "saadiyat-island",
@@ -518,7 +518,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaDescription:
       "Mobile crane, telehandler & man lift rental on Saadiyat Island. Lift plans, certified riggers, non-marking platforms for finished interiors.",
     areaServed: ["Saadiyat Island", "Abu Dhabi"],
-    nearby: ["yas-island", "al-reem-island"],
+    nearby: ["yas-island", "al-reem-island", "mina-zayed"],
   },
   {
     slug: "al-reem-island",
@@ -598,7 +598,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaDescription:
       "Scissor lift, boom lift & crane rental on Al Reem, Al Maryah and downtown Abu Dhabi. Tower fit-out, facade access, overnight delivery, operators.",
     areaServed: ["Al Reem Island", "Al Maryah Island", "Abu Dhabi City", "Abu Dhabi"],
-    nearby: ["saadiyat-island", "kizad-khalifa-port", "masdar-city-airport"],
+    nearby: ["saadiyat-island", "mina-zayed", "kizad-khalifa-port", "masdar-city-airport"],
   },
   {
     slug: "al-shamkha-riyadh-city",
@@ -607,7 +607,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     title: "Equipment Rental in Al Shamkha, Riyadh City & Al Falah",
     eyebrow: "Abu Dhabi · Al Shamkha · Riyadh City · Al Falah",
     intro:
-      "Telehandler, crane, forklift, and man lift rental for Abu Dhabi's large new residential communities: Al Shamkha, Madinat Al Riyadh (Riyadh City), Al Falah, and Al Wathba. We rent monthly for villa build programmes, or daily for single lifts.",
+      "Telehandler, crane, forklift, and man lift rental for Abu Dhabi's large new residential communities: Al Shamkha, Madinat Al Riyadh (Riyadh City), and Al Falah. We rent monthly for villa build programmes, or daily for single lifts.",
     heroImage: "/images/fleet/telehandler-jcb.jpg",
     heroImageAlt: "Telehandler placing blocks on a villa construction site",
     zones: [
@@ -615,7 +615,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       "Al Shamkha South",
       "Madinat Al Riyadh (Riyadh City)",
       "Al Falah",
-      "Al Wathba",
       "Shakhbout City",
     ],
     whyHeading: "Why Villa Contractors in Al Shamkha Rent From Seven Lift",
@@ -676,9 +675,9 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     whatsappMessage: "Hi Seven Lift, I need equipment for a villa project in Al Shamkha / Riyadh City.",
     metaTitle: "Equipment Rental Al Shamkha & Riyadh City",
     metaDescription:
-      "Telehandler & crane rental for villa construction in Al Shamkha, Riyadh City, Al Falah & Al Wathba. Rough-terrain machines, monthly programme rates.",
-    areaServed: ["Al Shamkha", "Madinat Al Riyadh", "Al Falah", "Al Wathba", "Shakhbout City", "Abu Dhabi"],
-    nearby: ["mafraq-baniyas", "mohammed-bin-zayed-city", "masdar-city-airport"],
+      "Telehandler & crane rental for villa construction in Al Shamkha, Riyadh City & Al Falah. Rough-terrain machines, monthly programme rates.",
+    areaServed: ["Al Shamkha", "Madinat Al Riyadh", "Al Falah", "Shakhbout City", "Abu Dhabi"],
+    nearby: ["mafraq-baniyas", "al-wathba", "mohammed-bin-zayed-city", "masdar-city-airport"],
   },
   {
     slug: "mafraq-baniyas",
@@ -757,7 +756,7 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaDescription:
       "Forklift, side loader, telehandler & crane rental in Mafraq Industrial Area and Baniyas, Abu Dhabi. Same-day delivery from Musaffah, certified operators.",
     areaServed: ["Mafraq", "Mafraq Industrial Area", "Baniyas", "Abu Dhabi"],
-    nearby: ["al-shamkha-riyadh-city", "icad", "masdar-city-airport"],
+    nearby: ["al-shamkha-riyadh-city", "al-wathba", "icad", "masdar-city-airport"],
   },
   {
     slug: "masdar-city-airport",
@@ -917,6 +916,343 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
       "Crane, man lift, telehandler & forklift rental in Ruwais, Madinat Zayed & Al Dhafra. Long-term contracts, shutdown support, full HSE documentation.",
     areaServed: ["Ruwais", "Al Dhafra", "Madinat Zayed", "Ghayathi", "Mirfa", "Liwa"],
     nearby: ["icad", "mafraq-baniyas"],
+  },
+  {
+    slug: "mina-zayed",
+    name: "Mina Zayed",
+    href: `${base}/mina-zayed`,
+    title: "Equipment Rental in Mina Zayed & Al Mina, Abu Dhabi",
+    eyebrow: "Abu Dhabi · Mina Zayed · Zayed Port · Al Mina",
+    intro:
+      "Forklift, mobile crane, man lift, and telehandler rental for Zayed Port and the Al Mina district at the north-east end of Abu Dhabi island. We supply warehouses and trading stores, port-side cargo lifts, and maintenance work at height, with every delivery planned around island traffic.",
+    heroImage: "/images/site/port-container-yard.jpg",
+    heroImageAlt: "Cargo and containers stacked on a port quay",
+    zones: [
+      "Zayed Port (Mina Zayed)",
+      "Zayed Port cruise terminal",
+      "Al Mina warehouses and cold stores",
+      "Al Mina wholesale markets",
+      "Al Zahiyah",
+    ],
+    whyHeading: "Why Al Mina Businesses Rent From Seven Lift",
+    whyPoints: [
+      {
+        title: "Forklifts for Trading Stores",
+        description:
+          "3 to 5 ton forklifts, diesel for open yards and electric for enclosed and chilled stores, on daily or monthly terms for the warehouses that supply the island.",
+      },
+      {
+        title: "Port Cargo Lifts",
+        description:
+          "Mobile cranes with certified riggers and lift plans for general cargo, project cargo, and vessel equipment at the Zayed Port quays.",
+      },
+      {
+        title: "Island Delivery Planning",
+        description:
+          "Low-bed deliveries timed outside peak hours, so the machine reaches Al Mina without waiting in city traffic.",
+      },
+      {
+        title: "Work at Height",
+        description:
+          "Scissor and boom lifts for warehouse roofs, signage, lighting, and building maintenance across the district.",
+      },
+    ],
+    context: {
+      heading: "Renting Equipment in Mina Zayed: What to Plan For",
+      paragraphs: [
+        "Most container traffic left Mina Zayed when Khalifa Port opened, but Zayed Port still handles general cargo, roll-on roll-off vessels, and cruise ships, and the Al Mina district around it is packed with warehouses, cold stores, and wholesale markets. That mix decides the equipment: compact forklifts for stores with tight aisles, and mobile cranes for heavy or awkward items at the quay.",
+        "Port work needs paperwork before the machine moves. Lifts inside Zayed Port need gate passes for the crane and crew, and the port's own safety rules apply on top of the OSHAD lift plan. Send the berth or yard location and the cargo details early, and allow a working day for passes on a first visit.",
+        "From our Musaffah yard, Al Mina is a drive onto the island and through the city, about 35 to 45 minutes depending on traffic. Heavy vehicles face peak-hour movement restrictions in the city, so we deliver low-bed loads early in the morning or in the evening, and move mobile cranes outside the rush.",
+        "Many Al Mina stores share access lanes with neighbouring units and customers' cars. Tell us whether the forklift works inside the store, in a yard, or on the street at the shutter, and how wide the door is, so we send a machine that fits.",
+      ],
+    },
+    faqs: [
+      {
+        question: "Can you supply a crane for a lift inside Zayed Port?",
+        answer:
+          "Yes. We arrange gate passes for the crane and crew, prepare the OSHAD lift plan, and follow the port's safety requirements. Allow a working day for passes on a first visit.",
+      },
+      {
+        question: "How long does delivery from Musaffah to Al Mina take?",
+        answer:
+          "About 35 to 45 minutes of driving. Because heavy vehicles face peak-hour restrictions in the city, we usually deliver early in the morning or in the evening and confirm the slot when you book.",
+      },
+      {
+        question: "Which forklift suits an Al Mina warehouse?",
+        answer:
+          "For most stores a 3 ton forklift is enough. Choose electric for cold stores and enclosed food warehouses, and diesel for open yards or heavier pallets. Send the door and aisle widths and we confirm the model.",
+      },
+      {
+        question: "Can I hire a forklift for one day to unload a container in Al Mina?",
+        answer:
+          "Yes. Single-day hires for container unloading are common. Book the day before so the forklift is on site before the container arrives.",
+      },
+      {
+        question: "Do you rent man lifts for warehouse roofs and signage in Al Mina?",
+        answer:
+          "Yes. Boom lifts reach roofs and shop signs over parked vehicles, and electric scissor lifts suit indoor and paved areas. A certified operator can be supplied with the machine.",
+      },
+    ],
+    ctaHeading: "Need Equipment in Mina Zayed?",
+    ctaSubheading: "Send the store or berth location, the load, and the date. We plan the delivery around island traffic.",
+    whatsappMessage: "Hi Seven Lift, I need equipment rental in Mina Zayed / Al Mina.",
+    metaTitle: "Equipment Rental Mina Zayed & Al Mina",
+    metaDescription: `Forklift, crane and man lift rental in Mina Zayed, Zayed Port and Al Mina, Abu Dhabi. Port passes and island delivery timing. Call ${siteConfig.phoneDisplay}.`,
+    areaServed: ["Mina Zayed", "Zayed Port", "Al Mina", "Al Zahiyah", "Abu Dhabi"],
+    nearby: ["al-reem-island", "saadiyat-island"],
+  },
+  {
+    slug: "al-wathba",
+    name: "Al Wathba",
+    href: `${base}/al-wathba`,
+    title: "Equipment Rental in Al Wathba, Abu Dhabi",
+    eyebrow: "Abu Dhabi · Al Wathba · Al Wathba South",
+    intro:
+      "Telehandler, crane, man lift, and forklift rental for Al Wathba, east of Musaffah along the Al Ain road: the villa communities of Al Wathba South, the festival and racing grounds, labour accommodation projects, and farms. Our yard is about half an hour away, so most deliveries arrive the same day or the next morning.",
+    heroImage: "/images/fleet/scissor-lift.jpg",
+    heroImageAlt: "Scissor lift raised for installation work at height",
+    zones: [
+      "Al Wathba South",
+      "Al Wathba",
+      "Sheikh Zayed Festival grounds",
+      "Al Wathba camel racetrack",
+      "Labour accommodation sites",
+      "Farms along the Al Ain road",
+    ],
+    whyHeading: "Why Al Wathba Projects Rent From Seven Lift",
+    whyPoints: [
+      {
+        title: "Villa Community Machines",
+        description:
+          "Rough-terrain telehandlers and 25 to 50 ton cranes for villa plots in Al Wathba South, on daily or monthly terms that follow your programme.",
+      },
+      {
+        title: "Event Build Support",
+        description:
+          "Scissor lifts, boom lifts, and telehandlers for staging, lighting, and structures at the festival grounds, booked across the build and strip-out dates.",
+      },
+      {
+        title: "Sand-Ready Equipment",
+        description:
+          "Four-wheel-drive machines with sand-rated tyres, and crane mats for outriggers on open desert ground.",
+      },
+      {
+        title: "Half an Hour From Our Yard",
+        description:
+          "Al Wathba is about 30 minutes from Musaffah, so delivery the same day or the next morning is normal.",
+      },
+    ],
+    context: {
+      heading: "Working in Al Wathba: What to Plan For",
+      paragraphs: [
+        "Al Wathba covers very different jobs within a few kilometres. Al Wathba South is a large villa development where contractors need telehandlers and small cranes on monthly hire. The Sheikh Zayed Festival grounds need access equipment for each season's build. Around them sit labour accommodation projects, the camel racetrack, and working farms.",
+        "Much of the ground is open sand, even next to finished roads. Telehandlers should be four-wheel drive with sand tyres, and cranes need firm ground or mats under every outrigger. Before a crane lift, send a photo of where the crane will stand so we can check whether mats are needed.",
+        "Event work runs to a fixed opening date. If you are building for the festival season, book access machines as soon as the build programme is set, because demand for scissor and boom lifts rises across Abu Dhabi in the same weeks.",
+        "Summer work here falls under the UAE midday outdoor work break, from 12:30 to 3 pm between 15 June and 15 September. We plan crane lifts and deliveries for the morning so the break does not cut a lift in half.",
+      ],
+    },
+    faqs: [
+      {
+        question: "How quickly can you deliver to Al Wathba South?",
+        answer:
+          "Al Wathba is about 30 minutes from our Musaffah yard. Delivery the same day or the next morning is normal for telehandlers, forklifts, and man lifts. Cranes are best booked a day or more ahead.",
+      },
+      {
+        question: "Do you supply equipment for the Sheikh Zayed Festival build?",
+        answer:
+          "Yes. We supply scissor lifts, boom lifts, and telehandlers for event structures, staging, and lighting. Send the build and strip-out dates so the machines are reserved for the whole period.",
+      },
+      {
+        question: "Will a telehandler work on the sand in Al Wathba?",
+        answer:
+          "Yes, if it is a four-wheel-drive rough-terrain model with sand tyres, which is what we send to Al Wathba plots. Two-wheel-drive machines and electric units are not suited to loose sand.",
+      },
+      {
+        question: "Do cranes need mats on Al Wathba plots?",
+        answer:
+          "Often, yes. Loose or recently filled ground cannot take outrigger loads safely. We check the setup area from your photos and bring crane mats where the ground needs them.",
+      },
+      {
+        question: "Can crane work continue during the summer midday break?",
+        answer:
+          "Outdoor work in direct sun stops from 12:30 to 3 pm between 15 June and 15 September. We schedule lifts and deliveries around that window, usually in the early morning.",
+      },
+    ],
+    ctaHeading: "Working in Al Wathba?",
+    ctaSubheading: "Send the plot or site location, the job, and the dates. We confirm the machine and a delivery slot.",
+    whatsappMessage: "Hi Seven Lift, I need equipment rental in Al Wathba.",
+    metaTitle: "Equipment Rental Al Wathba, Abu Dhabi",
+    metaDescription: `Telehandler, crane and man lift rental in Al Wathba and Al Wathba South: villa plots, festival builds, sand-ready machines. Call ${siteConfig.phoneDisplay}.`,
+    areaServed: ["Al Wathba", "Al Wathba South", "Abu Dhabi"],
+    nearby: ["al-shamkha-riyadh-city", "mafraq-baniyas"],
+  },
+  {
+    slug: "al-shahama-al-bahia",
+    name: "Al Shahama & Al Bahia",
+    href: `${base}/al-shahama-al-bahia`,
+    title: "Equipment Rental in Al Shahama & Al Bahia, Abu Dhabi",
+    eyebrow: "Abu Dhabi · Al Shahama · Al Bahia",
+    intro:
+      "Forklift, telehandler, crane, and man lift rental for Al Shahama and Al Bahia, the established residential districts on the Abu Dhabi to Dubai road north of Yas Island. Most work here is villa building and extension, retail and community maintenance, and road and utility projects, delivered from our Musaffah yard in about 40 minutes.",
+    heroImage: "/images/mobile-crane.jpeg",
+    heroImageAlt: "Mobile crane lifting equipment beside a residential street",
+    zones: [
+      "Al Shahama",
+      "Al Bahia",
+      "Villa communities north of Yas",
+      "Shops and markets along the E11",
+      "Abu Dhabi to Dubai road corridor",
+    ],
+    whyHeading: "Why Al Shahama and Al Bahia Projects Rent From Seven Lift",
+    whyPoints: [
+      {
+        title: "Villa Extensions and Rebuilds",
+        description:
+          "Compact telehandlers and 25 ton cranes that fit established villa plots with walls, trees, and neighbours on every side.",
+      },
+      {
+        title: "Retail and Community Maintenance",
+        description:
+          "Scissor and boom lifts for signage, lighting, and roof work on shops, mosques, and community buildings.",
+      },
+      {
+        title: "Road and Utility Works",
+        description:
+          "Telehandlers and mobile cranes for culvert, pipe, and precast placement along the E11 corridor.",
+      },
+      {
+        title: "Forty Minutes From Our Yard",
+        description:
+          "Morning bookings for forklifts, telehandlers, and man lifts can often be delivered the same day.",
+      },
+    ],
+    context: {
+      heading: "Working in Al Shahama and Al Bahia: What to Plan For",
+      paragraphs: [
+        "Unlike the new communities east of Musaffah, Al Shahama and Al Bahia are built up. Much of the work is on existing villas: extensions, majlis additions, roof work, and rebuilds, where the machine has to fit through a gate and set up beside a boundary wall rather than on an open plot.",
+        "That changes the equipment. A compact telehandler with four-wheel steer, or a 25 ton crane with a small outrigger footprint, usually does more here than a bigger machine. Measure the gate width, check the street for overhead cables and trees, and tell us where the machine can stand before you book.",
+        "Community streets are shared with residents, and a crane set up on a public road may need permission first. We agree a delivery window outside the early-morning and school-run traffic so the low-bed does not block neighbours.",
+        "Both districts sit along the Abu Dhabi to Dubai road, about 40 minutes from our Musaffah yard. That puts them within same-day reach for most machines when you book in the morning, and a day's notice is enough for cranes.",
+      ],
+    },
+    faqs: [
+      {
+        question: "Will a telehandler fit through a villa gate in Al Shahama?",
+        answer:
+          "Compact telehandlers are roughly 1.8 to 2.1 m wide, so they fit most villa gates. Send the gate width and height and we confirm the model before delivery.",
+      },
+      {
+        question: "Can a crane set up on the street outside my villa?",
+        answer:
+          "Often, yes, but a street setup may need municipality approval and traffic management. Tell us exactly where the crane will stand and we advise on the permit and the crane size.",
+      },
+      {
+        question: "How fast can you deliver to Al Bahia?",
+        answer:
+          "Al Bahia is about 40 minutes from our Musaffah yard. Morning bookings can often be delivered the same day. For a crane, give us a day's notice so we can check the street setup first.",
+      },
+      {
+        question: "Can you lift AC units and water tanks onto villa roofs?",
+        answer:
+          "Yes. A 25 ton crane handles most rooftop AC units and tanks on villas. Send the weight and the distance from where the crane can stand to the roof position, and we confirm the crane.",
+      },
+      {
+        question: "Do you rent man lifts for shop signage and lighting?",
+        answer:
+          "Yes. Boom lifts reach over parked cars and pavements to shop fronts, and scissor lifts suit flat, firm ground. Night work can be arranged where the site needs it.",
+      },
+    ],
+    ctaHeading: "Working in Al Shahama or Al Bahia?",
+    ctaSubheading: "Send the address, the gate width, and the job. We confirm a machine that fits and a delivery slot.",
+    whatsappMessage: "Hi Seven Lift, I need equipment rental in Al Shahama / Al Bahia.",
+    metaTitle: "Equipment Rental Al Shahama & Al Bahia",
+    metaDescription: `Telehandler, crane and man lift rental in Al Shahama and Al Bahia: compact machines for villa plots, street lifts and signage. Call ${siteConfig.phoneDisplay}.`,
+    areaServed: ["Al Shahama", "Al Bahia", "Abu Dhabi"],
+    nearby: ["yas-island", "al-samha-al-rahba"],
+  },
+  {
+    slug: "al-samha-al-rahba",
+    name: "Al Samha, Al Rahba & Ghantoot",
+    href: `${base}/al-samha-al-rahba`,
+    title: "Equipment Rental in Al Samha, Al Rahba & Ghantoot",
+    eyebrow: "Abu Dhabi · Al Rahba · Al Samha · Ghantoot",
+    intro:
+      "Crane, telehandler, forklift, and man lift rental along the Abu Dhabi to Dubai road from Al Rahba to the Dubai border: Al Rahba, Al Samha, and Ghantoot. We support villa and community construction, hospitality and estate maintenance, and sites that sit closer to Jebel Ali than to Abu Dhabi city.",
+    heroImage: "/images/fleet/telehandler-jcb.jpg",
+    heroImageAlt: "Telehandler unloading materials on a villa plot",
+    zones: [
+      "Al Rahba",
+      "Al Samha",
+      "Ghantoot",
+      "Villa communities along the E11",
+      "Estates and open land near the Dubai border",
+    ],
+    whyHeading: "Why Projects From Al Rahba to Ghantoot Rent From Seven Lift",
+    whyPoints: [
+      {
+        title: "Villa and Community Builds",
+        description:
+          "Rough-terrain telehandlers and 25 to 50 ton cranes for villa districts in Al Samha and Al Rahba, on daily or monthly terms.",
+      },
+      {
+        title: "On Our KEZAD Route",
+        description:
+          "Al Samha borders KEZAD, where we deliver regularly, so machines often reach Al Samha and Al Rahba sites the same day.",
+      },
+      {
+        title: "Border-Zone Coverage",
+        description:
+          "Ghantoot sites sit between Abu Dhabi and Jebel Ali. We work on both sides of the border and plan to each emirate's rules.",
+      },
+      {
+        title: "Hospitality and Estate Work",
+        description:
+          "Boom and scissor lifts for resort and club maintenance, and telehandlers and cranes for tanks, generators, and shade structures on private estates.",
+      },
+    ],
+    context: {
+      heading: "Working Between Al Rahba and Ghantoot: What to Plan For",
+      paragraphs: [
+        "This stretch of the Abu Dhabi to Dubai road has three kinds of site. Al Rahba and Al Samha are residential districts where villas are still being built and extended. Ghantoot, at the border, has hospitality and leisure sites, including the polo club, plus private estates and open land. The equipment follows the site: telehandlers and small cranes for villas, access equipment for maintenance, and rough-terrain machines for open ground.",
+        "Al Samha borders KEZAD, with Al Rahba just to its south, so both are about 40 minutes from our Musaffah yard and sit on the same delivery route as our KEZAD jobs. Ghantoot is about an hour away.",
+        "Sites near Ghantoot are sometimes closer to Jebel Ali than to Abu Dhabi, and a project can sit just on either side of the emirate border. Check which emirate's municipality issues your permits: Abu Dhabi sites follow OSHAD-SF lift planning, while Dubai sites follow Dubai Municipality requirements. We prepare the lift plan for whichever applies.",
+        "Much of the land outside the villa districts is sand. Send photos of the access road and the setup area, so we can send four-wheel-drive machines, and crane mats where the ground needs them.",
+      ],
+    },
+    faqs: [
+      {
+        question: "How long does delivery to Al Samha or Al Rahba take?",
+        answer:
+          "About 40 minutes from our Musaffah yard. These districts are on our regular KEZAD route, so same-day delivery is often possible for forklifts, telehandlers, and man lifts.",
+      },
+      {
+        question: "Do you deliver to Ghantoot?",
+        answer:
+          "Yes. Ghantoot is about an hour from our yard. Delivery is the same day or the next morning depending on the machine, and crane mobilizations are planned a day or more ahead.",
+      },
+      {
+        question: "My site is near the Abu Dhabi and Dubai border. Which rules apply?",
+        answer:
+          "The rules of the emirate your site is in. Abu Dhabi sites follow OSHAD-SF lift planning, and Dubai sites follow Dubai Municipality requirements. Tell us the site location and we prepare the documents for the right authority.",
+      },
+      {
+        question: "Can I hire a telehandler for a villa in Al Samha?",
+        answer:
+          "Yes. Rough-terrain telehandlers with forks or a bucket are the usual choice for villa plots here. Daily, weekly, and monthly hire are all available.",
+      },
+      {
+        question: "Do you rent man lifts for resort and club maintenance in Ghantoot?",
+        answer:
+          "Yes. Electric scissor lifts suit indoor and paved areas, and boom lifts reach facades, roofs, and lighting over landscaping. A certified operator can be supplied.",
+      },
+    ],
+    ctaHeading: "Working in Al Samha, Al Rahba or Ghantoot?",
+    ctaSubheading: "Send the site location, the job, and the dates. We plan delivery from Musaffah on our KEZAD route.",
+    whatsappMessage: "Hi Seven Lift, I need equipment rental in Al Samha / Al Rahba / Ghantoot.",
+    metaTitle: "Equipment Rental Al Samha, Al Rahba & Ghantoot",
+    metaDescription: `Crane, telehandler and man lift rental in Al Samha, Al Rahba and Ghantoot on the Abu Dhabi to Dubai road. Villa and border sites. Call ${siteConfig.phoneDisplay}.`,
+    areaServed: ["Al Samha", "Al Rahba", "Ghantoot", "Abu Dhabi"],
+    nearby: ["kizad-khalifa-port", "al-shahama-al-bahia"],
   },
 ]
 
