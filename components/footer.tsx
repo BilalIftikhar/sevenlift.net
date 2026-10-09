@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
-import { siteConfig } from "@/lib/site-config"
+import { addressLine, siteConfig } from "@/lib/site-config"
 import { services } from "@/lib/services"
 import { locations } from "@/lib/locations"
 
@@ -56,7 +56,7 @@ export default function Footer() {
               </a>
               <p className="flex items-start gap-2.5">
                 <MapPin size={16} className="mt-0.5 shrink-0 text-accent" />
-                {siteConfig.address.streetAddress}, {siteConfig.address.addressLocality}, UAE
+                {addressLine}
               </p>
               <p className="flex items-center gap-2.5">
                 <Clock size={16} className="shrink-0 text-accent" />
@@ -143,11 +143,11 @@ export default function Footer() {
             &copy; {year} {siteConfig.legalName}. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="/contact" className="hover:text-accent transition-colors">
+            <Link href="/privacy-policy" className="hover:text-accent transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/contact" className="hover:text-accent transition-colors">
-              Terms of Service
+            <Link href="/terms" className="hover:text-accent transition-colors">
+              Terms of Use
             </Link>
           </div>
         </div>

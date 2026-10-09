@@ -7,7 +7,8 @@ import { Reveal } from "@/components/reveal"
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
-import { siteConfig } from "@/lib/site-config"
+import { YardMap } from "@/components/yard-map"
+import { addressLine, mapsUrl, siteConfig } from "@/lib/site-config"
 import { Phone, Mail, Clock, MapPin } from "lucide-react"
 
 export const metadata: Metadata = pageMetadata({
@@ -72,6 +73,23 @@ export default function ContactPage() {
                 </a>
               </Reveal>
 
+              <Reveal delay={120}>
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full gap-4 rounded-xl border-2 border-accent/20 p-6 text-left transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-lg"
+                >
+                  <div className="h-fit rounded-lg bg-accent/10 p-3">
+                    <MapPin size={22} className="text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold uppercase tracking-widest text-foreground">Yard Address</p>
+                    <p className="font-semibold text-foreground">{addressLine}</p>
+                  </div>
+                </a>
+              </Reveal>
+
               <Reveal delay={160}>
                 <div className="flex gap-4 rounded-xl border-2 border-accent/20 p-6 transition-all hover:-translate-y-0.5 hover:shadow-lg">
                   <div className="h-fit rounded-lg bg-accent/10 p-3">
@@ -115,6 +133,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+      <YardMap />
       <Footer />
     </main>
   )

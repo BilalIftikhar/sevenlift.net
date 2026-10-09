@@ -16,16 +16,6 @@ export const metadata: Metadata = pageMetadata({
     "Forklift rental in Abu Dhabi, 3 to 25 ton diesel & electric, with certified operator. Same-day delivery from our Mussafah yard to ICAD & KIZAD. Daily to monthly.",
   path,
   image: "/images/fleet/forklift-warehouse.jpg",
-  keywords: [
-    "forklift rental Abu Dhabi",
-    "forklift rental Musaffah",
-    "forklift rental Mussafah",
-    "forklift hire Abu Dhabi",
-    "forklift rental ICAD",
-    "forklift rental Khalifa Industrial Zone",
-    "3 ton forklift rental Abu Dhabi",
-    "25 ton forklift rental UAE",
-  ],
 })
 
 const abuDhabi = getLocationBySlug("abu-dhabi-musaffah")!

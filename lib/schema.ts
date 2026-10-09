@@ -1,4 +1,4 @@
-import { siteConfig } from "@/lib/site-config"
+import { mapsUrl, siteConfig } from "@/lib/site-config"
 
 type WithContext<T> = T & { "@context": "https://schema.org" }
 
@@ -46,6 +46,7 @@ export function localBusinessSchema(opts?: {
     logo: `${siteConfig.url}/images/brand/logo-icon-512.png`,
     address: baseAddress,
     geo: opts?.geo ? { "@type": "GeoCoordinates", ...opts.geo } : baseGeo,
+    hasMap: mapsUrl,
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [

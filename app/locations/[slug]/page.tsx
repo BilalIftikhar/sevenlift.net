@@ -6,6 +6,7 @@ import { breadcrumbSchema, serviceSchema, faqSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { locations, getLocationBySlug } from "@/lib/locations"
 import { equipmentLinksForLocation } from "@/lib/service-areas"
+import { craneCapacityLinks } from "@/lib/crane-capacity-links"
 import { abuDhabiAreas } from "@/lib/abu-dhabi-areas"
 import { districtsForCity } from "@/lib/city-districts"
 import { siteConfig } from "@/lib/site-config"
@@ -28,7 +29,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: location.metaDescription,
     path: location.href,
     image: location.heroImage,
-    keywords: location.keywords,
   })
 }
 
@@ -50,6 +50,8 @@ export default async function LocationPage({ params }: PageProps) {
   const districts = isAbuDhabi ? abuDhabiAreas : districtsForCity(location.slug)
   const nearbyLinks = [
     ...districts.map((area) => ({ name: `Equipment Rental ${area.name}`, href: area.href })),
+    // The crane-by-capacity pages are written for Abu Dhabi, so its hub links them.
+    ...(isAbuDhabi ? craneCapacityLinks : []),
     ...cityLinks,
   ]
 
@@ -88,7 +90,14 @@ export default async function LocationPage({ params }: PageProps) {
         whyPoints={location.whyPoints}
         faqs={location.faqs}
         nearbyLinks={nearbyLinks}
-        nearbyHeading={districts.length > 0 ? `${location.cityName} Areas We Serve` : undefined}
+        nearbyHeading={
+          isAbuDhabi
+            ? "Abu Dhabi Areas and Crane Sizes"
+            : districts.length > 0
+              ? `${location.cityName} Areas We Serve`
+              : undefined
+        }
+        showYardMap={isAbuDhabi}
         ctaHeading={location.ctaHeading}
         ctaSubheading={location.ctaSubheading}
         whatsappMessage={location.whatsappMessage}

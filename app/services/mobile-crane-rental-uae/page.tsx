@@ -19,14 +19,6 @@ export const metadata: Metadata = pageMetadata({
     "Mobile crane rental across the UAE: 25 to 500 ton all-terrain cranes with certified operators, riggers and lift plans in every emirate. Free lift plan review.",
   path,
   image: "/images/mobile-crane.jpeg",
-  keywords: [
-    "crane rental UAE",
-    "mobile crane rental UAE",
-    "crane rental companies in UAE",
-    "mobile cranes for hire UAE",
-    "crane hire UAE",
-    "500 ton crane rental UAE",
-  ],
 })
 
 const faqs = [
@@ -130,6 +122,7 @@ export default function MobileCraneRentalUaePage() {
         areasHeading="Mobile Crane Rental by Emirate"
         areas={[
           ...cityLinksForEquipment("mobile-crane"),
+          { name: "500 Ton Crane Rental UAE", href: "/services/500-ton-crane-rental-uae" },
           { name: "All Coverage Areas", href: "/locations" },
           { name: "Full Crane Fleet Specs", href: "/equipment/mobile-crane" },
         ]}

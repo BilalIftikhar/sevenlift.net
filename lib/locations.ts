@@ -34,7 +34,6 @@ export type LocationSummary = {
   // --- SEO / schema ---
   metaTitle: string
   metaDescription: string
-  keywords: string[]
   /** Plain place names for schema.org areaServed. */
   areaServed: string[]
   /** Slugs of neighbouring locations, used for internal linking. */
@@ -155,15 +154,6 @@ export const locations: LocationSummary[] = [
     metaTitle: "Heavy Equipment Rental Abu Dhabi | Musaffah",
     metaDescription:
       "Forklift, crane, telehandler & man lift rental in Abu Dhabi. Fleet based in Musaffah (Mussafah), serving ICAD, KIZAD & Khalifa Port. Same-day dispatch, 24/7.",
-    keywords: [
-      "heavy equipment rental Abu Dhabi",
-      "forklift rental Musaffah",
-      "equipment rental Mussafah",
-      "crane rental Abu Dhabi",
-      "equipment rental ICAD",
-      "equipment rental KIZAD",
-      "telehandler rental Abu Dhabi",
-    ],
     areaServed: ["Abu Dhabi", "Musaffah", "ICAD", "Khalifa Industrial Zone", "Khalifa Port", "Ruwais"],
     nearby: ["al-ain", "dubai"],
     industries: [
@@ -284,14 +274,6 @@ export const locations: LocationSummary[] = [
     metaTitle: "Heavy Equipment Rental Dubai | JAFZA & Al Quoz",
     metaDescription:
       "Forklift, crane, telehandler & manlift rental in Dubai: JAFZA, Al Quoz, DIP & Dubai Industrial City. Same-day delivery, certified operators, 24/7.",
-    keywords: [
-      "heavy equipment rental Dubai",
-      "forklift rental Dubai",
-      "mobile crane rental Dubai",
-      "equipment rental JAFZA",
-      "equipment rental Al Quoz",
-      "equipment rental Dubai Industrial City",
-    ],
     areaServed: ["Dubai", "Jebel Ali Free Zone", "Al Quoz", "Dubai Industrial City", "Dubai Investment Park"],
     nearby: ["sharjah", "abu-dhabi-musaffah"],
     industries: [
@@ -414,14 +396,6 @@ export const locations: LocationSummary[] = [
     metaTitle: "Heavy Equipment Rental Sharjah | HFZA & SAIF",
     metaDescription:
       "Forklift, crane, telehandler & man lift rental in Sharjah. Covering Industrial Areas 1 to 18, Hamriyah Free Zone & SAIF Zone. Daily to monthly hire.",
-    keywords: [
-      "heavy equipment rental Sharjah",
-      "forklift rental Sharjah",
-      "crane rental Sharjah",
-      "forklift rental Sharjah Industrial Area",
-      "equipment rental Hamriyah Free Zone",
-      "equipment rental SAIF Zone",
-    ],
     areaServed: ["Sharjah", "Hamriyah Free Zone", "SAIF Zone", "Al Sajaa", "Sharjah Industrial Area"],
     nearby: ["ajman", "dubai", "umm-al-quwain"],
     industries: [
@@ -544,14 +518,6 @@ export const locations: LocationSummary[] = [
     metaTitle: "Heavy Equipment Rental Ajman | Al Jurf & AFZ",
     metaDescription:
       "Forklift, crane, telehandler & man lift rental in Ajman. Serving Industrial Area 1 & 2, Al Jurf & Ajman Free Zone. Next-day delivery.",
-    keywords: [
-      "heavy equipment rental Ajman",
-      "forklift rental Ajman",
-      "crane rental Ajman",
-      "equipment rental Ajman Free Zone",
-      "forklift rental Al Jurf",
-      "man lift rental Ajman",
-    ],
     areaServed: ["Ajman", "Ajman Free Zone", "Al Jurf", "Ajman Industrial Area"],
     nearby: ["sharjah", "umm-al-quwain", "dubai"],
     industries: [
@@ -674,14 +640,6 @@ export const locations: LocationSummary[] = [
     metaTitle: "Heavy Equipment Rental Ras Al Khaimah | RAK FTZ",
     metaDescription:
       "Forklift, crane, telehandler & man lift rental in Ras Al Khaimah. Serving RAK FTZ, Al Ghail, Al Hamra & the Khor Khwair quarry belt.",
-    keywords: [
-      "heavy equipment rental Ras Al Khaimah",
-      "forklift rental RAK",
-      "crane rental Ras Al Khaimah",
-      "equipment rental RAK Free Trade Zone",
-      "telehandler rental Ras Al Khaimah",
-      "equipment rental Al Ghail",
-    ],
     areaServed: ["Ras Al Khaimah", "RAK Free Trade Zone", "Al Ghail", "Al Hamra", "RAK Maritime City"],
     nearby: ["umm-al-quwain", "fujairah", "sharjah"],
     industries: [
@@ -805,14 +763,6 @@ export const locations: LocationSummary[] = [
     metaTitle: "Heavy Equipment Rental Fujairah | Port & FFZ",
     metaDescription:
       "Forklift, crane, telehandler & man lift rental in Fujairah. Serving Fujairah Free Zone, the Port, Oil Terminal & Al Hayl. Certified riggers.",
-    keywords: [
-      "heavy equipment rental Fujairah",
-      "forklift rental Fujairah",
-      "crane rental Fujairah",
-      "equipment rental Fujairah Free Zone",
-      "equipment rental Fujairah Port",
-      "man lift rental Fujairah",
-    ],
     areaServed: ["Fujairah", "Fujairah Free Zone", "Port of Fujairah", "Al Hayl", "Dibba"],
     nearby: ["ras-al-khaimah", "sharjah"],
     industries: [
@@ -932,13 +882,6 @@ export const locations: LocationSummary[] = [
     metaTitle: "Heavy Equipment Rental Umm Al Quwain | UAQ FTZ",
     metaDescription:
       "Forklift, crane, telehandler & man lift rental in Umm Al Quwain. Serving UAQ Free Trade Zone, the Industrial Area & Al Salamah.",
-    keywords: [
-      "heavy equipment rental Umm Al Quwain",
-      "forklift rental Umm Al Quwain",
-      "crane rental UAQ",
-      "equipment rental UAQ Free Trade Zone",
-      "telehandler rental Umm Al Quwain",
-    ],
     areaServed: ["Umm Al Quwain", "UAQ Free Trade Zone", "Al Salamah", "Falaj Al Mualla"],
     nearby: ["ajman", "ras-al-khaimah", "sharjah"],
     industries: [
@@ -1060,14 +1003,6 @@ export const locations: LocationSummary[] = [
     metaTitle: "Heavy Equipment Rental Al Ain | Sanaiya",
     metaDescription:
       "Forklift, crane, telehandler & man lift rental in Al Ain. Serving Al Ain Industrial City, Sanaiya, Remah & Al Faqa. Next-day delivery.",
-    keywords: [
-      "heavy equipment rental Al Ain",
-      "forklift rental Al Ain",
-      "crane rental Al Ain",
-      "forklift rental Al Ain Sanaiya",
-      "equipment rental Al Ain Industrial City",
-      "telehandler rental Al Ain",
-    ],
     areaServed: ["Al Ain", "Al Ain Industrial City", "Al Ain Sanaiya", "Remah", "Al Faqa"],
     nearby: ["abu-dhabi-musaffah", "dubai"],
     industries: [

@@ -8,6 +8,7 @@ import { Reveal } from "@/components/reveal"
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { ContactForm } from "@/components/contact-form"
 import { TrustSection } from "@/components/trust-section"
+import { YardMap } from "@/components/yard-map"
 import { siteConfig, waLink } from "@/lib/site-config"
 import type { Faq } from "@/lib/faqs"
 
@@ -37,6 +38,8 @@ type LocationLandingTemplateProps = {
   localContext?: { heading: string; paragraphs: string[] }
   nearbyLinks?: NearbyLink[]
   nearbyHeading?: string
+  /** Show the Musaffah yard map; only for the city the yard is in. */
+  showYardMap?: boolean
   ctaHeading: string
   ctaSubheading: string
   whatsappMessage: string
@@ -57,6 +60,7 @@ export function LocationLandingTemplate({
   localContext,
   nearbyLinks,
   nearbyHeading = "Nearby Coverage",
+  showYardMap = false,
   ctaHeading,
   ctaSubheading,
   whatsappMessage,
@@ -197,6 +201,8 @@ export function LocationLandingTemplate({
           </div>
         </section>
       )}
+
+      {showYardMap && <YardMap className="bg-secondary/40 py-16 md:py-20" />}
 
       {nearbyLinks && nearbyLinks.length > 0 && (
         <section className="py-16 md:py-20">

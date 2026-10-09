@@ -18,13 +18,6 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Equipment rental across the UAE: Abu Dhabi, Dubai, Sharjah, Ajman, RAK, Fujairah, Umm Al Quwain & Al Ain. Coverage areas and lead times per city.",
   path: "/locations",
-  keywords: [
-    "equipment rental UAE",
-    "heavy equipment rental all emirates",
-    "forklift rental UAE",
-    "crane rental UAE",
-    "equipment rental Northern Emirates",
-  ],
 })
 
 export default function LocationsPage() {

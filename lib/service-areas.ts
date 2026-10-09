@@ -8,6 +8,7 @@ import {
   type ServiceAreaCopy,
 } from "@/lib/service-area-copy"
 import type { BulletGroup, SpecRow, AreaLink, LocalContext } from "@/components/service-landing-template"
+import { craneCapacityLinks } from "@/lib/crane-capacity-links"
 
 /**
  * Generates the service × city landing pages that give the site UAE-wide
@@ -48,8 +49,6 @@ export type EquipmentType = {
    * competitive and the result needs a reason to be clicked over the others.
    */
   titleHook: string
-  /** Other names people search for this machine ("manlift", "man basket"). */
-  searchAliases: string[]
   /** Optional closing sentence for the intro, naming the machine the way buyers do. */
   introAside?: string
   /** UAE-wide pages for specific machines in this family (lib/specialty-services.ts). */
@@ -81,7 +80,6 @@ export const equipmentTypes: EquipmentType[] = [
     extraSpec: { label: "Mast Options", value: "3–6 m" },
     titleHook: "Same-Day, 3–25 Ton",
     familyLinks: [{ name: "Electric Forklift Rental", href: "/services/electric-forklift-rental" }],
-    searchAliases: ["forklift hire", "diesel forklift rental", "electric forklift rental"],
   },
   {
     key: "mobile-crane",
@@ -106,7 +104,6 @@ export const equipmentTypes: EquipmentType[] = [
     leadTimeShort: "Fast mobilization",
     extraSpec: { label: "Riggers", value: "Certified" },
     titleHook: "25–500 Ton + Operator",
-    searchAliases: ["crane rental", "crane hire"],
   },
   {
     key: "telehandler",
@@ -131,7 +128,6 @@ export const equipmentTypes: EquipmentType[] = [
     leadTimeShort: "Same-day delivery",
     extraSpec: { label: "Max Reach", value: "5–17 m" },
     titleHook: "Same-Day, 3–10 Ton",
-    searchAliases: ["telescopic handler rental", "telehandler hire"],
   },
   {
     key: "man-lift",
@@ -156,7 +152,6 @@ export const equipmentTypes: EquipmentType[] = [
     leadTimeShort: "Same-day delivery",
     extraSpec: { label: "Platform", value: "2–3 Person" },
     titleHook: "Manlift, Scissor & Boom",
-    searchAliases: ["manlift rental", "man basket rental", "scissor lift rental", "boom lift rental"],
     familyLinks: [
       { name: "Scissor Lift Rental", href: "/services/scissor-lift-rental" },
       { name: "Boom Lift Rental", href: "/services/boom-lift-rental" },
@@ -204,7 +199,6 @@ export type ServiceAreaPage = {
   intro: string
   metaTitle: string
   metaDescription: string
-  keywords: string[]
   specs: SpecRow[]
   bulletGroups: BulletGroup[]
   localContext: LocalContext
@@ -318,9 +312,14 @@ function buildAreaLinks(equipment: EquipmentType, location: LocationSummary): Ar
       href: serviceAreaHref(equipment, l),
     }))
 
+  // The crane-by-capacity pages are written for Abu Dhabi (plus one UAE-wide page).
+  const capacityLinks =
+    equipment.key === "mobile-crane" && location.slug === "abu-dhabi-musaffah" ? craneCapacityLinks : []
+
   return [
     { name: `All Equipment in ${location.cityName}`, href: location.href },
     { name: `${equipment.label} Specifications`, href: equipment.equipmentHref },
+    ...capacityLinks,
     ...(equipment.familyLinks ?? []),
     ...siblingLinks,
     ...nearbyLinks,
@@ -360,14 +359,6 @@ function buildPage(equipment: EquipmentType, location: LocationSummary): Service
       ? `${equipment.label} Rental ${city} | ${equipment.titleHook}`
       : `${equipment.label} Rental ${city} | ${equipment.capacityRange}`,
     metaDescription: copy.metaDescription,
-    keywords: [
-      `${equipment.noun} rental ${city}`,
-      ...equipment.searchAliases.map((alias) => `${alias} ${city}`),
-      `${equipment.noun} hire ${city}`,
-      `${equipment.noun} rental ${location.emirate}`,
-      `${equipment.nounPlural} for rent ${city}`,
-      ...location.areas.slice(0, 2).map((area) => `${equipment.noun} rental ${area}`),
-    ],
     specs: [
       { label: equipment.capacityLabel, value: equipment.capacityRange },
       equipment.extraSpec,

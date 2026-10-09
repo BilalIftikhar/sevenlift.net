@@ -1,5 +1,6 @@
 import { CheckCircle2, Clock, Award, Headphones } from "lucide-react"
 import { Reveal } from "@/components/reveal"
+import { siteConfig, yearsInBusiness } from "@/lib/site-config"
 
 const reasons = [
   {
@@ -32,7 +33,7 @@ export default function WhyChooseUs() {
           <p className="text-sm font-bold uppercase tracking-widest text-accent">Why Choose Seven Lift</p>
           <h2 className="text-foreground">Enterprise-Grade Solutions, Built on Trust</h2>
           <p className="text-lg font-medium text-muted-foreground">
-            {"Over 15 years delivering professional lifting solutions with zero compromise on safety"}
+            {`${yearsInBusiness}+ years, since ${siteConfig.foundingYear}, delivering lifting solutions with zero compromise on safety`}
           </p>
         </Reveal>
 

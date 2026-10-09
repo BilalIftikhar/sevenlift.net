@@ -58,6 +58,17 @@ export const siteConfig = {
   priceRange: "$$",
 } as const
 
+/**
+ * The address as one line, exactly as on directory listings
+ * (docs/business-listing-kit.md). Every visible address uses this.
+ */
+export const addressLine = `${siteConfig.address.streetAddress}, ${siteConfig.address.addressLocality}, United Arab Emirates`
+
+// Map links resolve the address text. Once the Google Business Profile is
+// verified, point these at the profile's place instead.
+export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressLine)}`
+export const mapsEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(addressLine)}&z=15&output=embed`
+
 /** Whole years trading, derived from the founding year so it never goes stale. */
 export const yearsInBusiness = new Date().getFullYear() - siteConfig.foundingYear
 

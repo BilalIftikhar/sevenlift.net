@@ -93,13 +93,6 @@ export const cityDistricts: CityDistrict[] = [
     metaTitle: "Forklift & Man Lift Rental Al Quoz, Dubai",
     metaDescription:
       "Forklift, manlift, scissor lift & telehandler rental in Al Quoz Industrial Areas 1 to 4, Dubai. Compact units for tight warehouses. Daily hire, with operator.",
-    keywords: [
-      "forklift rental Al Quoz",
-      "man lift rental Al Quoz",
-      "equipment rental Al Quoz",
-      "scissor lift rental Al Quoz",
-      "forklift hire Al Quoz Dubai",
-    ],
     areaServed: ["Al Quoz", "Al Quoz Industrial Area", "Dubai"],
     nearby: ["jebel-ali"],
   },
@@ -181,13 +174,6 @@ export const cityDistricts: CityDistrict[] = [
     metaTitle: "Forklift & Crane Rental Jebel Ali | JAFZA",
     metaDescription:
       "Forklift, crane, telehandler & man lift rental in Jebel Ali, JAFZA & Dubai South. 7 to 25 ton forklifts for container work, gate-pass documents supplied.",
-    keywords: [
-      "forklift rental Jebel Ali",
-      "equipment rental JAFZA",
-      "crane rental Jebel Ali",
-      "forklift rental JAFZA",
-      "man lift rental Jebel Ali",
-    ],
     areaServed: ["Jebel Ali", "Jebel Ali Free Zone", "Dubai South", "Dubai Investment Park", "Dubai"],
     nearby: ["al-quoz"],
   },
@@ -269,13 +255,6 @@ export const cityDistricts: CityDistrict[] = [
     metaTitle: "Forklift Rental Sharjah Industrial Area 1–18",
     metaDescription:
       "Forklift, side loader, manlift & telehandler rental in Sharjah Industrial Areas 1 to 18, Al Sajaa & Muwaileh. Daily to monthly hire, certified operators.",
-    keywords: [
-      "forklift rental Sharjah Industrial Area",
-      "forklift rental Sharjah",
-      "equipment rental Sharjah Industrial Area",
-      "man lift rental Sharjah",
-      "heavy equipment rental Sharjah",
-    ],
     areaServed: ["Sharjah Industrial Area", "Al Sajaa", "Muwaileh", "Sharjah"],
     nearby: ["al-quoz"],
   },

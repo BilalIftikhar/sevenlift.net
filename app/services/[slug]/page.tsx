@@ -33,7 +33,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: specialty.metaDescription,
       path: specialty.href,
       image: specialty.heroImage,
-      keywords: specialty.keywords,
     })
   }
 
@@ -45,7 +44,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: page.metaDescription,
     path: page.href,
     image: page.equipment.heroImage,
-    keywords: page.keywords,
   })
 }
 
@@ -121,7 +119,7 @@ function SpecialtyServicePage({ service }: { service: SpecialtyService }) {
             name: service.h1,
             serviceType: service.serviceType,
             description: service.metaDescription,
-            areaServed: ["Abu Dhabi", "Dubai", "Sharjah", "United Arab Emirates"],
+            areaServed: service.areaServed ?? ["Abu Dhabi", "Dubai", "Sharjah", "United Arab Emirates"],
             url,
           }),
           faqSchema(service.faqs),
@@ -136,6 +134,8 @@ function SpecialtyServicePage({ service }: { service: SpecialtyService }) {
         specs={service.specs}
         bulletGroups={service.bulletGroups}
         localContext={service.localContext}
+        siteFacts={service.siteFacts}
+        siteFactsHeading={service.siteFactsHeading}
         areasHeading={service.areasHeading}
         areas={service.areas}
         faqs={service.faqs}
@@ -144,6 +144,7 @@ function SpecialtyServicePage({ service }: { service: SpecialtyService }) {
         whatsappMessage={service.whatsappMessage}
         equipment={service.family}
         formEquipment={formEquipmentLabel[service.family]}
+        formLocation={service.formLocation}
       />
     </>
   )

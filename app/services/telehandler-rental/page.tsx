@@ -18,13 +18,6 @@ export const metadata: Metadata = pageMetadata({
     "Telehandler rental across the UAE: 3 to 10 ton with 5 to 17 m reach, fork, bucket and jib attachments. All seven emirates. Daily, weekly and monthly hire.",
   path,
   image: "/images/fleet/telehandler-jcb.jpg",
-  keywords: [
-    "telehandler rental UAE",
-    "telehandler hire UAE",
-    "telescopic handler rental UAE",
-    "reach forklift rental UAE",
-    "telehandler with operator UAE",
-  ],
 })
 
 const faqs = [

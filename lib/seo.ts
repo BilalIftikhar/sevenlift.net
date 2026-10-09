@@ -6,7 +6,6 @@ type PageSeoOptions = {
   description: string
   path: string
   image?: string
-  keywords?: string[]
 }
 
 /**
@@ -15,14 +14,13 @@ type PageSeoOptions = {
  * " | Seven Lift General Transport" suffix is applied by the root layout's
  * title template.
  */
-export function pageMetadata({ title, description, path, image, keywords }: PageSeoOptions): Metadata {
+export function pageMetadata({ title, description, path, image }: PageSeoOptions): Metadata {
   const url = `${siteConfig.url}${path}`
   const ogImage = image ?? "/images/og/og-default.jpg"
 
   return {
     title,
     description,
-    keywords,
     alternates: {
       canonical: url,
     },

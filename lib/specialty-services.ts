@@ -2,6 +2,7 @@ import type { Faq } from "@/lib/faqs"
 import type { EquipmentKey } from "@/lib/locations"
 import type { AreaLink, BulletGroup, LocalContext, SpecRow } from "@/components/service-landing-template"
 import { cityLinksForEquipment } from "@/lib/service-areas"
+import { craneCapacityPages } from "@/lib/crane-capacity"
 
 /**
  * UAE-wide pages for one machine within a fleet family (scissor lifts within
@@ -25,9 +26,15 @@ export type SpecialtyService = {
   heroImageAlt: string
   metaTitle: string
   metaDescription: string
-  keywords: string[]
   serviceType: string
+  /** Defaults to the UAE-wide list; set for pages aimed at one city. */
+  areaServed?: string[]
+  /** Preselected in the hero form's location field. */
+  formLocation?: string
   specs: SpecRow[]
+  /** Typical specs table shown beside the local context. */
+  siteFacts?: SpecRow[]
+  siteFactsHeading?: string
   bulletGroups: BulletGroup[]
   localContext: LocalContext
   areasHeading: string
@@ -40,7 +47,7 @@ export type SpecialtyService = {
 
 const guide = { name: "Guide: Scissor Lift vs Boom Lift", href: "/blog/scissor-lift-vs-boom-lift-abu-dhabi" }
 
-export const specialtyServices: SpecialtyService[] = [
+const uaeSpecialtyServices: SpecialtyService[] = [
   {
     slug: "scissor-lift-rental",
     family: "man-lift",
@@ -55,10 +62,6 @@ export const specialtyServices: SpecialtyService[] = [
     metaTitle: "Scissor Lift Rental UAE | Electric & Diesel, 10–18 m",
     metaDescription:
       "Scissor lift rental across the UAE: electric 10 to 14 m for indoor work, rough-terrain diesel 12 to 18 m for outdoor sites. Operator available.",
-    keywords: [
-      "scissor lift rental UAE",
-      "electric scissor lift hire",
-    ],
     serviceType: "Scissor lift rental",
     specs: [
       { label: "Working Height", value: "10–18 m" },
@@ -156,11 +159,6 @@ export const specialtyServices: SpecialtyService[] = [
     metaTitle: "Boom Lift Rental UAE | Articulating & Telescopic",
     metaDescription:
       "Boom lift rental across the UAE: articulating 16 to 28 m and telescopic 30 to 50 m booms for facades, plant and high access. Operator available.",
-    keywords: [
-      "boom lift rental UAE",
-      "articulating boom lift hire",
-      "telescopic boom lift rental",
-    ],
     serviceType: "Boom lift rental",
     specs: [
       { label: "Working Height", value: "16–50 m" },
@@ -252,11 +250,6 @@ export const specialtyServices: SpecialtyService[] = [
     metaTitle: "Electric Forklift Rental UAE | Indoor, Non-Marking",
     metaDescription:
       "Electric forklift rental across the UAE: 3 to 5 ton, zero fumes, non-marking tyres for indoor warehouses. Daily to monthly hire, operator available.",
-    keywords: [
-      "electric forklift rental UAE",
-      "electric forklift hire",
-      "indoor forklift rental",
-    ],
     serviceType: "Electric forklift rental",
     specs: [
       { label: "Capacity", value: "3–5 Ton" },
@@ -333,6 +326,9 @@ export const specialtyServices: SpecialtyService[] = [
     whatsappMessage: "Hi Seven Lift, I need an electric forklift rental.",
   },
 ]
+
+/** UAE-wide machine pages plus the crane-by-capacity pages (lib/crane-capacity.ts). */
+export const specialtyServices: SpecialtyService[] = [...uaeSpecialtyServices, ...craneCapacityPages]
 
 export function getSpecialtyService(slug: string) {
   return specialtyServices.find((service) => service.slug === slug)

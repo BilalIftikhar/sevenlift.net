@@ -32,7 +32,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: district.metaDescription,
     path: district.href,
     image: district.heroImage,
-    keywords: district.keywords,
   })
 }
 

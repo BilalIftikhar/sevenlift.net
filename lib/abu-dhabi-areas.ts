@@ -33,7 +33,6 @@ export type AbuDhabiArea = {
   whatsappMessage: string
   metaTitle: string
   metaDescription: string
-  keywords: string[]
   areaServed: string[]
   /** Slugs of neighbouring districts, for internal linking. */
   nearby: string[]
@@ -119,13 +118,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaTitle: "ICAD Equipment Rental | Forklift & Crane Hire",
     metaDescription:
       "Forklift, crane, telehandler & man lift rental in ICAD I, II & III. Next to our Musaffah yard for same-day delivery. Certified operators. Call now.",
-    keywords: [
-      "equipment rental ICAD",
-      "forklift rental ICAD",
-      "crane rental ICAD Abu Dhabi",
-      "forklift rental Mussafah South",
-      "heavy equipment rental ICAD",
-    ],
     areaServed: ["ICAD", "Industrial City of Abu Dhabi", "Mussafah South", "Abu Dhabi"],
     nearby: ["mohammed-bin-zayed-city", "mafraq-baniyas", "kizad-khalifa-port"],
   },
@@ -206,13 +198,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaTitle: "Equipment Rental KIZAD & Khalifa Port",
     metaDescription:
       "Forklift & crane rental in KIZAD, Khalifa Port & Al Taweelah. Container handling, port lifts with lift plans, monthly contracts. Certified operators.",
-    keywords: [
-      "equipment rental KIZAD",
-      "forklift rental KIZAD",
-      "crane rental Khalifa Port",
-      "forklift rental Al Taweelah",
-      "heavy equipment rental Khalifa Industrial Zone",
-    ],
     areaServed: ["KIZAD", "Khalifa Industrial Zone Abu Dhabi", "Khalifa Port", "Al Taweelah", "Abu Dhabi"],
     nearby: ["icad", "al-reem-island", "yas-island"],
   },
@@ -292,13 +277,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaTitle: "Equipment Rental MBZ City & Mussafah Shabiya",
     metaDescription:
       "Telehandler, man lift & forklift rental in Mohammed Bin Zayed City and Mussafah Shabiya. Compact machines, daily hire, same-day delivery from Musaffah.",
-    keywords: [
-      "equipment rental Mohammed Bin Zayed City",
-      "telehandler rental MBZ City",
-      "man lift rental Mussafah Shabiya",
-      "scissor lift rental MBZ",
-      "equipment rental Shabiya",
-    ],
     areaServed: ["Mohammed Bin Zayed City", "Mussafah Shabiya", "Abu Dhabi"],
     nearby: ["icad", "khalifa-city", "al-shamkha-riyadh-city"],
   },
@@ -379,13 +357,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaTitle: "Equipment Rental Khalifa City & Al Raha",
     metaDescription:
       "Telehandler, crane & scissor lift rental in Khalifa City A & B, Al Raha Gardens and Al Raha Beach. Villa and fit-out work, same-day delivery, operators.",
-    keywords: [
-      "equipment rental Khalifa City",
-      "telehandler rental Khalifa City",
-      "crane rental Al Raha",
-      "scissor lift rental Khalifa City",
-      "man lift rental Al Raha Beach",
-    ],
     areaServed: ["Khalifa City", "Al Raha", "Al Raha Gardens", "Al Raha Beach", "Abu Dhabi"],
     nearby: ["yas-island", "masdar-city-airport", "mohammed-bin-zayed-city"],
   },
@@ -466,13 +437,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaTitle: "Equipment Rental Yas Island | Lifts & Cranes",
     metaDescription:
       "Boom lift, scissor lift, telehandler & crane rental on Yas Island for event builds, venue maintenance and construction. Overnight delivery available.",
-    keywords: [
-      "equipment rental Yas Island",
-      "boom lift rental Yas Island",
-      "man lift rental Yas Island",
-      "event equipment rental Abu Dhabi",
-      "telehandler rental Yas Island",
-    ],
     areaServed: ["Yas Island", "Abu Dhabi"],
     nearby: ["saadiyat-island", "khalifa-city", "masdar-city-airport"],
   },
@@ -553,12 +517,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaTitle: "Equipment Rental Saadiyat Island | Cranes",
     metaDescription:
       "Mobile crane, telehandler & man lift rental on Saadiyat Island. Lift plans, certified riggers, non-marking platforms for finished interiors.",
-    keywords: [
-      "equipment rental Saadiyat Island",
-      "crane rental Saadiyat",
-      "man lift rental Saadiyat Island",
-      "telehandler rental Saadiyat",
-    ],
     areaServed: ["Saadiyat Island", "Abu Dhabi"],
     nearby: ["yas-island", "al-reem-island"],
   },
@@ -639,13 +597,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaTitle: "Equipment Rental Al Reem Island & Abu Dhabi",
     metaDescription:
       "Scissor lift, boom lift & crane rental on Al Reem, Al Maryah and downtown Abu Dhabi. Tower fit-out, facade access, overnight delivery, operators.",
-    keywords: [
-      "equipment rental Al Reem Island",
-      "scissor lift rental Abu Dhabi city",
-      "boom lift rental Al Reem",
-      "man lift rental Abu Dhabi",
-      "crane rental Abu Dhabi city",
-    ],
     areaServed: ["Al Reem Island", "Al Maryah Island", "Abu Dhabi City", "Abu Dhabi"],
     nearby: ["saadiyat-island", "kizad-khalifa-port", "masdar-city-airport"],
   },
@@ -726,13 +677,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaTitle: "Equipment Rental Al Shamkha & Riyadh City",
     metaDescription:
       "Telehandler & crane rental for villa construction in Al Shamkha, Riyadh City, Al Falah & Al Wathba. Rough-terrain machines, monthly programme rates.",
-    keywords: [
-      "equipment rental Al Shamkha",
-      "telehandler rental Riyadh City Abu Dhabi",
-      "crane rental Al Shamkha",
-      "villa construction equipment Abu Dhabi",
-      "equipment rental Al Falah",
-    ],
     areaServed: ["Al Shamkha", "Madinat Al Riyadh", "Al Falah", "Al Wathba", "Shakhbout City", "Abu Dhabi"],
     nearby: ["mafraq-baniyas", "mohammed-bin-zayed-city", "masdar-city-airport"],
   },
@@ -812,13 +756,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaTitle: "Equipment Rental Mafraq & Baniyas, Abu Dhabi",
     metaDescription:
       "Forklift, side loader, telehandler & crane rental in Mafraq Industrial Area and Baniyas, Abu Dhabi. Same-day delivery from Musaffah, certified operators.",
-    keywords: [
-      "equipment rental Mafraq",
-      "forklift rental Mafraq Industrial Area",
-      "forklift rental Baniyas",
-      "crane rental Baniyas",
-      "side loader rental Abu Dhabi",
-    ],
     areaServed: ["Mafraq", "Mafraq Industrial Area", "Baniyas", "Abu Dhabi"],
     nearby: ["al-shamkha-riyadh-city", "icad", "masdar-city-airport"],
   },
@@ -898,12 +835,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaTitle: "Equipment Rental Masdar City & Airport",
     metaDescription:
       "Electric forklift & scissor lift rental in Masdar City and around Zayed International Airport. Air-cargo warehouse forklifts, monthly contracts.",
-    keywords: [
-      "equipment rental Masdar City",
-      "forklift rental Abu Dhabi airport",
-      "electric forklift rental Abu Dhabi",
-      "scissor lift rental Masdar City",
-    ],
     areaServed: ["Masdar City", "Zayed International Airport", "Abu Dhabi"],
     nearby: ["khalifa-city", "yas-island", "mafraq-baniyas"],
   },
@@ -984,13 +915,6 @@ export const abuDhabiAreas: AbuDhabiArea[] = [
     metaTitle: "Equipment Rental Ruwais & Al Dhafra",
     metaDescription:
       "Crane, man lift, telehandler & forklift rental in Ruwais, Madinat Zayed & Al Dhafra. Long-term contracts, shutdown support, full HSE documentation.",
-    keywords: [
-      "equipment rental Ruwais",
-      "crane rental Ruwais",
-      "equipment rental Al Dhafra",
-      "man lift rental Ruwais",
-      "equipment rental Madinat Zayed",
-    ],
     areaServed: ["Ruwais", "Al Dhafra", "Madinat Zayed", "Ghayathi", "Mirfa", "Liwa"],
     nearby: ["icad", "mafraq-baniyas"],
   },

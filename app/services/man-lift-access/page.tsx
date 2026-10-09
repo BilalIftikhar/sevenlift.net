@@ -14,14 +14,6 @@ export const metadata: Metadata = pageMetadata({
     "Manlift rental across the UAE: scissor lifts, boom lifts and man baskets from 10 to 50 m working height, in every emirate. Certified operator available.",
   path,
   image: "/images/fleet/scissor-lift.jpg",
-  keywords: [
-    "man lift rental UAE",
-    "manlift rental UAE",
-    "man basket rental UAE",
-    "aerial platform rental UAE",
-    "boom lift rental UAE",
-    "aerial work platform rental",
-  ],
 })
 
 const faqs = [

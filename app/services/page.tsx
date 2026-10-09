@@ -19,14 +19,6 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Forklift, crane, telehandler & man lift rental across all seven emirates. Certified operators, full insurance, daily to monthly hire, 24/7 support.",
   path: "/services",
-  keywords: [
-    "heavy equipment rental UAE",
-    "forklift rental UAE",
-    "crane rental UAE",
-    "telehandler rental UAE",
-    "man lift rental UAE",
-    "equipment rental all emirates",
-  ],
 })
 
 const guarantees = [
