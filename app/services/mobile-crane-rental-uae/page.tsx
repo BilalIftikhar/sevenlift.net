@@ -71,6 +71,7 @@ export default function MobileCraneRentalUaePage() {
         ]}
       />
       <ServiceLandingTemplate
+        path={path}
         eyebrow="Mobile Crane Rental · UAE-Wide"
         title="Mobile Crane Rental Across the UAE"
         intro="Seven Lift runs all-terrain mobile cranes from 25 to 500 tons into every emirate in the UAE, with certified operators and riggers on every job. Whether your site sits in a free zone, an industrial area, or a busy city centre, we handle the crane, the crew, and the paperwork so your lift happens on schedule."

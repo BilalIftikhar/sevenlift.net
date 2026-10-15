@@ -4,6 +4,7 @@ import { ArrowRight, MapPin, Phone } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { FaqList } from "@/components/faq-list"
+import { RelatedGuides } from "@/components/related-guides"
 import { Reveal } from "@/components/reveal"
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { ContactForm } from "@/components/contact-form"
@@ -43,6 +44,8 @@ type LocationLandingTemplateProps = {
   ctaHeading: string
   ctaSubheading: string
   whatsappMessage: string
+  /** This page's path; guides that link here are listed before the closing CTA. */
+  path?: string
 }
 
 export function LocationLandingTemplate({
@@ -64,6 +67,7 @@ export function LocationLandingTemplate({
   ctaHeading,
   ctaSubheading,
   whatsappMessage,
+  path,
 }: LocationLandingTemplateProps) {
   const whatsappHref = waLink(whatsappMessage)
 
@@ -225,6 +229,8 @@ export function LocationLandingTemplate({
           </div>
         </section>
       )}
+
+      {path && <RelatedGuides path={path} className="bg-secondary/40 py-16 md:py-20" />}
 
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-4xl space-y-8 px-4 text-center">

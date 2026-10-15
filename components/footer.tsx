@@ -130,6 +130,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/tools/forklift-capacity-calculator" className="hover:text-accent transition-colors">
+                  Forklift Capacity Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="hover:text-accent transition-colors">
                   Contact Us
                 </Link>

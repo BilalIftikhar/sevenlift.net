@@ -72,6 +72,7 @@ export default async function CityDistrictPage({ params }: PageProps) {
         ]}
       />
       <LocationLandingTemplate
+        path={district.href}
         eyebrow={district.eyebrow}
         title={district.title}
         cityName={district.name}

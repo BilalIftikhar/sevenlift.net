@@ -101,7 +101,7 @@ export const abuDhabiPosts: BlogPost[] = [
   {
     slug: "scissor-lift-vs-boom-lift-abu-dhabi",
     title: "Scissor Lift vs Boom Lift: Choosing a Man Lift",
-    seoTitle: "Scissor Lift vs Boom Lift vs Manlift: Which to Rent",
+    seoTitle: "Scissor Lift vs Boom Lift vs Manlift",
     description:
       "When a scissor lift is enough and when you need an articulating or telescopic boom, with examples from Abu Dhabi fit-out, facade and plant jobs.",
     category: "Equipment Guides",
@@ -203,6 +203,7 @@ export const abuDhabiPosts: BlogPost[] = [
   {
     slug: "summer-heat-heavy-equipment-abu-dhabi-midday-break",
     title: "Running Heavy Equipment Through Abu Dhabi's Summer",
+    seoTitle: "Heavy Equipment in Abu Dhabi's Summer Heat",
     description:
       "How the UAE midday work break, heat stress, and high temperatures affect crane, forklift, and man lift work in Abu Dhabi, and how to plan around them.",
     category: "Safety & Compliance",
@@ -280,6 +281,7 @@ export const abuDhabiPosts: BlogPost[] = [
   {
     slug: "telehandler-vs-forklift-vs-crane-abu-dhabi",
     title: "Telehandler vs Forklift vs Crane: An Abu Dhabi Guide",
+    seoTitle: "Telehandler vs Forklift vs Crane, Abu Dhabi",
     description:
       "How to choose between a telehandler, a forklift, and a mobile crane based on load, height, reach, and ground conditions on Abu Dhabi sites.",
     category: "Equipment Guides",
@@ -440,6 +442,7 @@ export const abuDhabiPosts: BlogPost[] = [
   {
     slug: "villa-construction-equipment-al-shamkha-riyadh-city",
     title: "Villa Build Equipment in Al Shamkha & Riyadh City",
+    seoTitle: "Villa Build Equipment, Al Shamkha & Riyadh City",
     description:
       "The machines a villa build in Al Shamkha or Riyadh City needs, stage by stage, and how to cut equipment costs across several plots.",
     category: "Equipment Guides",

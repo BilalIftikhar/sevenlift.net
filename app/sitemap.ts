@@ -14,7 +14,7 @@ import { getAllPosts } from "@/lib/blog/posts"
  * Google the field is unreliable, and it then ignores lastmod for the whole site
  * — which slows the crawl of new pages.
  */
-const CONTENT_UPDATED = new Date("2026-10-10")
+const CONTENT_UPDATED = new Date("2026-10-15")
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = CONTENT_UPDATED
@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteConfig.url}/locations`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteConfig.url}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${siteConfig.url}/tools/forklift-capacity-calculator`, lastModified: now, changeFrequency: "yearly", priority: 0.7 },
     { url: `${siteConfig.url}/about`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
     { url: `${siteConfig.url}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
     { url: `${siteConfig.url}/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },

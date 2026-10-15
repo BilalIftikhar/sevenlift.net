@@ -1,3 +1,5 @@
+import type { Faq } from "@/lib/faqs"
+
 export type ContentBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; level: 2 | 3; text: string }
@@ -22,5 +24,7 @@ export type BlogPost = {
   heroImage: string
   heroImageAlt: string
   content: ContentBlock[]
+  /** Shown under the article and emitted as FAQPage schema. Plain text only, no links. */
+  faqs?: Faq[]
   relatedLinks: RelatedLink[]
 }

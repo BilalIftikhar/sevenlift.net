@@ -147,6 +147,11 @@ assistants answering "best crane rental in Abu Dhabi".
 
 ---
 
+For earning links from other websites (resource pages, media, partners),
+see `docs/backlink-plan.md`.
+
+---
+
 ## 6. Do not
 
 - Buy links, link packages, or "guest post" services (Fiverr etc.)

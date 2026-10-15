@@ -68,6 +68,7 @@ export default function ForkliftRentalAbuDhabiPage() {
         ]}
       />
       <ServiceLandingTemplate
+        path={path}
         eyebrow="Forklift Rental · Abu Dhabi"
         title="Forklift Rental in Abu Dhabi: Musaffah, ICAD & KIZAD"
         intro="3 to 25 ton diesel and electric forklifts, dispatched from our yard in Musaffah (Mussafah) Industrial City to ICAD and Khalifa Industrial Zone Abu Dhabi (KIZAD). Certified operators, flexible terms, and same-day deployment for warehouses, factories, and ports."
@@ -119,6 +120,7 @@ export default function ForkliftRentalAbuDhabiPage() {
           { name: "ICAD 1, 2 & 3", href: "/locations/abu-dhabi/icad" },
           { name: "Khalifa Industrial Zone (KIZAD)", href: "/locations/abu-dhabi/kizad-khalifa-port" },
           { name: "Electric Forklift Rental", href: "/services/electric-forklift-rental" },
+          { name: "Forklift Capacity Calculator", href: "/tools/forklift-capacity-calculator" },
           ...cityLinksForEquipment("forklift").filter((link) => link.href !== path),
           { name: "Full Forklift Fleet Specs", href: "/equipment/forklift" },
         ]}

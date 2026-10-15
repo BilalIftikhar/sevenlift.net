@@ -79,6 +79,7 @@ export default function TelehandlerPage() {
         ]}
       />
       <EquipmentDetailTemplate
+        path="/equipment/telehandler"
         eyebrow="Our Fleet"
         title="Telehandler Rental Fleet: 3 to 10 Ton, Up to 17 m Reach"
         intro="Telehandlers from 3 to 10 ton with 7 to 17 m reach, supplied with forks, bucket, jib or a man basket. Hire with or without a certified operator."

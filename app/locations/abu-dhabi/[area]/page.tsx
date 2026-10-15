@@ -67,6 +67,7 @@ export default async function AbuDhabiAreaPage({ params }: PageProps) {
         ]}
       />
       <LocationLandingTemplate
+        path={area.href}
         eyebrow={area.eyebrow}
         title={area.title}
         cityName={area.name}

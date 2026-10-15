@@ -6,6 +6,7 @@ import { Reveal } from "@/components/reveal"
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon"
 import { ContactForm } from "@/components/contact-form"
 import { FaqList } from "@/components/faq-list"
+import { RelatedGuides } from "@/components/related-guides"
 import { TrustSection } from "@/components/trust-section"
 import type { Faq } from "@/lib/faqs"
 import type { EquipmentKey } from "@/lib/locations"
@@ -39,6 +40,8 @@ type EquipmentDetailTemplateProps = {
   ctaSubheading: string
   whatsappMessage: string
   equipment: EquipmentKey
+  /** This page's path; guides that link here are listed above the FAQs. */
+  path?: string
 }
 
 export function EquipmentDetailTemplate({
@@ -56,6 +59,7 @@ export function EquipmentDetailTemplate({
   ctaSubheading,
   whatsappMessage,
   equipment,
+  path,
 }: EquipmentDetailTemplateProps) {
   const whatsappHref = waLink(whatsappMessage)
 
@@ -160,6 +164,8 @@ export function EquipmentDetailTemplate({
           </div>
         </section>
       )}
+
+      {path && <RelatedGuides path={path} />}
 
       {faqs && faqs.length > 0 && (
         <section className="bg-secondary/50 py-20 md:py-28">

@@ -224,3 +224,23 @@ export function aboutPageSchema(url: string): WithContext<Record<string, unknown
     isPartOf: { "@id": `${siteConfig.url}/#website` },
   }
 }
+
+/** A free browser tool, such as a calculator. Linked to the site's Organization by @id. */
+export function webApplicationSchema(opts: {
+  name: string
+  description: string
+  url: string
+}): WithContext<Record<string, unknown>> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Any",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "AED" },
+    publisher: { "@id": `${siteConfig.url}/#organization` },
+  }
+}

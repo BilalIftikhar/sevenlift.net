@@ -7,10 +7,11 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { ContactForm } from "@/components/contact-form"
 import { ContentRenderer } from "@/components/blog/content-renderer"
+import { FaqList } from "@/components/faq-list"
 import { PostCard } from "@/components/blog/post-card"
 import { JsonLd } from "@/components/json-ld"
 import { Reveal } from "@/components/reveal"
-import { blogPostingSchema, breadcrumbSchema } from "@/lib/schema"
+import { blogPostingSchema, breadcrumbSchema, faqSchema } from "@/lib/schema"
 import { pageMetadata } from "@/lib/seo"
 import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog/posts"
 import { siteConfig, waLink } from "@/lib/site-config"
@@ -70,6 +71,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             image: post.heroImage,
             authorName: siteConfig.legalName,
           }),
+          ...(post.faqs?.length ? [faqSchema(post.faqs)] : []),
         ]}
       />
       <Header />
@@ -115,6 +117,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="mt-10">
             <ContentRenderer blocks={post.content} />
           </div>
+
+          {post.faqs && post.faqs.length > 0 && (
+            <section className="mt-14">
+              <h2 className="mb-6 text-foreground">Frequently Asked Questions</h2>
+              <FaqList faqs={post.faqs} />
+            </section>
+          )}
 
           {post.relatedLinks.length > 0 && (
             <div className="mt-14 rounded-xl border border-border bg-secondary/40 p-7">

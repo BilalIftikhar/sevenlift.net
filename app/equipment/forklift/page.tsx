@@ -84,6 +84,7 @@ export default function ForkliftsPage() {
         ]}
       />
       <EquipmentDetailTemplate
+        path="/equipment/forklift"
         eyebrow="Our Fleet"
         title="Forklift Rental Fleet: 3 to 25 Ton Diesel and Electric"
         intro="Diesel and electric forklifts from 3 to 25 ton, with side loaders for long loads. Hire by the day, week or month, with or without a certified operator."

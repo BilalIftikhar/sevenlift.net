@@ -5,6 +5,7 @@ import { ArrowRight, Phone } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { FaqList } from "@/components/faq-list"
+import { RelatedGuides } from "@/components/related-guides"
 import { Reveal } from "@/components/reveal"
 import { ContactForm } from "@/components/contact-form"
 import { TrustSection } from "@/components/trust-section"
@@ -65,6 +66,8 @@ type ServiceLandingTemplateProps = {
   formEquipment?: string
   formLocation?: string
   layout?: ServiceLayout
+  /** This page's path; guides that link here are listed above the FAQs. */
+  path?: string
 }
 
 export function ServiceLandingTemplate({
@@ -90,6 +93,7 @@ export function ServiceLandingTemplate({
   formEquipment,
   formLocation,
   layout,
+  path,
 }: ServiceLandingTemplateProps) {
   const whatsappHref = waLink(whatsappMessage)
   const activeLayout = layout ?? (equipment ? layoutByEquipment[equipment] : "cards")
@@ -426,6 +430,8 @@ export function ServiceLandingTemplate({
           </div>
         </div>
       </section>
+
+      {path && <RelatedGuides path={path} />}
 
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-4xl px-4">

@@ -65,6 +65,7 @@ export default function ManLiftAccessPage() {
         ]}
       />
       <ServiceLandingTemplate
+        path={path}
         eyebrow="Man Lift & Aerial Access · UAE-Wide"
         title="Man Lift & Aerial Access Rental Across the UAE"
         intro="Manlift rental across the UAE: scissor lifts and boom lifts from 10 m to 50 m working height for safe maintenance, installation, and construction work at height, in every emirate. Each emirate has its own man lift page with local details; this page covers the platform types and how to choose one."

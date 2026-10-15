@@ -85,6 +85,7 @@ export default function MobileCranePage() {
         ]}
       />
       <EquipmentDetailTemplate
+        path="/equipment/mobile-crane"
         eyebrow="Our Fleet"
         title="Mobile Crane Rental Fleet: 25 to 500 Ton"
         intro="All-terrain mobile cranes from 25 to 500 ton, supplied with a certified operator, riggers and a documented lift plan for construction, plant and machinery lifts."

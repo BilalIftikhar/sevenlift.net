@@ -79,7 +79,10 @@ export const equipmentTypes: EquipmentType[] = [
     leadTimeShort: "Same-day delivery",
     extraSpec: { label: "Mast Options", value: "3–6 m" },
     titleHook: "Same-Day, 3–25 Ton",
-    familyLinks: [{ name: "Electric Forklift Rental", href: "/services/electric-forklift-rental" }],
+    familyLinks: [
+      { name: "Electric Forklift Rental", href: "/services/electric-forklift-rental" },
+      { name: "Forklift Capacity Calculator", href: "/tools/forklift-capacity-calculator" },
+    ],
   },
   {
     key: "mobile-crane",

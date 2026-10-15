@@ -64,6 +64,7 @@ export default function TelehandlerRentalPage() {
         ]}
       />
       <ServiceLandingTemplate
+        path={path}
         eyebrow="Telehandler Rental · UAE-Wide"
         title="Telehandler Rental Across the UAE"
         intro="Compact and high-reach telehandlers from 5 m to 17 m for construction sites, roofing, and material handling on rough ground, delivered to every emirate. Each emirate has its own telehandler page with local delivery details; this page covers the fleet and how we size it."

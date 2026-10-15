@@ -1,5 +1,7 @@
 import type { BlogPost } from "@/lib/blog/types"
 import { abuDhabiPosts } from "@/lib/blog/posts-abu-dhabi"
+import { craneGuidePosts } from "@/lib/blog/posts-crane-guides"
+import { equipmentGuidePosts } from "@/lib/blog/posts-equipment-guides"
 
 const originalPosts: BlogPost[] = [
   {
@@ -158,7 +160,7 @@ const originalPosts: BlogPost[] = [
   {
     slug: "renting-vs-buying-heavy-equipment-construction-dubai-icad",
     title: "Why Renting Heavy Equipment Is More Cost-Effective for Construction in Dubai & ICAD",
-    seoTitle: "Renting vs Buying Heavy Equipment in Dubai & ICAD",
+    seoTitle: "Renting vs Buying Heavy Equipment, Dubai & ICAD",
     description:
       "A breakdown of the real costs behind owning versus renting forklifts, cranes, and telehandlers for construction projects in Dubai and ICAD, Abu Dhabi.",
     category: "Cost & Strategy",
@@ -236,7 +238,7 @@ const originalPosts: BlogPost[] = [
   },
 ]
 
-export const blogPosts: BlogPost[] = [...originalPosts, ...abuDhabiPosts]
+export const blogPosts: BlogPost[] = [...originalPosts, ...abuDhabiPosts, ...craneGuidePosts, ...equipmentGuidePosts]
 
 export function getAllPosts() {
   return [...blogPosts].sort(
@@ -246,6 +248,24 @@ export function getAllPosts() {
 
 export function getPostBySlug(slug: string) {
   return blogPosts.find((post) => post.slug === slug)
+}
+
+/**
+ * Posts that link to `path`, from their related links or inline text, newest
+ * first. Service, location and equipment pages list these so every guide link
+ * into a page gets a link back out to the guide.
+ */
+export function getPostsLinkingTo(path: string, limit = 3) {
+  return getAllPosts()
+    .filter(
+      (post) =>
+        post.relatedLinks.some((link) => link.href === path) ||
+        post.content.some((block) => {
+          const texts = block.type === "list" ? block.items : "text" in block ? [block.text] : []
+          return texts.some((text) => text.includes(`](${path})`))
+        }),
+    )
+    .slice(0, limit)
 }
 
 export function getRelatedPosts(slug: string, limit = 2) {

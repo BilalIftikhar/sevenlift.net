@@ -79,6 +79,7 @@ export default function ManLiftPage() {
         ]}
       />
       <EquipmentDetailTemplate
+        path="/equipment/man-lift"
         eyebrow="Our Fleet"
         title="Man Lift Rental Fleet: Scissor and Boom Lifts, 10 to 50 m"
         intro="Electric and rough-terrain scissor lifts and articulating and telescopic boom lifts with 10 to 50 m working height, for maintenance, installation and inspection at height."

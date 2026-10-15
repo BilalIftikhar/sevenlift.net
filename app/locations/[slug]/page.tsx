@@ -78,6 +78,7 @@ export default async function LocationPage({ params }: PageProps) {
         ]}
       />
       <LocationLandingTemplate
+        path={location.href}
         eyebrow={location.eyebrow}
         title={location.title}
         cityName={location.cityName}

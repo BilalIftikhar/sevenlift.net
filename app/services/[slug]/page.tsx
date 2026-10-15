@@ -77,6 +77,7 @@ export default async function ServiceAreaPage({ params }: PageProps) {
         ]}
       />
       <ServiceLandingTemplate
+        path={page.href}
         eyebrow={page.eyebrow}
         title={page.h1}
         intro={page.intro}
@@ -126,6 +127,7 @@ function SpecialtyServicePage({ service }: { service: SpecialtyService }) {
         ]}
       />
       <ServiceLandingTemplate
+        path={service.href}
         eyebrow={service.eyebrow}
         title={service.h1}
         intro={service.intro}
